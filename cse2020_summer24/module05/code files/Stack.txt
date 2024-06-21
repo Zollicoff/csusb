@@ -1,0 +1,263 @@
+// ArrayStack.cpp
+#ifndef STACK_H
+#define STACK_H
+#include <iostream>
+using namespace std;
+
+template <typename T>
+class Stack 
+{
+public:
+  // Constructor
+  Stack()
+  {
+	topOfStack = -1;
+	items = new T[CAPACITY];	
+  }
+  
+  //Destructor
+  ~Stack()
+  {
+	delete [] items;  
+  }
+  
+  // Checks if the stack is empty.  
+  bool empty() const
+  {
+
+  }
+
+  // Makes the stack to the empty state.  
+  void clear()
+  {
+	 
+  }
+  
+  // Insert item in the stack.
+  void push(const T& item)
+  {
+
+  }
+
+  // Return the top element.
+  const T& top() const
+  {
+
+  }
+  
+  // Removes the element front the front.
+  void pop()
+  {
+
+  }
+  
+  void print() const
+  {
+	for(int i = topOfStack; i >= 0; i--)
+		cout << items[i] << ", ";
+	cout << endl;
+  }
+    
+  static const int CAPACITY = 50;
+
+private:
+  
+	int topOfStack;// -1 for empty stack
+	T* items;
+};
+
+#endif
+
+// LinkedStack.cpp
+#ifndef STACK_H
+#define STACK_H
+
+#include <iostream>
+using namespace std;
+
+template <typename T>
+class Stack 
+{
+public:
+  // Constructor
+  Stack()
+  {
+	topOfStack = nullptr;  
+  }
+  
+  //Destructor
+  ~Stack()
+  {
+	clear();
+  }
+
+  // Makes the stack to the empty state.  
+  void clear()
+  {
+	  while (!empty())
+	  {
+		  pop();
+	  }
+  }
+  
+  // Checks if the stack is empty.  
+  bool empty() const
+  {
+	  return (topOfStack == nullptr);
+  }
+  
+  // Insert item in the stack.
+  void push(const T& item)
+  {
+	  NodeType* newNode = new NodeType(item);
+	  newNode->next = topOfStack;
+	  topOfStack = newNode;
+  }
+
+  // Return the top element.
+  const T& top() const
+  {
+	 return  topOfStack->data; 
+  }
+  
+  // Removes the element front the front.
+  void pop()
+  {
+	  if (!empty())
+	  {
+	  	NodeType* ptr = topOfStack;
+	  	topOfStack = topOfStack->next;
+	  	delete ptr;
+	  }
+  }
+
+  void print() const
+  {
+	  NodeType* ptr = topOfStack;
+	  while (ptr != nullptr)
+	  {
+		  cout << ptr->data << ", ";
+		  ptr = ptr->next;
+	  }
+	  cout << endl;
+  }
+  
+private:  
+  struct NodeType
+  {
+        T data;
+        NodeType* next;
+	  
+        NodeType(const T & d = T()): data(d), next(nullptr)
+        { }	  
+  };
+  
+  NodeType* topOfStack;
+};
+
+#endif
+
+
+
+// TestStack.cpp
+
+#include "Employee.cpp"
+// test array implementation of stack
+#include "ArrayStack.cpp" 
+// test linked stack
+//#include "LinkedStack.cpp" 
+
+
+int main() 
+{ 
+	Stack<int> intStack;
+
+	int x = 0, k = 0;
+
+	cout << "Push positive numbers (enter -1 to stop): ";
+	cin >> x;
+	while (x != -1)
+	{  
+		intStack.push(x);
+		cin >> x;		
+	}
+	cout << endl;
+	intStack.print(); 
+
+	cout << "How many numbers to be removed from stack: ";
+	cin >> k;
+	
+	for (int i = 0; i < k; i++)
+		intStack.pop();
+	intStack.print();
+	
+	
+	Stack<string> stringStack;
+
+	string s;
+
+	cout << "Push string (enter exit to stop): ";
+	cin >> s;
+	while (s != "exit")
+	{  
+		stringStack.push(s);
+		cin >> s;		
+	}
+	cout << endl;
+	stringStack.print(); 
+	
+	cout << "How many strings to be removed from stack: ";
+	cin >> k;
+	
+	for (int i = 0; i < k; i++)
+		stringStack.pop();
+	stringStack.print(); 
+
+	Stack<char> charStack;
+
+	char c;
+
+	cout << "Push char (enter X to stop): ";
+	cin >> c;
+	while (c != 'X')
+	{  
+		charStack.push(c);
+		cin >> c;		
+	}
+	cout << endl;
+	charStack.print(); 
+	
+	cout << "How many chars to be removed from stack: ";
+	cin >> k;
+	
+	for (int i = 0; i < k; i++)
+		charStack.pop();
+	charStack.print(); 
+
+	Stack<Employee> emplStack;
+
+	string name, dept;
+	int id = 0;
+
+	cout << "Enter employee id, name, dept (enter id 0 to stop): ";
+	cin >> id >> name >> dept;
+	while (id != 0)
+	{  
+		Employee e(id, name, dept);
+		emplStack.push(e);
+		cout << "Enter employee name, id, dept (enter id 0 to stop): ";
+		cin >> id >> name >> dept;		
+	}
+	cout << endl;
+	emplStack.print(); 
+	
+	cout << "How many employees to be removed from stack: ";
+	cin >> k;
+	
+	for (int i = 0; i < k; i++)
+		emplStack.pop();
+	emplStack.print(); 
+  	
+	return 0;
+}
+

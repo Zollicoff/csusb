@@ -1,0 +1,356 @@
+// bst.cpp
+
+#ifndef BST_H
+#define BST_H
+
+#include <cassert>
+#include <iostream>
+using namespace std;      
+
+template <typename C>
+class BinarySearchTree
+{
+  public:
+    BinarySearchTree( ) : root(nullptr)
+    {  }
+
+    ~BinarySearchTree( ) 
+    { 
+        makeEmpty();
+    }
+
+    const C & findMin( ) const
+    {
+      assert(!isEmpty());
+      return findMin( root )->element;
+    }
+
+    const C & findMax( ) const
+    {
+      assert(!isEmpty());
+      return findMax( root )->element;
+    }
+
+    bool contains( const C & x ) const
+    {
+        return contains( x, root );
+    }
+
+    bool isEmpty( ) const
+    {
+        return root == nullptr;
+    }
+
+    void printBST( ) const
+    {
+        if( isEmpty( ) )
+            cout << "Empty tree" << endl;
+        else
+            printBST( root );
+    }
+
+    void makeEmpty( )
+    {
+        makeEmpty( root );
+    }
+    
+    void insert( const C & x )
+    {
+        insert( x, root );
+    }     
+
+    void remove( const C & x )
+    {
+        remove( x, root );
+    }
+
+
+  private:
+    
+    struct BinaryNode
+    {
+        C element;
+        BinaryNode* left;
+        BinaryNode* right;
+
+        BinaryNode( const C & theElement, BinaryNode* lt, BinaryNode* rt )
+          : element( theElement ), left( lt ), right( rt ) 
+        { }
+    };
+
+    BinaryNode* root;
+
+    // Internal method to find the smallest item in a subtree t.
+    // Return the pointer to the node containing the smallest item.    
+    BinaryNode* findMin( BinaryNode* t ) const
+    {
+        if( t == nullptr )
+            return nullptr;
+        if( t->left == nullptr )
+            return t;
+        return findMin( t->left );
+    }
+    
+    // Internal method to find the largest item in a subtree t.
+    // Return the pointer to the node containing the largest item.
+    BinaryNode* findMax( BinaryNode* t ) const
+    {
+        if( t != nullptr )
+            while( t->right != nullptr )
+                t = t->right;
+        return t;
+    }
+
+    // Internal method to test if an item is in a subtree.
+    // x is item to search for.
+    // t is the pointer to the root of the subtree.    
+    bool contains( const C & x, BinaryNode* t ) const
+    {
+        if( t == nullptr )
+            return false;
+        else if( x < t->element )
+            return contains( x, t->left );
+        else if( t->element < x )
+            return contains( x, t->right );
+        else
+            return true;    // Match
+    }
+
+    void printBST( BinaryNode* t) const
+    {
+        if( t != nullptr )
+        {
+            printBST( t->left );
+            cout << t->element << " - ";
+            printBST( t->right );
+        }
+    }
+
+    void makeEmpty( BinaryNode* & t )
+    {
+        if( t != nullptr )
+        {
+            makeEmpty( t->left );
+            makeEmpty( t->right );
+            delete t;
+        }
+        t = nullptr;
+    }
+
+    
+    // Internal method to insert item into a subtree.
+    // x is the item to insert.
+    // t is the pointer to the root of the subtree.
+    // Set the new root of the subtree.    
+    void insert( const C & x, BinaryNode* & t )
+    {
+        if( t == nullptr )
+            t = new BinaryNode( x, nullptr, nullptr );
+        else if( x < t->element )
+            insert( x, t->left );
+        else if( t->element < x )
+            insert( x, t->right );
+        else
+            ;  // Duplicate; do nothing
+    }
+    
+    // Internal method to remove from a subtree.
+    // x is the item to remove.
+    // t is the pointer to the root of the subtree.
+    // Set the new root of the subtree.    
+    void remove( const C & x, BinaryNode* & t )
+    {
+        if( t == nullptr )
+            return;   // Item not found; do nothing
+        if( x < t->element )
+            remove( x, t->left );
+        else if( t->element < x )
+            remove( x, t->right );
+        else if( t->left != nullptr && t->right != nullptr ) // Two children
+        {
+            t->element = findMin( t->right )->element;
+            remove( t->element, t->right );
+        }
+        else
+        {
+            BinaryNode* oldNode = t;
+            if ( t->left == nullptr )
+                t = t->right;
+            else
+                t = t->left;
+            delete oldNode;
+        }
+    }
+
+
+};
+#endif
+
+
+// Employee.cpp
+
+#ifndef EMPLOYEE_H
+#define EMPLOYEE_H
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Employee 
+{
+private:
+int id;
+string name;
+string dept;
+
+public:   
+
+Employee():id(0),name(""),dept("")
+{}
+
+Employee(int id, const string &name,  const string &dept):id(id), name(name), dept(dept)
+{}
+
+int get_id() const
+{
+	return id;
+}
+
+string get_name() const
+{
+	return name;
+}
+
+string get_dept() const
+{
+	return dept;
+}
+
+void set_id(int id)
+{
+	this->id = id;
+} 
+
+void set_name(const string &name)
+{
+	this->name = name;
+} 
+
+void set_dept(const string &dept)
+{
+     this->dept = dept;
+}
+    
+void print() const
+{
+	std::cout << get_id() << ", " 
+              << get_name() << ", "
+              << get_dept() << std::endl;
+}
+
+friend ostream &operator<<( ostream &output, const Employee &e )
+{ 
+         output <<  e.get_id() << " "<< e.get_name() << " " << e.get_dept();
+         return output;            
+}
+
+friend istream &operator>>( istream &input, Employee &e )
+{ 
+         input >>  e.id >> e.name >> e.dept;
+         return input;            
+}
+
+friend bool operator== (const Employee &e1, const Employee &e2)
+{
+    return (e1.id == e2.id &&
+            e1.name == e2.name &&
+            e1.dept == e2.dept);
+}
+
+friend bool operator!= (const Employee &e1, const Employee &e2)
+{
+    return !(e1.id == e2.id &&
+             e1.name == e2.name &&
+             e1.dept == e2.dept);
+}
+
+friend bool operator> (const Employee &e1, const Employee &e2)
+{
+    return (e1.id > e2.id);
+}
+
+friend bool operator< (const Employee &e1, const Employee &e2)
+{
+    return (e1.id < e2.id);
+}
+
+};
+#endif
+
+
+// testBST.cpp
+
+#include "bst.cpp"
+#include "Employee.cpp"
+
+int main()
+{
+	BinarySearchTree<int> bst;
+	int x = 0;
+	
+	cout << "insert: " << endl;
+	cin >> x;
+	while (x != 0)
+	{
+		bst.insert(x);
+		cin >> x;
+	}
+	
+	bst.printBST();
+	cout << endl;
+	
+	cout << "remove: " << endl;
+	cin >> x;
+	while (x != 0)
+	{
+		bst.remove(x);
+		cin >> x;
+	}	
+	
+	bst.printBST();
+	cout << endl;
+
+	BinarySearchTree<Employee> emplBST;
+	int id = 0;
+	string name, dept;
+	
+	cout << "insert employee id name, dept: ";
+	cin >> id >> name >> dept;
+	while (id != 0)
+	{
+		Employee e(id, name, dept);
+		emplBST.insert(e);
+		cout << "insert employee name, id, dept: ";
+		cin >> id >> name >> dept;
+
+	}
+	
+	emplBST.printBST();
+	cout << endl;
+	
+	cout << "remove employee id: " << endl;
+	cin >> id;
+	while (id != 0)
+	{
+		Employee e(id, "", "");
+		emplBST.remove(e);
+		cin >> id;
+	}	
+	
+	emplBST.printBST();
+        cout << endl;	
+
+	return 0;
+
+}

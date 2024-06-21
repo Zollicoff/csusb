@@ -1,0 +1,104 @@
+# Suggested Program Style, Formatting, and Documentation
+
+Many programs can be designed to solve the same problem. Even programs that accept the same input and produce the same output may differ significantly in their appearance and their algorithms. For this programming course, the evaluation of your programs is based primarily on three criteria: correctness, completeness, and appearance. Correctness is assessed based on the algorithm used and the ability to obtain the correct output. Completeness is assessed based on the coverage of the tests cases (e.g., both correct and incorrect input) and the output resulting from these test cases. Appearance is evaluated on the basis of the style, formatting, and documentation requirements listed below.
+
+### Table of Content
+
+1. Opening Comments
+2. White Space
+3. Constants
+4. Declarations
+5. Indenting
+6. Comments
+7. Subprograms
+### 1. Opening Comments
+
+1. The assignment/lab number, your name and student ID should be given at the top of every `.h` and a `.cpp` file.
+2. The overall purpose of the program should be specified in a few sentences before the main function.
+
+### 2. White Space
+
+1. Blanks, tabs, and new lines should be used to ensure that the overall appearance of the program is neat.
+2. Align lines on the left, except where indented (see topic 5 below) or continued from a previous line.
+3. Place blanks on both sides of every operator, such as =, +, -, *, /, <, <=, >, >=, and ==.
+4. Restrict the length of lines to 80 characters. If a statement is longer, you may start a new line anywhere a blank is allowed (except within quoted strings).
+5. If a quoted string is too long, in most cases it can be broken into several quoted strings (e.g., instead of printing one long string, print two shorter ones).
+
+### 3. Constants
+
+1. Use symbolic constants in your programs (e.g., MAX_RATING) instead of specific numbers. However, 0 and 1 may be used freely instead of symbolic constants. Symbolic constants make clear the relationship between numbers (e.g., MAX_RATING and MAX_RATING – 1 are more informative than say, the values 100 and 99 scattered throughout your program.
+    
+    const int MAX_RATING = 100;
+    
+2. Declare all constants, either globally (before the main function) or locally (inside the function with the other variables). For a module containing a `.h` and a `.cpp` file, place all constants that are needed by the module in the `.h` file.
+3. Declaration of constants should be done using uppercase letters (e.g., MAX_RATING).
+4. Declarations of variables (see topic Declarations below) may be done using uppercase letters, but should not consist of all uppercase letters.
+
+### 4. Declarations
+
+1. All local variables should be declared at the beginning of a function. As an exception to this rule, you may declare a loop counter variable directly in a for statement.
+2. As long as a variable name clearly describes the purpose of the variable, no comments are needed beside the declaration. Trivial variables (e.g., loop counters) do not require comments.
+3. Choose the name for a variable that clearly describes its purpose, even if you have to make it longer than you might like.
+4. In general, begin a variable name with a lowercase letter.
+5. For variable names consisting of several words, you can use `_` to separate these words, or capitalize the first letter of each word (except the first word). No matter which declaration style you use, please apply this style **consistently** throughout your programs.
+    
+    string input_file_name;
+    int full_accumulated_total;
+    or
+    string inputFileName;
+    int fullAccumulatedTotal;
+    
+6. A class name begin with an uppercase letter. For class names consisting of several words, you can capitalize the first letter of each word.
+    
+    class Shape
+    {
+    ......
+    };
+    or
+    class BinarySearchTree
+    {
+    ......
+    };
+    
+
+### 5. Indenting
+
+1. Use indenting to demonstrate the structure of your program. Consistently indented programs are easier to read.
+2. Indent the contents of every function and anything between braces (i.e., { and }).
+3. Place braces (i.e., { and }) on separate lines, aligned with one another and the preceding line (e.g., main, for, while, if).
+4. Use your own judgment when choosing the amount to indent for each level. However, choose an amount between 2 and 8 spaces and use it consistently.
+
+### 6. Comments
+
+1. Comments should add information to the program for the benefit of the reader.
+2. You may either add comments following a statement OR on the line immediately before the line to be commented (and aligned with that line).
+    
+    // Read and examine all input. Note that
+    // this comment is given before a group of lines
+    while (input != DONE)
+    {
+        input = readInput( );  // this comment follows the statement
+        if (input != DONE)
+        {
+            examineInput (input);
+        }
+    }
+    
+3. Comment that describes the overall purpose of a selection or looping statement is more valuable than one that simply “echoes” the code, e.g., avoid comments such as,
+    
+     x = x + y; // add y to x
+    
+
+### 7. Functions (i.e., other than main)
+
+1. A function prototype for every function should be declared before the main function. For a module consisting of a `.h` and a `.cpp` file, put the function prototypes in the `.h` file.
+2. A function name follows the same naming style of variables. That is, begin with a lowercase letter, when consisting of several words, use `_` to separate these words, or capitalize the first letter of each word (except the first word)
+3. The main function should be the first function in the program (i.e., the first function in the `.cpp` file containing main).
+4. A comment explaining its purpose, parameters, and output/result should be given directly before each function. For a module consisting of a `.h` and a `.cpp` file, these comments should be placed in the `.h` file.
+5. All variables needed by a function should be passed as parameters. No global variables should be used that need to be known between files (e.g., declared in `main.cpp` and used in `helper.cpp`).
+
+Note: You may use other guidelines for style, formatting, and documentation, but your guidelines must be followed consistently and make practical sense. Be prepared to describe, in writing, the guidelines you have followed.
+
+This note is adapted by Yan Zhang from those originally developed by Dr. Robert Hilderman.
+
+Copyright © 2022. All rights reserved.

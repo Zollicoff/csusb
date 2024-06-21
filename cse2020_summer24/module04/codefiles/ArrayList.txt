@@ -1,0 +1,246 @@
+// ArrayList.cpp
+
+#ifndef AL
+#define AL
+
+template <typename T>
+class ArrayList
+{
+  
+public:
+  // Default constructor
+  ArrayList(): size(0), capacity(CAPACITY)
+  {
+    items = new T[capacity];
+  }
+  
+  ArrayList(int capacity): size(0), capacity(capacity)
+  {
+    items = new T[capacity];
+  }
+  
+  // Destructor
+  ~ArrayList()
+  {
+    size = 0;
+    delete [] items;
+  }
+
+  // Returns the list to the empty state.
+  void clear()
+  {
+    size = 0;
+  }
+  
+  bool empty( ) const
+  {
+    return get_size() == 0;
+  }
+  
+  // Determines the number of items in the list.
+  int get_size() const
+  {
+      return size;
+  }
+    
+  // Returns the capacity.
+  int get_capacity() const
+  {
+      return capacity;
+  }
+  
+  // Inserts item at the back of the list.
+  void push_back(const T& item)
+  {
+    if (size < capacity)
+    {
+        items[size] = item;
+        ++size;
+    }
+  }
+    
+  // Removes an item from the back of the list.
+  void pop_back()
+  {
+    if (!empty())
+    {
+        --size;
+    }
+  }
+ 
+  // Determines if item is in the list
+  bool find(const T& item) const
+  {
+      for(int i = 0; i < size; i++)
+      {
+            if (items[i] == item)
+            return true;
+      }
+      return false;
+  }
+  
+  // Retrieves the item at the position k.
+  T & operator[]( int index )
+  {
+      return items[ index ];
+  }
+    
+public:
+class iterator
+{
+  public:
+    iterator(): current(nullptr)
+    {}
+    
+    // dereference operator
+    T& operator*()
+    {
+        return *current;
+    }
+    
+    // prefix increment operator
+    iterator& operator++()
+    {
+        current++;
+        return *this;
+    }
+    
+    bool operator==(const iterator& rhs) const
+    {
+        return current == rhs.current;
+    }
+
+    bool operator!=(const iterator& rhs) const
+    {
+        return !(*this == rhs);
+    }
+      
+  private:
+    T* current;
+    
+  friend class ArrayList<T>;
+    
+};
+
+iterator begin()
+{
+    iterator itr;
+    itr.current = items;
+    return itr;
+}
+
+iterator end()
+{
+    iterator itr;
+    itr.current = items + size;
+    return itr;
+}
+
+  
+  const static int CAPACITY = 50;
+
+private:
+    int size;    // the number of items stored in the dynamic array
+    int capacity;    // the capacity of the dynamic array items
+    T* items;
+};
+
+#endif
+
+
+// TestArrayList.cpp
+
+#include <iostream>
+#include <string>
+
+#include "ArrayList.cpp"
+#include "Employee.cpp"
+
+using namespace std;
+
+template <typename C>
+void print(ArrayList<C> &l)
+{
+    for (typename ArrayList<C>::iterator itr = l.begin(); itr != l.end(); ++itr)
+         cout << *itr << ",";
+}
+
+int main()
+{
+	string name, dept;
+	int id = 0;
+
+	ArrayList<Employee> team(10);
+	cout << "Enter id, name, dept (stop adding when entering id 0):";
+	cin >> id >> name >> dept;
+	while (id != 0)
+	{
+		Employee e(id, name, dept);
+		team.push_back(e);
+		cout << "Enter id, name, dept (stop adding when entering id 0):";
+		cin >> id >> name >> dept;
+	}
+	cout << team.get_size() << endl;
+    
+	for( ArrayList<Employee>::iterator itr = team.begin( ); itr != team.end( ); ++itr )
+        cout << *itr << endl;
+
+	int x = 0;	
+	ArrayList<int> intArr(10);
+	cout << "Enter 5 integers: ";
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> x;
+		intArr.push_back(x);
+	}
+
+	print(intArr);
+	
+	char del = 'N';
+	cout << "delete the last element?";
+	cin >> del;
+	while (del == 'Y')
+	{
+		intArr.pop_back();
+		cout << "delete the last element? ";
+		cin >> del;
+	}
+	print(intArr);
+	
+	double y = 0;
+	ArrayList<double> doubleArr(20);
+    	cout << "Enter 5 doubles: ";
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> y;
+		doubleArr.push_back(y);
+	}
+       print(doubleArr);
+	
+	del = 'N';
+	cout << "delete the last element? ";
+	cin >> del;
+	while (del == 'Y')
+	{
+		doubleArr.pop_back();
+		cout << "delete the last element? ";
+		cin >> del;
+	}
+	for( ArrayList<double>::iterator itr = doubleArr.begin( ); itr != doubleArr.end( ); ++itr )
+        cout << *itr << endl;
+
+	ArrayList<string> stringArr(20);
+	string s;
+	cout << "Enter 5 strings: ";
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> s;
+		stringArr.push_back(s);
+	}	
+
+	for( ArrayList<string>::iterator itr = stringArr.begin( ); itr != stringArr.end( ); ++itr )
+        cout << *itr << endl;
+    
+    
+	return 0;
+}
