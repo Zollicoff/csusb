@@ -1,8 +1,6 @@
 // lab10.cpp
 
 #include "Set.hpp"
-#include <set>
-#include <iterator>
 
 using namespace std;
 
