@@ -57,38 +57,36 @@ int main()
     int x = 0;
     Set<int> setA;
     
-    cout << "Insert the values to setA (stop when entering 0):" << endl;
-    while(cin >> x && x != 0) { // Change sentinel value to 0
+    cout << "Create setA (enter 0 to stop): " << endl;
+    while(cin >> x && x != 0) {
         setA.insert(x);
     }
 
-    cout << "Print the values:" << endl;
     print(setA);
     cout << endl ;
   
     Set<int> setB;
 
-    cout << "Insert the values to setB (stop when entering 0):" << endl;
-    while(cin >> x && x != 0) { // Change sentinel value to 0
+    cout << "Create setB (enter 0 to stop): " << endl;
+    while(cin >> x && x != 0) {
         setB.insert(x);
     }
 
-    cout << "Print the values:" << endl;
     print(setB);
     cout << endl ;
  
     Set<int> theunion = setA + setB;
-    cout << "The union of two sets: " << endl;
+    cout << "Union of setA and setB: " << endl;
     print(theunion);
     cout << endl;
 
     Set<int> thediff = setA - setB;
-    cout << "The difference of two sets: " << endl;
+    cout << "Difference of setA and setB: " << endl;
     print(thediff);
     cout << endl;
 
     Set<int> theinter = setA * setB;
-    cout << "The intersection of two sets:" << endl;
+    cout << "Intersection of setA and setB: " << endl;
     print(theinter);
     cout << endl;
   
