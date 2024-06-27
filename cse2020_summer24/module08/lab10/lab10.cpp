@@ -84,15 +84,15 @@ int main()
     cout << endl;
  
     Set<int> theunion = setA + setB;
-    cout << "The union of two sets: ";
+    cout << "The union of two sets: " << endl;
     print(theunion);
 
     Set<int> thediff = setA - setB;
-    cout << "The difference of two sets: ";
+    cout << "The difference of two sets: " << endl;
     print(thediff);
 
     Set<int> theinter = setA * setB;
-    cout << "The intersection of two sets: ";
+    cout << "The intersection of two sets: " << endl;
     print(theinter);
  
     return 0;
