@@ -65,7 +65,12 @@ int main()
     cout << "Create setA: " << endl;
     cin >> x;
     // add your code
-
+    while (true) {
+        cin >> x;
+        if (x == -1) break;
+        setA.insert(x);
+    }
+    
     print(setA);
     cout << endl ;
   
@@ -74,6 +79,12 @@ int main()
     cout << "create setB: " << endl;
     cin >> x;
     // add your code
+    while (true) {
+        cin >> x;
+        if (x == -1) break;
+        setB.insert(x);
+    }
+
     print(setB);
     cout << endl ;
  
