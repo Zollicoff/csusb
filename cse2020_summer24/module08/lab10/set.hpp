@@ -1,7 +1,7 @@
 // Set.cpp
 // after Mark A. Weiss, Chapter 4, Dr. Kerstin Voigt
 #ifndef SET_HPP
-#define SET_HPP
+#define SET_H
 
 #include <assert.h>
 #include <iostream>

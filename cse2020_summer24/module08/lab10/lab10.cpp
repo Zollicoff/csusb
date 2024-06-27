@@ -1,27 +1,29 @@
 // lab10.cpp
+
 #include "Set.hpp"
+#include <set>
+#include <iterator>
+
 using namespace std;
 
 // Function to print a set
 template <typename C> 
 void print(const Set<C> & s){ 
-    for (typename  Set<C>::iterator itr = s.begin(); itr != 
-        s.end(); ++itr) 
+    for (typename  Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) 
         cout << *itr << ","; 
 }
 
 // Set union A + B
 template <typename C> 
 Set<C> operator+(const Set<C> & s1, const Set<C> & s2) 
-{
+{ 
     Set<C> result; 
-    for (typename Set<C>::iterator itr = s1.begin(); itr != 
-    s1.end(); ++itr) 
-        result.insert(*itr);
-        
-    for (typename Set<C>::iterator itr = s2.begin(); itr != 
-    s2.end(); ++itr) 
+    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) 
         result.insert(*itr); 
+        
+    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) 
+        result.insert(*itr); 
+    
     return result; 
 }
 
@@ -30,15 +32,14 @@ template <typename C>
 Set<C> operator-(const Set<C> & s1, const Set<C> & s2) 
 { 
     Set<C> result; 
-    for (typename Set<C>::iterator itr = s1.begin(); itr != 
-    s1.end(); ++itr) 
-        result.insert(*itr);
-    
-    for (typename Set<C>::iterator itr = s2.begin(); itr != 
-    s2.end(); ++itr) 
+    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) 
+        result.insert(*itr); 
+        
+    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) 
         result.remove(*itr); 
+    
     return result; 
-} 
+}
 
 // Set intersection A * B
 template <typename C> 
@@ -49,7 +50,7 @@ Set<C> operator*(const Set<C> & s1, const Set<C> & s2)
         if (s2.contains(*itr)) 
             result.insert(*itr); 
     return result; 
-}
+} 
 
 
 int main()
