@@ -1,13 +1,12 @@
 // Set.cpp
 // after Mark A. Weiss, Chapter 4, Dr. Kerstin Voigt
 #ifndef SET_HPP
-#define SET_H
+#define SET_HPP
 
 #include <assert.h>
 #include <iostream>
 #include <stack>
-#include <set>
-#include <iterator>
+
 using namespace std;      
 
 template <typename C>
