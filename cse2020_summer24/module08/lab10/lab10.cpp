@@ -1,13 +1,12 @@
 // lab10.cpp
 #include "Set.hpp"
+#include <iostream>
 using namespace std;
 
 // Add 4 functions
 template <typename C>
 void print(const Set<C> & s) {
-	
-    // ADD YOUR CODE, please see Sets.pdf page 10
-    for (typename  Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) {
+    for (typename Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) {
         cout << *itr << ",";
     }
 }
@@ -15,24 +14,48 @@ void print(const Set<C> & s) {
 // Union of two sets
 template <typename C>
 Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
-    Set<C> result = s1;  // Start with all elements from s1
+    Set<C> result;
     
-    // Add all elements from s2
-    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) {
+    cout << "\nUnion - Processing s1: ";
+    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
+        cout << *itr << " ";
         result.insert(*itr);
     }
+    
+    cout << "\nUnion - Processing s2: ";
+    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) {
+        cout << *itr << " ";
+        result.insert(*itr);
+    }
+    
+    cout << "\nUnion - Result: ";
+    print(result);
+    cout << endl;
+    
     return result;
 }
 
 // Difference of two sets
 template <typename C>
 Set<C> operator-(const Set<C> & s1, const Set<C> & s2) {
-    Set<C> result = s1;  // Start with all elements from s1
+    Set<C> result;
     
-    // Remove elements that are in s2
+    cout << "\nDifference - Processing s1: ";
+    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
+        cout << *itr << " ";
+        result.insert(*itr);
+    }
+    
+    cout << "\nDifference - Processing s2: ";
     for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) {
+        cout << *itr << " ";
         result.remove(*itr);
     }
+    
+    cout << "\nDifference - Result: ";
+    print(result);
+    cout << endl;
+    
     return result;
 }
 
@@ -41,16 +64,24 @@ template <typename C>
 Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
     Set<C> result;
     
-    // Add elements that are in both s1 and s2
+    cout << "\nIntersection - Processing: ";
     for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
-        if (s2.contains(*itr)) 
-            result.insert(*itr); 
+        cout << *itr << " ";
+        if (s2.contains(*itr)) {
+            result.insert(*itr);
+            cout << "(inserted) ";
+        }
     }
+    
+    cout << "\nIntersection - Result: ";
+    print(result);
+    cout << endl;
+    
     return result;
 }
 
 int main() {
-    
+    // Keep the existing main function as is
     int x;
     
     Set<int> setA;
