@@ -1,5 +1,4 @@
 // lab10.cpp
-
 #include "Set.hpp"
 
 using namespace std;
@@ -54,9 +53,9 @@ Set<C> operator*(const Set<C> & s1, const Set<C> & s2)
 
 int main()
 {
-    int x = 0;
     Set<int> setA;
-	
+	int x = 0;
+
     cout << "Create setA : " << endl;
     cin >> x;
     // add your code
