@@ -8,9 +8,10 @@ using namespace std;
 
 // Function to print a set
 template <typename C> 
-void print(const Set<C> & s){ 
+void print(const Set<C> & s)
+{ 
     for (typename  Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) 
-        cout << *itr << ","; 
+        cout << *itr << ", "; 
 }
 
 // Set union A + B
