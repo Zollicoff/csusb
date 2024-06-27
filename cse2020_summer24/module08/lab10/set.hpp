@@ -146,13 +146,13 @@ class Set
         BinaryNode* lmost = root;
         stack<BinaryNode*> nstack;
 
-        while (lmost->left != nullptr)
+        while (lmost != nullptr && lmost->left != nullptr)
         {
             nstack.push(lmost);
             lmost = lmost->left;
         }
 
-        return iterator(lmost,nstack);
+        return iterator(lmost, nstack);
     }
 
     iterator end() const
