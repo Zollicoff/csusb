@@ -13,8 +13,9 @@ void print(const Set<C> & s) {
 template <typename C> 
 Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
     Set<C> result = s1; 
-    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) 
-        result.insert(*itr); 
+    for (typename Set<C>::iterator itr = s2.begin(); itr != 
+        s2.end(); ++itr) 
+        result.insert(*itr);
     return result; 
 }
 
@@ -22,8 +23,9 @@ Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
 template <typename C> 
 Set<C> operator-(const Set<C> & s1, const Set<C> & s2) { 
     Set<C> result = s1; 
-    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) 
-        result.remove(*itr); 
+    for (typename Set<C>::iterator itr = s2.begin(); itr != 
+        s2.end(); ++itr) 
+        result.remove(*itr);
     return result; 
 }
 
@@ -40,24 +42,24 @@ Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
 int main() {
     int x = 0;
     Set<int> setA;
-    
-    cout << "Insert the values to setA (stop when entering 0):" << endl;
+	
+    cout << "insert the values to setA (stop when entering 0):" << endl;
     while (cin >> x && x != 0) {
         setA.insert(x);
     }
     
-    cout << "Print the values:" << endl;
+    cout << "print the values:" << endl;
     print(setA);
     cout << endl;
   
     Set<int> setB;
 
-    cout << "Insert the values to setB (stop when entering 0):" << endl;
+    cout << "insert the values to SetB (stop when entering 0):" << endl;
     while (cin >> x && x != 0) {
         setB.insert(x);
     }
     
-    cout << "Print the values:" << endl;
+    cout << "print the values:" << endl;
     print(setB);
     cout << endl;
  
