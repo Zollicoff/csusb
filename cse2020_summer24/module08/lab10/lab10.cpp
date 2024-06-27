@@ -57,37 +57,37 @@ int main()
 {
     int x = 0;
     Set<int> setA;
-    
-    cout << "Create setA (enter 0 to stop): " << endl;
-    while(cin >> x && x != 0) {
-        setA.insert(x);
-    }
+	
+    cout << "Create setA: " << endl;
+    cin >> x;
+    // add your code
+
 
     print(setA);
     cout << endl ;
   
     Set<int> setB;
 
-    cout << "Create setB (enter 0 to stop): " << endl;
-    while(cin >> x && x != 0) {
-        setB.insert(x);
-    }
-
+    cout << "create setB: " << endl;
+    cin >> x;
+    // add your code
+    
+    
     print(setB);
     cout << endl ;
  
     Set<int> theunion = setA + setB;
-    cout << "Union of setA and setB: " << endl;
+    cout << "union: " << endl;
     print(theunion);
     cout << endl;
 
     Set<int> thediff = setA - setB;
-    cout << "Difference of setA and setB: " << endl;
+    cout << "subtraction: " << endl;
     print(thediff);
     cout << endl;
 
     Set<int> theinter = setA * setB;
-    cout << "Intersection of setA and setB: " << endl;
+    cout << "intersection" << endl;
     print(theinter);
     cout << endl;
   
