@@ -5,7 +5,8 @@ using namespace std;
 // Add 4 functions
 template <typename C>
 void print(const Set<C> & s) {
-	// ADD YOUR CODE, please see Sets.pdf page 10
+	
+    // ADD YOUR CODE, please see Sets.pdf page 10
     for (typename  Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) {
         cout << *itr << ",";
     }
@@ -68,6 +69,7 @@ int main() {
         if (x == 0) break;
         setA.insert(x);
     }
+    
     cout << "print the values:" << endl;
     print(setA);
     cout << endl;
@@ -79,6 +81,7 @@ int main() {
         if (x == 0) break;
         setB.insert(x);
     }
+
     cout << "print the values:" << endl;
     print(setB);
     cout << endl;
