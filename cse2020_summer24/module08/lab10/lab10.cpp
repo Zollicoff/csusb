@@ -15,14 +15,11 @@ void print(const Set<C> & s) {
 // Union of two sets
 template <typename C>
 Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
-	Set<C> result;
-	
-	// ADD YOUR CODE, please see Sets.pdf page 11 
-    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
-        result.insert(*itr);
-    }
+    Set<C> result = s1;  // Start with all elements from s1
+    
+    // Add all elements from s2
     for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) {
-        result.insert(*itr); 
+        result.insert(*itr);
     }
     return result;
 }
@@ -30,31 +27,25 @@ Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
 // Difference of two sets
 template <typename C>
 Set<C> operator-(const Set<C> & s1, const Set<C> & s2) {
-	Set<C> result;
-	
-	// ADD YOUR CODE, please see Sets.pdf page 12 
-    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
-        result.insert(*itr); 
-    }
+    Set<C> result = s1;  // Start with all elements from s1
     
+    // Remove elements that are in s2
     for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) {
-        result.insert(*itr); 
+        result.remove(*itr);
     }
-
-	return result;
+    return result;
 }
 
 // Intersection of two sets
 template <typename C>
 Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
-	Set<C> result;
-	
-	// ADD YOUR CODE, please see Sets.pdf page 13
+    Set<C> result;
+    
+    // Add elements that are in both s1 and s2
     for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
         if (s2.contains(*itr)) 
             result.insert(*itr); 
     }
-
     return result;
 }
 
