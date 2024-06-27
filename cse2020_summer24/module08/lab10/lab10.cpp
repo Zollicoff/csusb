@@ -4,64 +4,64 @@ using namespace std;
 
 // Add 4 functions
 template <typename C>
-void print(const Set<C> & s)
-{
+void print(const Set<C> & s) {
 	// ADD YOUR CODE, please see Sets.pdf page 10
-    for (typename  Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) 
+    for (typename  Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) {
         cout << *itr << ",";
+    }
 }
 
 // Union of two sets
 template <typename C>
-Set<C> operator+(const Set<C> & s1, const Set<C> & s2)
-{
+Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
 	Set<C> result;
 	
 	// ADD YOUR CODE, please see Sets.pdf page 11 
-    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) 
+    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
         result.insert(*itr);
-    
-    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) 
+    }
+    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) {
         result.insert(*itr); 
-    
+    }
     return result;
 }
 
 // Difference of two sets
 template <typename C>
-Set<C> operator-(const Set<C> & s1, const Set<C> & s2)
-{
+Set<C> operator-(const Set<C> & s1, const Set<C> & s2) {
 	Set<C> result;
 	
 	// ADD YOUR CODE, please see Sets.pdf page 12 
-    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) 
+    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
         result.insert(*itr); 
+    }
     
-    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) 
+    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) {
         result.insert(*itr); 
+    }
 
 	return result;
 }
 
 // Intersection of two sets
 template <typename C>
-Set<C> operator*(const Set<C> & s1, const Set<C> & s2)
-{
+Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
 	Set<C> result;
 	
 	// ADD YOUR CODE, please see Sets.pdf page 13
-    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) 
+    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
         if (s2.contains(*itr)) 
             result.insert(*itr); 
-    
+    }
+
     return result;
 }
 
-int main()
-{
+int main() {
+    
     int x;
+    
     Set<int> setA;
-   
     cout << "insert the values to setA (stop when entering 0):" << endl;
     while (true) {
         cin >> x;
