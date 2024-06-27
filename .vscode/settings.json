@@ -76,7 +76,8 @@
     "xutility": "cpp",
     "list": "cpp",
     "span": "cpp",
-    "ranges": "cpp"
+    "ranges": "cpp",
+    "set": "cpp"
   },
   "[javascript]": {
     "editor.tabSize": 2
