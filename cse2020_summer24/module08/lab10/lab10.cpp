@@ -1,80 +1,103 @@
+// lab10.cpp
 #include "Set.hpp"
-#include <iostream>
-
 using namespace std;
 
-// Function to print a set
-template <typename C> 
-void print(const Set<C> & s) { 
-    for (typename Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) 
-        cout << *itr << ", "; 
-    cout << endl; 
+// Add 4 functions
+template <typename C>
+void print(const Set<C> & s)
+{
+	// ADD YOUR CODE, please see Sets.pdf page 10
+    for (typename  Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) 
+        cout << *itr << ",";
 }
 
-// Set union A + B
-template <typename C> 
-Set<C> operator+(const Set<C> & s1, const Set<C> & s2) { 
-    Set<C> result; 
+// Union of two sets
+template <typename C>
+Set<C> operator+(const Set<C> & s1, const Set<C> & s2)
+{
+	Set<C> result;
+	
+	// ADD YOUR CODE, please see Sets.pdf page 11 
     for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) 
-        result.insert(*itr); 
-        
+        result.insert(*itr);
+    
     for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) 
         result.insert(*itr); 
     
-    return result; 
+    return result;
 }
 
-// Set subtraction A - B
-template <typename C> 
-Set<C> operator-(const Set<C> & s1, const Set<C> & s2) { 
-    Set<C> result; 
+// Difference of two sets
+template <typename C>
+Set<C> operator-(const Set<C> & s1, const Set<C> & s2)
+{
+	Set<C> result;
+	
+	// ADD YOUR CODE, please see Sets.pdf page 12 
     for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) 
-        if (!s2.contains(*itr)) // Only insert if s2 does not contain the element
-            result.insert(*itr); 
-    return result; 
+        result.insert(*itr); 
+    
+    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) 
+        result.insert(*itr); 
+
+	return result;
 }
 
-// Set intersection A * B
-template <typename C> 
-Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
-    Set<C> result; 
+// Intersection of two sets
+template <typename C>
+Set<C> operator*(const Set<C> & s1, const Set<C> & s2)
+{
+	Set<C> result;
+	
+	// ADD YOUR CODE, please see Sets.pdf page 13
     for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) 
         if (s2.contains(*itr)) 
             result.insert(*itr); 
-    return result; 
-} 
+    
+    return result;
+}
 
-int main() {
-    Set<int> setA;
+int main()
+{
     int x = 0;
-
-    cout << "Create setA (enter 0 to stop): " << endl;
-    while (cin >> x && x != 0) {
+    Set<int> setA;
+	
+    cout << "Create setA: " << endl;
+    cin >> x;
+    // add your code
+    while(cin >> x && x != 0) {
         setA.insert(x);
     }
-    cout << "The setA is: ";
-    print(setA);
 
+    print(setA);
+    cout << endl ;
+  
     Set<int> setB;
 
-    cout << "Create setB (enter 0 to stop): " << endl;
-    while (cin >> x && x != 0) {
+    cout << "create setB: " << endl;
+    cin >> x;
+    // add your code
+    while(cin >> x && x != 0) {
         setB.insert(x);
     }
-    cout << "The setB is: ";
-    print(setB);
 
+    print(setB);
+    cout << endl ;
+ 
     Set<int> theunion = setA + setB;
-    cout << "Union of setA and setB: ";
+    cout << "union: " << endl;
     print(theunion);
+    cout << endl;
 
     Set<int> thediff = setA - setB;
-    cout << "Difference of setA and setB: ";
+    cout << "subtraction: " << endl;
     print(thediff);
+    cout << endl;
 
     Set<int> theinter = setA * setB;
-    cout << "Intersection of setA and setB: ";
+    cout << "intersection" << endl;
     print(theinter);
-
+    cout << endl;
+  
     return 0;
 }
