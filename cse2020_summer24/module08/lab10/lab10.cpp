@@ -54,43 +54,36 @@ int main() {
     int x = 0;
     Set<int> setA;
 	
-    // Insert the values to setA
     cout << "insert the values to setA (stop when entering 0):" << endl;
     while (cin >> x && x != 0) {
         setA.insert(x);
     }
     
-    // Print the values
     cout << "print the values:" << endl;
     print(setA);
     cout << endl;
   
     Set<int> setB;
 
-    // Insert the values to setB
     cout << "insert the values to SetB (stop when entering 0):" << endl;
     while (cin >> x && x != 0) {
         setB.insert(x);
     }
     
-    // Print the values
     cout << "print the values:" << endl;
     print(setB);
     cout << endl;
  
-    // Print the minimum value of setA
     Set<int> theunion = setA + setB;
     cout << "The union of two sets: ";
     print(theunion);
     cout << endl;
 
-    // Print the maximum value of setA
     Set<int> thediff = setA - setB;
     cout << "The difference of two sets: ";
     print(thediff);
     cout << endl;
 
-    // Print the maximum value of setA
     Set<int> theinter = setA * setB;
     cout << "The intersection of two sets: ";
     print(theinter);
@@ -98,4 +91,3 @@ int main() {
   
     return 0;
 }
-
