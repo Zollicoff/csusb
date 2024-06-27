@@ -17,7 +17,7 @@ Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
     for (typename Set<C>::iterator itr = s1.begin(); itr != 
     s1.end(); ++itr) 
         result.insert(*itr);
-    
+
     for (typename Set<C>::iterator itr = s2.begin(); itr != 
     s2.end(); ++itr) 
         result.insert(*itr); 
@@ -54,39 +54,45 @@ int main() {
     int x = 0;
     Set<int> setA;
 	
-    // Create and print setA
-    cout << "Create setA: " << endl;
-    while (cin >> x && x != -1) {
+    // Insert the values to setA
+    cout << "insert the values to setA (stop when entering 0):" << endl;
+    while (cin >> x && x != 0) {
         setA.insert(x);
     }
+    
+    // Print the values
+    cout << "print the values:" << endl;
     print(setA);
-    cout << endl ;
+    cout << endl;
   
     Set<int> setB;
 
-    // Create and print setB
-    cout << "create setB: " << endl;
-    while (cin >> x && x != -1) {
+    // Insert the values to setB
+    cout << "insert the values to SetB (stop when entering 0):" << endl;
+    while (cin >> x && x != 0) {
         setB.insert(x);
     }
+    
+    // Print the values
+    cout << "print the values:" << endl;
     print(setB);
-    cout << endl ;
+    cout << endl;
  
-    // Perform union, subtraction, and intersection
+    // Print the minimum value of setA
     Set<int> theunion = setA + setB;
-    cout << "union: " << endl;
+    cout << "The union of two sets: ";
     print(theunion);
     cout << endl;
 
-    // Perform subtraction, and intersection
+    // Print the maximum value of setA
     Set<int> thediff = setA - setB;
-    cout << "subtraction: " << endl;
+    cout << "The difference of two sets: ";
     print(thediff);
     cout << endl;
 
-    // Perform intersection
+    // Print the maximum value of setA
     Set<int> theinter = setA * setB;
-    cout << "intersection" << endl;
+    cout << "The intersection of two sets: ";
     print(theinter);
     cout << endl;
   
