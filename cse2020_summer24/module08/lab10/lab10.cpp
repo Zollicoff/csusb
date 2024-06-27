@@ -6,23 +6,16 @@ using namespace std;
 // Print the set function
 template <typename C> 
 void print(const Set<C> & s){ 
-    for (typename Set<C>::iterator itr = s.begin(); itr != 
-        s.end(); ++itr) 
+    for (typename Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) 
         cout << *itr << ", "; 
 }
 
 // Overload the + operator to return the union of two sets
 template <typename C> 
 Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
-    Set<C> result; 
-    for (typename Set<C>::iterator itr = s1.begin(); itr != 
-    s1.end(); ++itr) 
+    Set<C> result = s1; 
+    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) 
         result.insert(*itr);
-    
-    for (typename Set<C>::iterator itr = s2.begin(); itr != 
-    s2.end(); ++itr) 
-        result.insert(*itr); 
-    
     return result; 
 }
 
@@ -30,8 +23,7 @@ Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
 template <typename C> 
 Set<C> operator-(const Set<C> & s1, const Set<C> & s2) { 
     Set<C> result; 
-    for (typename Set<C>::iterator itr = s1.begin(); itr != 
-    s1.end(); ++itr) 
+    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) 
         if (!s2.contains(*itr))
             result.insert(*itr); 
     return result; 
@@ -50,7 +42,7 @@ Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
 int main() {
     Set<int> setA;
     Set<int> setB;
-    int value;
+    int value = 0;
 
     // Create setA
     cout << "insert the values to setA (stop when entering 0):" << endl;
