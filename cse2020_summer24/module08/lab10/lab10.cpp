@@ -51,47 +51,47 @@ Set<C> operator*(const Set<C> & s1, const Set<C> & s2)
 
 int main()
 {
-  int x = 0;
+  int x;
   Set<int> setA;
 
-  cout << "Create setA: " << endl;
-  cin >> x;
-  while (x !=0)
-    {
-      setA.insert(x);
-      cin >> x;
-    }
+  cout << "insert the values to setA (stop when entering 0):" << endl;
+  while (true)
+  {
+    cin >> x;
+    if (x == 0) break;
+    setA.insert(x);
+  }
   
-  cout << "The setA is: ";
+  cout << "print the values:" << endl;
   print(setA);
-  cout << endl ;
+  cout << endl << endl;
 
   Set<int> setB;
 
-  cout << "create setB: " << endl;
-  cin >> x;
-  while (x !=0)
-    {
-      setB.insert(x);
-      cin >> x;
-    }
+  cout << "insert the values to SetB (stop when entering 0):" << endl;
+  while (true)
+  {
+    cin >> x;
+    if (x == 0) break;
+    setB.insert(x);
+  }
 
-  cout <<"The setTwo is: ";
+  cout << "print the values:" << endl;
   print(setB);
-  cout << endl ;
+  cout << endl << endl;
 
   Set<int> theunion = setA + setB;
-  cout << "union: " << endl;
+  cout << "The union of two sets: ";
   print(theunion);
   cout << endl;
 
   Set<int> thediff = setA - setB;
-  cout << "subtraction: " << endl;
+  cout << "The difference of two sets: ";
   print(thediff);
   cout << endl;
 
   Set<int> theinter = setA * setB;
-  cout << "intersection" << endl;
+  cout << "The intersection of two sets: ";
   print(theinter);
   cout << endl;
 
