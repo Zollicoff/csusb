@@ -16,21 +16,13 @@ template <typename C>
 Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
     Set<C> result;
     
-    cout << "\nUnion - Processing s1: ";
     for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
-        cout << *itr << " ";
         result.insert(*itr);
     }
     
-    cout << "\nUnion - Processing s2: ";
     for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) {
-        cout << *itr << " ";
         result.insert(*itr);
     }
-    
-    cout << "\nUnion - Result: ";
-    print(result);
-    cout << endl;
     
     return result;
 }
@@ -40,21 +32,11 @@ template <typename C>
 Set<C> operator-(const Set<C> & s1, const Set<C> & s2) {
     Set<C> result;
     
-    cout << "\nDifference - Processing s1: ";
     for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
-        cout << *itr << " ";
-        result.insert(*itr);
+        if (!s2.contains(*itr)) {
+            result.insert(*itr);
+        }
     }
-    
-    cout << "\nDifference - Processing s2: ";
-    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr) {
-        cout << *itr << " ";
-        result.remove(*itr);
-    }
-    
-    cout << "\nDifference - Result: ";
-    print(result);
-    cout << endl;
     
     return result;
 }
@@ -64,24 +46,16 @@ template <typename C>
 Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
     Set<C> result;
     
-    cout << "\nIntersection - Processing: ";
     for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
-        cout << *itr << " ";
         if (s2.contains(*itr)) {
             result.insert(*itr);
-            cout << "(inserted) ";
         }
     }
-    
-    cout << "\nIntersection - Result: ";
-    print(result);
-    cout << endl;
     
     return result;
 }
 
 int main() {
-    // Keep the existing main function as is
     int x;
     
     Set<int> setA;
