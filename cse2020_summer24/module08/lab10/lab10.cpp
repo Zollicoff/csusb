@@ -57,7 +57,7 @@ Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
 
 int main() {
     // Keep the existing main function as is
-    int x;
+    int x = 0;
     
     Set<int> setA;
     cout << "insert the values to setA (stop when entering 0):" << endl;
