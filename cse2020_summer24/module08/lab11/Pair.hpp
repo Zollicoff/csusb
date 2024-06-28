@@ -1,8 +1,8 @@
 // Pair.cpp
 // for class Map, after Mark A. Weiss, Kerstin Voigt
 
-#ifndef PAIR_H_
-#define PAIR_H_
+#ifndef PAIR_HPP
+#define PAIR_HPP
 using namespace std;
 
 template <typename K, typename V>
