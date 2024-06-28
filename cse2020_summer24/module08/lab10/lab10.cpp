@@ -1,5 +1,5 @@
 // lab10.cpp
-#include "Set.hpp"
+#include "Set.cpp"
 using namespace std;
 
 template <typename C>

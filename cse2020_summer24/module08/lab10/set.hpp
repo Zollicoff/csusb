@@ -1,4 +1,5 @@
 // Set.cpp
+// after Mark A. Weiss, Chapter 4, Dr. Kerstin Voigt
 
 #ifndef SET_H
 #define SET_H
@@ -6,22 +7,20 @@
 #include <assert.h>
 #include <iostream>
 #include <stack>
-
 using namespace std;      
 
 template <typename C>
 class Set
 {
-
   public:
-    Set( ) : root( nullptr )
+    Set( ) : root(nullptr)
     { }
 
-    ~Set( ) 
+    ~Set( )
     { 
         makeEmpty();
     }
-    
+
     bool isEmpty( ) const
     {
         return root == nullptr;
@@ -66,20 +65,20 @@ class Set
     {
         remove( x, root );
     }
-  
-  private: 
+
+  private:
   
     struct BinaryNode
     {
-        C element;
-        BinaryNode* left;
-        BinaryNode* right;
+      C element;
+      BinaryNode* left;
+      BinaryNode* right;
 
-        BinaryNode( const C & d, BinaryNode* lt, BinaryNode* rt )
-          : element( d ), left( lt ), right( rt ) 
-        { }
+      BinaryNode( const C & d, BinaryNode* lt, BinaryNode* rt )
+          : element( d ), left( lt ), right( rt )
+      { }
     };
-    
+  
     BinaryNode* root;
     
   public:
@@ -161,7 +160,7 @@ class Set
         stack<BinaryNode*> emptystack;
         return iterator(nullptr, emptystack);
     }
-	
+
 	
   private:
 
