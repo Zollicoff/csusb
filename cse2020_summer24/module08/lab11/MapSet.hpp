@@ -1,8 +1,8 @@
 // MapSet.hpp
 // insert that returns iterator
 
-#ifndef SET_H
-#define SET_H
+#ifndef SET_HPP
+#define SET_HPP
 
 #include <assert.h>
 #include <iostream>
@@ -10,10 +10,9 @@
 using namespace std;      
 
 template <typename C>
-class Set
-{
+class Set {
 
-  public:
+public:
     Set( ) : root( nullptr )
     {  }
 
@@ -68,56 +67,44 @@ class Set
         return insert( x, root );
     }  
 
-  private:
+private:
     
-    struct BinaryNode
-    {
+    struct BinaryNode {
         C element;
         BinaryNode* left;
         BinaryNode* right;
 
         BinaryNode( const C & theElement, BinaryNode* lt, BinaryNode* rt )
-          : element( theElement ), left( lt ), right( rt ) 
-        { }
+          : element( theElement ), left( lt ), right( rt ) { }
     };
 
     BinaryNode* root;
     
-  public:
-    class iterator
-    {
+public:
+    class iterator {
     public:
-        iterator() : current(nullptr)
-        {}
+        iterator() : current(nullptr) {}
 
         // for Map
-        iterator(BinaryNode*  p) : current(p)
-        {}
+        iterator(BinaryNode*  p) : current(p) {}
     		
-        C & operator *()
-        {
+        C & operator *() {
             return current->element;
         }
 
         // prefix
-        iterator & operator++()
-        {
+        iterator & operator++() {
             if (current == nullptr)
                 return *this;
 
-            if (current->right != nullptr)
-            {
+            if (current->right != nullptr) {
                 current = current->right;
-                while (current->left != nullptr)
-                {
+                while (current->left != nullptr) {
                     antes.push(current);
                     current = current->left;
                 }
-            }
-            else
-            {
-                if (!antes.empty())
-                {
+            } else {
+                if (!antes.empty()) {
                     current = antes.top();
                     antes.pop();
                 }
@@ -127,20 +114,17 @@ class Set
             return *this;
         }
 
-        iterator operator++(int)
-        {
+        iterator operator++(int) {
             iterator old = *this;
             ++(*this);
             return old;
         }
 
-        bool operator ==(const iterator & rhs) const
-        {
+        bool operator ==(const iterator & rhs) const {
             return current == rhs.current;
         }
 
-        bool operator !=(const iterator & rhs) const
-        {
+        bool operator !=(const iterator & rhs) const {
             return !(*this == rhs);
         }
 
@@ -159,8 +143,7 @@ class Set
         BinaryNode* lmost = root;
         stack<BinaryNode*> nstack;
 
-        while (lmost->left != nullptr)
-        {
+        while (lmost->left != nullptr) {
             nstack.push(lmost);
             lmost = lmost->left;
         }
@@ -168,20 +151,16 @@ class Set
         return iterator(lmost,nstack);
     }
 
-    iterator end()
-    {
+    iterator end() {
         stack<BinaryNode*> emptystack;
         return iterator(nullptr, emptystack);
     }
-
-
-        
-  private:
+   
+private:
 
     // Internal method to find the smallest item in a subtree t.
     // Return node containing the smallest item.    
-    BinaryNode* findMin( BinaryNode* t ) const
-    {
+    BinaryNode* findMin( BinaryNode* t ) const {
         if( t == nullptr )
             return nullptr;
         if( t->left == nullptr )
@@ -191,8 +170,7 @@ class Set
     
     // Internal method to find the largest item in a subtree t.
     // Return node containing the largest item.
-    BinaryNode* findMax( BinaryNode* t ) const
-    {
+    BinaryNode* findMax( BinaryNode* t ) const {
         if( t != nullptr )
             while( t->right != nullptr )
                 t = t->right;
@@ -202,8 +180,7 @@ class Set
     // Internal method to test if an item is in a subtree.
     // x is item to search for.
     // t is the node that roots the subtree.    
-    bool contains( const C & x, BinaryNode* t ) const
-    {
+    bool contains( const C & x, BinaryNode* t ) const {
         if( t == nullptr )
             return false;
         else if( x < t->element )
@@ -214,20 +191,16 @@ class Set
             return true;    // Match
     }
 
-    void print( BinaryNode* t) const
-    {
-        if( t != nullptr )
-        {
+    void print( BinaryNode* t) const {
+        if( t != nullptr ) {
             print( t->left);
             cout << t->element << " - ";
             print( t->right);
         }
     }
     
-    void makeEmpty( BinaryNode* & t )
-    {
-        if( t != nullptr )
-        {
+    void makeEmpty( BinaryNode* & t ) {
+        if( t != nullptr ) {
             makeEmpty( t->left );
             makeEmpty( t->right );
             delete t;
@@ -239,10 +212,8 @@ class Set
     // x is the item to insert.
     // t is the node that roots the subtree.
     // Set the new root of the subtree.    
-    iterator insert( const C & x, BinaryNode* & t )
-    {
-        if( t == nullptr )
-        {
+    iterator insert( const C & x, BinaryNode* & t ) {
+        if( t == nullptr ) {
         	t = new BinaryNode( x, nullptr, nullptr );
         	return iterator(t);
         }
@@ -258,21 +229,17 @@ class Set
     // x is the item to remove.
     // t is the node that roots the subtree.
     // Set the new root of the subtree.    
-    void remove( const C & x, BinaryNode* & t )
-    {
+    void remove( const C & x, BinaryNode* & t ) {
         if( t == nullptr )
             return;   // Item not found; do nothing
         if( x < t->element )
             remove( x, t->left );
         else if( t->element < x )
             remove( x, t->right );
-        else if( t->left != nullptr && t->right != nullptr ) // Two children
-        {
+        else if( t->left != nullptr && t->right != nullptr ) { // Two children 
             t->element = findMin( t->right )->element;
             remove( t->element, t->right );
-        }
-        else
-        {
+        } else {
             BinaryNode* oldNode = t;
             if ( t->left == nullptr )
                 t = t->right;
@@ -283,4 +250,5 @@ class Set
     }
 
 };
+
 #endif
