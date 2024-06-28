@@ -16,54 +16,45 @@ public:
     Set( ) : root( nullptr )
     {  }
 
-    ~Set( ) 
-    { 
+    ~Set( ) { 
         makeEmpty();
     }
     
-    bool isEmpty( ) const
-    {
+    bool isEmpty( ) const {
         return root == nullptr;
     } 
 
-    const C & findMin( ) const
-    {
+    const C & findMin( ) const {
         assert(!isEmpty());
         return findMin( root )->element;
     }
 
-    const C & findMax( ) const
-    {
+    const C & findMax( ) const {
         assert(!isEmpty());
         return findMax( root )->element;
     }
     
-    bool contains( const C & x ) const
-    {
+    bool contains( const C & x ) const {
         return contains( x, root );
     }  
 
-    void print( ) const
-    {
+    void print( ) const {
         if( isEmpty( ) )
             cout << "Empty tree" << endl;
         else
             print( root );
     }
 
-    void makeEmpty( )
-    {
+    void makeEmpty( ) {
         makeEmpty( root );
     }
     
-    void remove( const C & x )
-    {
+    void remove( const C & x ) {
         remove( x, root );
     }
 
     // for map.cpp, change void to iterator
-    iterator insert(const C & x)
-    {
+    iterator insert(const C & x) {
         return insert( x, root );
     }  
 
@@ -75,7 +66,7 @@ private:
         BinaryNode* right;
 
         BinaryNode( const C & theElement, BinaryNode* lt, BinaryNode* rt )
-          : element( theElement ), left( lt ), right( rt ) { }
+            : element( theElement ), left( lt ), right( rt ) { }
     };
 
     BinaryNode* root;
@@ -138,8 +129,7 @@ public:
         friend class Set<C>;
   };
   
-    iterator begin()
-    {
+    iterator begin() {
         BinaryNode* lmost = root;
         stack<BinaryNode*> nstack;
 
