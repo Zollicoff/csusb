@@ -1,3 +1,18 @@
+/*
+ * Name: Zachary A. Hampton
+ * Student ID: 008339494
+ * Assignment: Lab 11
+ * Date: June 28, 2024
+ *
+ * This program demonstrates the use of a map data structure.
+ * First it takes in a list of student IDs and names and stores them in a map.
+ * Then it prints the map.
+ * Then it asks for a student ID and prints the corresponding name.
+ * Then it asks for a student ID and a new name and changes the name in the map.
+ * Then it asks for a student ID and removes that student from the map.
+ * Then it prints the map again.
+*/
+
 // lab11.cpp
 #include <iostream>
 #include <string>   
