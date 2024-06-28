@@ -40,7 +40,6 @@ public:
     }
     
 private:
-
         Set<Pair<K,V> > themap;
 };
 
