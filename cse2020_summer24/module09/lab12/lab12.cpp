@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "BinaryHeap.cpp"
+#include "BinaryHeap.hpp"
 
 using namespace std;
 
