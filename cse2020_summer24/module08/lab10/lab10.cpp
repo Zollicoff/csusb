@@ -1,3 +1,12 @@
+/*
+ * Name: Zachary A. Hampton
+ * Student ID: 008339494
+ * Assignment: Lab 10
+ * Date: June 28, 2024
+ * 
+ * This program creates sets of integers and performs union, difference, and intersection operations.
+*/
+
 // lab10.cpp
 #include "Set.hpp"
 using namespace std;
