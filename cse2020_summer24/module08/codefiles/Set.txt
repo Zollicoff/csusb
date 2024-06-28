@@ -302,7 +302,7 @@ int main()
 
 	cout << "remove: " << endl;
 	cin >> x;
-	while (x != 0)
+	while  (x != 0)
 	{
 		intSet.remove(x);
 		cin >> x;

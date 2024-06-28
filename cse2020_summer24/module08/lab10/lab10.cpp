@@ -1,56 +1,52 @@
 // lab10.cpp
 #include "Set.hpp"
-#include <iostream>
 using namespace std;
 
-// Add 4 functions
 template <typename C>
 void print(const Set<C> & s)
 {
-    for (typename Set<C> :: iterator itr = s.begin(); itr != s.end(); ++itr) 
-        cout << *itr << ",";
+  for (typename Set<C> :: iterator itr = s.begin(); itr != s.end(); ++itr)
+  cout << *itr << ",";
 }
 
-// Union of two sets
 template <typename C>
-Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
-    Set<C> result;
-    
-    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr)
-        result.insert(*itr);
-    
-    for (typename Set<C>::iterator itr = s2.begin(); itr != s2.end(); ++itr)
-        result.insert(*itr);
-    
-    return result;
+Set<C> operator+(const Set<C> & s1, const Set<C> & s2)
+{
+  Set<C> result;
+
+  for(typename Set<C> :: iterator itr = s1.begin(); itr != s1.end(); ++itr)
+    result.insert(*itr);
+
+  for(typename Set<C> :: iterator itr = s2.begin(); itr != s2.end(); ++itr)
+    result.insert(*itr);
+
+  return result;
 }
 
-// Difference of two sets
 template <typename C>
-Set<C> operator-(const Set<C> & s1, const Set<C> & s2) {
-    Set<C> result;
-    
-    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
-        if (!s2.contains(*itr)) {
-            result.insert(*itr);
-        }
-    }
-    
-    return result;
+Set<C> operator-(const Set<C> & s1, const Set<C> & s2)
+{
+  Set<C> result;
+
+  for(typename Set<C> :: iterator itr = s1.begin(); itr != s1.end(); ++itr)
+    result.insert(*itr);
+
+  for(typename Set<C> :: iterator itr = s2.begin(); itr != s2.end(); ++itr)
+    result.remove(*itr);
+
+  return result;
 }
 
-// Intersection of two sets
 template <typename C>
-Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
-    Set<C> result;
-    
-    for (typename Set<C>::iterator itr = s1.begin(); itr != s1.end(); ++itr) {
-        if (s2.contains(*itr)) {
-            result.insert(*itr);
-        }
-    }
-    
-    return result;
+Set<C> operator*(const Set<C> & s1, const Set<C> & s2)
+{
+  Set<C> result;
+
+  for (typename Set <C> :: iterator itr = s1.begin(); itr != s1.end(); ++itr)
+    if (s2.contains(*itr))
+      result.insert(*itr);
+
+  return result;
 }
 
 int main()
