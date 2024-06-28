@@ -1,3 +1,12 @@
+/*
+ * Name: Zachary A. Hampton
+ * Student ID: 008339494
+ * Assignment: Lab 11
+ * Date: June 28, 2024
+ *
+ * This header file defines a map data structure.
+*/
+
 // Map.cpp
 // after Mark A. Weiss, Kerstin Voigt
 
