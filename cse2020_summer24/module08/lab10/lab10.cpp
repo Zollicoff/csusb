@@ -61,8 +61,8 @@ int main() {
     
     Set<int> setA;
     cout << "insert the values to setA (stop when entering 0):" << endl;
+    cin >> x;
     while (true) {
-        cin >> x;
         if (x == 0) break;
         setA.insert(x);
     }
@@ -73,8 +73,8 @@ int main() {
  
     Set<int> setB;
     cout << "insert the values to SetB (stop when entering 0):" << endl;
+    cin >> x;
     while (true) {
-        cin >> x;
         if (x == 0) break;
         setB.insert(x);
     }
