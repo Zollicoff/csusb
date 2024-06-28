@@ -1,3 +1,13 @@
+/*
+ * Name: Zachary A. Hampton
+ * Student ID: 008339494
+ * Assignment: Lab 12
+ * Date: June 28, 2024
+ * 
+ * This header file contains the BinaryHeap class, which is a
+ * priority queue
+*/
+
 // BinaryHeap.hpp
 #ifndef BINARY_HEAP_HPP
 #define BINARY_HEAP_HPP
