@@ -1,51 +1,61 @@
-// TestMap.cpp
+// lab11.cpp
 #include <iostream>
 #include <string>   
 #include "Map.hpp"
 
 using namespace std;
 
-int main() {
-    Map<string,int> basket;
-    int howmany, count;
+int main()
+{
+    Map<int,string> studentDB;
+    int id;
     string name;
-
-    cout << "How many types of fruits in basket? ";
-    cin >> howmany;
-
-    for (int i = 1; i <= howmany; i++) {
-        cout << "Fruit? ";
+    
+    cout << "using index operator to insert new pairs:" << endl;
+    
+    // Input student IDs and names
+    while (true) {
+        cout << "Student ID? ";
+        cin >> id;
+        
+        if (id == 0) break;
+        
+        cout << "Student Name? ";
         cin >> name;
-        cout << endl << "How many? ";
-        cin >> count;
-        basket[name] = count;
+        
+        studentDB[id] = name;
+        
+        cout << endl;
     }
-    cout << "Content of my basket:" << endl;
-    basket.printMap();
-    cout << endl ;
-
-    cout << "Change which fruit? ";
-    cin >> name;
-    cout << "... to what? ";
-    cin >> count;
-    cout << endl;
-
-    basket[name] = count;
-
-    basket.printMap();
+    
+    // Print the student database
+    cout << "\nContent of student database:" << endl;
+    studentDB.printMap();
     cout << endl;
     
-    cout << "Check which fruit? ";
+    // Find a student by ID
+    cout << "Who you want to know? ";
+    cin >> id;
+    cout << "The corresponding name is: " << studentDB[id] << endl << endl;
+    
+    // Change a student's name
+    cout << "Change which one? ";
+    cin >> id;
+    cout << "... to what name? ";
     cin >> name;
-    cout << "there are " << basket[name] << " " << name << endl << endl;
-
+    studentDB[id] = name;
+    cout << endl;
+    
+    studentDB.printMap();
+    cout << endl;
+    
+    // Remove a student
     cout << "Remove which one? ";
-    cin >> name;
-    cout << endl ;
-
-    basket.remove(name);
-
-    basket.printMap();
+    cin >> id;
+    studentDB.remove(id);
+    cout << endl;
+    
+    studentDB.printMap();
     
     return 0;
 }
