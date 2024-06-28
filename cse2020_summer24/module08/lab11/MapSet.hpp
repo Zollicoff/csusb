@@ -13,53 +13,6 @@ template <typename C>
 class Set {
 
 public:
-    Set( ) : root( nullptr )
-    {  }
-
-    ~Set( ) { 
-        makeEmpty();
-    }
-    
-    bool isEmpty( ) const {
-        return root == nullptr;
-    } 
-
-    const C & findMin( ) const {
-        assert(!isEmpty());
-        return findMin( root )->element;
-    }
-
-    const C & findMax( ) const {
-        assert(!isEmpty());
-        return findMax( root )->element;
-    }
-    
-    bool contains( const C & x ) const {
-        return contains( x, root );
-    }  
-
-    void print( ) const {
-        if( isEmpty( ) )
-            cout << "Empty tree" << endl;
-        else
-            print( root );
-    }
-
-    void makeEmpty( ) {
-        makeEmpty( root );
-    }
-    
-    void remove( const C & x ) {
-        remove( x, root );
-    }
-
-    // for map.cpp, change void to iterator
-    iterator insert(const C & x) {
-        return insert( x, root );
-    }  
-
-private:
-    
     struct BinaryNode {
         C element;
         BinaryNode* left;
@@ -69,9 +22,6 @@ private:
             : element( theElement ), left( lt ), right( rt ) { }
     };
 
-    BinaryNode* root;
-    
-public:
     class iterator {
     public:
         iterator() : current(nullptr) {}
@@ -123,12 +73,56 @@ public:
         BinaryNode * current;
         stack<BinaryNode*> antes;
 
-        iterator(BinaryNode* p, stack<BinaryNode*> st) : current(p), antes(st)
-        {}
+        iterator(BinaryNode* p, stack<BinaryNode*> st) : current(p), antes(st) {}
     
         friend class Set<C>;
-  };
-  
+    };
+
+    typedef typename Set<C>::iterator iterator;
+
+    Set( ) : root( nullptr ) {  }
+
+    ~Set( ) { 
+        makeEmpty();
+    }
+    
+    bool isEmpty( ) const {
+        return root == nullptr;
+    } 
+
+    const C & findMin( ) const {
+        assert(!isEmpty());
+        return findMin( root )->element;
+    }
+
+    const C & findMax( ) const {
+        assert(!isEmpty());
+        return findMax( root )->element;
+    }
+    
+    bool contains( const C & x ) const {
+        return contains( x, root );
+    }  
+
+    void print( ) const {
+        if( isEmpty( ) )
+            cout << "Empty tree" << endl;
+        else
+            print( root );
+    }
+
+    void makeEmpty( ) {
+        makeEmpty( root );
+    }
+    
+    void remove( const C & x ) {
+        remove( x, root );
+    }
+
+    iterator insert(const C & x) {
+        return insert( x, root );
+    }  
+
     iterator begin() {
         BinaryNode* lmost = root;
         stack<BinaryNode*> nstack;
@@ -145,8 +139,11 @@ public:
         stack<BinaryNode*> emptystack;
         return iterator(nullptr, emptystack);
     }
+
+    BinaryNode* getRoot() const { return root; }
    
 private:
+    BinaryNode* root;
 
     // Internal method to find the smallest item in a subtree t.
     // Return node containing the smallest item.    
@@ -231,14 +228,10 @@ private:
             remove( t->element, t->right );
         } else {
             BinaryNode* oldNode = t;
-            if ( t->left == nullptr )
-                t = t->right;
-            else
-                t = t->left;
+            t = (t->left != nullptr) ? t->left : t->right;
             delete oldNode;
         }
     }
-
 };
 
 #endif
