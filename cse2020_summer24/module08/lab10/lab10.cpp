@@ -11,12 +11,14 @@
 #include "Set.hpp"
 using namespace std;
 
+// Function to print the values of a set
 template <typename C>
 void print(const Set<C> & s) {
     for (typename Set<C> :: iterator itr = s.begin(); itr != s.end(); ++itr)
     cout << *itr << ",";
 }
 
+// Function for union of two sets
 template <typename C>
 Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
     Set<C> result;
@@ -30,6 +32,7 @@ Set<C> operator+(const Set<C> & s1, const Set<C> & s2) {
     return result;
 }
 
+// Function for difference of two sets
 template <typename C>
 Set<C> operator-(const Set<C> & s1, const Set<C> & s2) {
     Set<C> result;
@@ -43,6 +46,7 @@ Set<C> operator-(const Set<C> & s1, const Set<C> & s2) {
     return result;
 }
 
+// Function for intersection of two sets
 template <typename C>
 Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
     Set<C> result;
@@ -57,6 +61,7 @@ Set<C> operator*(const Set<C> & s1, const Set<C> & s2) {
 int main() {
     int x;
     
+    // Set A is created and values are inserted and printed
     Set<int> setA;
     cout << "insert the values to setA (stop when entering 0):" << endl;
     while (true) {
@@ -68,10 +73,10 @@ int main() {
     print(setA);
     cout << endl << endl;
 
+    // Set B is created and values are inserted and printed
     Set<int> setB;
     cout << "insert the values to SetB (stop when entering 0):" << endl;
-    while (true)
-    {
+    while (true) {
         cin >> x;
         if (x == 0) break;
         setB.insert(x);
@@ -80,16 +85,19 @@ int main() {
     print(setB);
     cout << endl << endl;
 
+    // Union of the two sets are calculated and printed
     Set<int> theunion = setA + setB;
     cout << "The union of two sets: ";
     print(theunion);
     cout << endl;
 
+    // Difference of the two sets are calculated and printed
     Set<int> thediff = setA - setB;
     cout << "The difference of two sets: ";
     print(thediff);
     cout << endl;
 
+    // Intersection of the two sets are calculated and printed
     Set<int> theinter = setA * setB;
     cout << "The intersection of two sets: ";
     print(theinter);
