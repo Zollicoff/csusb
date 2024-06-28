@@ -9,6 +9,7 @@ void print(const Set<C> & s) {
     for (typename Set<C>::iterator itr = s.begin(); itr != s.end(); ++itr) {
         cout << *itr << ",";
     }
+    cout << endl;  // Add a newline at the end of printing
 }
 
 // Union of two sets
