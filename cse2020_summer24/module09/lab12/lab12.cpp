@@ -11,7 +11,7 @@ int main()
 
     // Input priority values and insert them into the queue
     while (true) {
-        cout << "Enter the priority of print job (or -1 to finish): ";
+        cout << "The priority of print job?: ";
         cin >> x;
         
         if (x == -1) break;
@@ -26,7 +26,7 @@ int main()
 
     // Get the number of jobs to run
     int n;
-    cout << "\nThe number of jobs the printer will run? ";
+    cout << "\nThe number of jobs the printer will run?: ";
     cin >> n;
 
     // Delete the minimum n times
