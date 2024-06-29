@@ -1,5 +1,5 @@
-#ifndef MERGESORT_H
-#define MERGESORT_H
+#ifndef MERGESORT_HPP
+#define MERGESORT_HPP
 
 #include <vector>
 using namespace std;
