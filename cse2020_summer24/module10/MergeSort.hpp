@@ -1,3 +1,16 @@
+/*
+ * Name: Zachary A. Hampton
+ * Student ID: 008339494
+ * Assignment: Lab 13
+ * Date: July 1, 2024
+ *
+ * This header file defines the merge sort algorithm using templates. 
+ * The merge sort algorithm is a divide-and-conquer algorithm that recursively
+ * divides the list into smaller sublists, sorts the sublists, and then 
+ * merges the sorted sublists back together.
+*/
+
+// MergeSort.hpp
 #ifndef MERGESORT_HPP
 #define MERGESORT_HPP
 
