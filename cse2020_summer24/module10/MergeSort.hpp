@@ -13,12 +13,9 @@ void mergeSort( vector<C>& v, vector<C>& tmp, int left, int right);
 template <typename C>
 void merge(vector<C>& v, vector<C>& tmp, int leftPos, int rightPos, int righEnd);
 
-/**
- * Mergesort algorithm (driver).
- */
+// * Mergesort algorithm (driver).
 template <typename C>
-void mergeSort( vector<C>& v )
-{
+void mergeSort( vector<C>& v ) {
   vector<C> tmp( v.size( ) );
 
   mergeSort( v, tmp, 0, v.size( ) - 1 );
@@ -32,10 +29,8 @@ void mergeSort( vector<C>& v )
  * right is the right-most index of the subvector.
  */
 template <typename C>
-void mergeSort( vector<C>& v, vector<C>& tmp, int left, int right )
-{
-    if( left < right )
-    {
+void mergeSort( vector<C>& v, vector<C>& tmp, int left, int right ) {
+    if( left < right ) {
       int center = ( left + right ) / 2;
         mergeSort( v, tmp, left, center );
         mergeSort( v, tmp, center + 1, right );
@@ -53,8 +48,7 @@ void mergeSort( vector<C>& v, vector<C>& tmp, int left, int right )
  */
 template <typename C>
 void merge( vector<C>& v, vector<C>& tmp,
-            int leftPos, int rightPos, int rightEnd )
-{
+            int leftPos, int rightPos, int rightEnd ) {
     int leftEnd = rightPos - 1;
     int tmpPos = leftPos;
     int numElements = rightEnd - leftPos + 1;
