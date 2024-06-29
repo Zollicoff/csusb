@@ -9,7 +9,7 @@ int main()
 	vector <int> v;
     
     // add your code
-    ifstream input("sorting.hpp");
+    ifstream input("sort.txt");
     int number;
     while (input >> number) {
         v.push_back(number);
