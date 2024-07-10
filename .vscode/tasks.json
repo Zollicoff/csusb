@@ -2,7 +2,7 @@
    "version": "2.0.0",
    "tasks": [
        {
-           "type": "shell",
+           "type": "process",
            "label": "LC3: Assemble current file",
            "command": "${config:lc3.assemblerPath}",
            "args": [
@@ -16,12 +16,12 @@
            }
        },
        {
-           "type": "shell",
+           "type": "process",
            "label": "LC3: Run current file",
            "command": "${config:lc3.simulatorPath}",
            "args": [
                "-s",
-               "${fileDirname}/${fileBasenameNoExtension}.obj"
+               "${fileDirname}\\${fileBasenameNoExtension}.obj"
            ],
            "problemMatcher": [],
            "group": {
@@ -32,10 +32,10 @@
        {
            "type": "shell",
            "label": "LC3: Assemble and Run current file",
-           "dependsOrder": "sequence",
-           "dependsOn": [
-               "LC3: Assemble current file",
-               "LC3: Run current file"
+           "command": "powershell.exe",
+           "args": [
+               "-Command",
+               "& '${config:lc3.assemblerPath}' -a '${file}'; if ($?) { & '${config:lc3.simulatorPath}' -s '${fileDirname}\\${fileBasenameNoExtension}.obj' }"
            ],
            "problemMatcher": []
        }
