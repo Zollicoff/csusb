@@ -1,10 +1,8 @@
 {
-  "lc3.simulatorPath": "C:\\Users\\hampt\\AppData\\Local\\Programs\\LC3Tools\\LC3Tools.exe"
-}
-
-
-{
+  "lc3.simulatorPath": "C:\\Users\\hampt\\AppData\\Local\\Programs\\LC3Tools\\LC3Tools.exe",
+  "lc3.assemblerPath": "C:\\Users\\hampt\\AppData\\Local\\Programs\\LC3Tools\\LC3Tools.exe",
   "files.associations": {
+    "*.asm": "lc3",
     "fstream": "cpp",
     "iostream": "cpp",
     "*.tcc": "cpp",
