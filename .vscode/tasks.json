@@ -35,7 +35,7 @@
            "command": "powershell.exe",
            "args": [
                "-Command",
-               "& '${config:lc3.assemblerPath}' -a '${file}'; if ($?) { & '${config:lc3.simulatorPath}' -s '${fileDirname}\\${fileBasenameNoExtension}.obj' }"
+               "& \"${config:lc3.assemblerPath}\" -a \"${file}\"; if ($?) { & \"${config:lc3.simulatorPath}\" -s \"${fileDirname}\\${fileBasenameNoExtension}.obj\" }"
            ],
            "problemMatcher": []
        }
