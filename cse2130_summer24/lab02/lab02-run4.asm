@@ -1,6 +1,6 @@
  ; Name: Zachary A. Hampton
  ; Student ID: 008339494
- ; Assignment: Lab 02 - Run 1
+ ; Assignment: Lab 02 - Run 4
  ; Date: July 26, 2024
 
             .ORIG x3000             ; Program start
@@ -60,8 +60,8 @@ VALUE_0     .FILL #0            ; Value 0
             .END
 
             .ORIG x3120         ; Data section
-            .FILL #10           ; X
-            .FILL #20           ; Y
+            .FILL #12           ; X
+            .FILL #12           ; Y
             .FILL #0            ; Space for (X - Y)
             .FILL #0            ; Space for |X|
             .FILL #0            ; Space for |Y|
