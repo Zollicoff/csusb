@@ -1,6 +1,6 @@
 myFlower1 = input("Enter your first flower: ")
 myFlower2 = input("Enter your second flower: ")
-myFlower3 = input("enter your list of flowers (comma separated): ")
+myFlower3 = input("Enter your third flower: ")
 
 yourFlower1 = input("Enter your first flower: ")    
 yourFlower2 = input("Enter your second flower: ")
