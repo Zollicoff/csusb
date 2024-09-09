@@ -49,15 +49,15 @@ for dep1, computers1 in departments.items():
         if dep1 != dep2:
             G.add_edge(computers1[0], computers2[0])  # Inter-departmental connections
 
-# Use a planar layout (Kamada-Kawai) for a cleaner and more organized structure
+# Define positions using the Kamada-Kawai layout for better visualization
 pos = nx.kamada_kawai_layout(G)
 
-# Draw the graph with the Kamada-Kawai layout and updated title
+# Draw the graph with the Kamada-Kawai layout and new title
 plt.figure(figsize=(14, 10))
 nx.draw_networkx_nodes(G, pos, node_color='skyblue', node_size=500, alpha=0.8)
 nx.draw_networkx_edges(G, pos, width=1.0, alpha=0.6)
 nx.draw_networkx_labels(G, pos, font_size=10, font_family="sans-serif")
-plt.title("CSUSB Network for CS, EE, PHYS, MATH")
+plt.title("CSUSB Network for CS, EE, PHYS, MATH using Python")
 plt.axis('off')
 
 plt.show()
