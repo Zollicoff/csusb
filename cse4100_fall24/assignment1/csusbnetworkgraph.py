@@ -8,6 +8,7 @@
 
 import matplotlib.pyplot as plt
 import networkx as nx
+import scipy as sp
 
 # Initialize the graph
 G = nx.Graph()
@@ -57,7 +58,7 @@ plt.figure(figsize=(14, 10))
 nx.draw_networkx_nodes(G, pos, node_color='skyblue', node_size=500, alpha=0.8)
 nx.draw_networkx_edges(G, pos, width=1.0, alpha=0.6)
 nx.draw_networkx_labels(G, pos, font_size=10, font_family="sans-serif")
-plt.title("CSUSB Network for CS, EE, PHYS, MATH using Python")
+plt.title("CSUSB Network for CS, EE, PHYS, MATH using Python (Zachary Hampton 008339494)")
 plt.axis('off')
 
 plt.show()
