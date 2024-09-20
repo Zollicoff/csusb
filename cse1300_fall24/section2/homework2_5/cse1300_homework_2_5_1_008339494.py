@@ -6,7 +6,7 @@
 import numpy as np
 
 # Create an array
-myArray = [[2, 17], [18, 15], [3, 6], [1, 9], [5, 4], [12, 19], [10, 13]]
+myArray = np.array([[2, 17], [18, 15], [3, 6], [1, 9], [5, 4], [12, 19], [10, 13]])
 
 # Print the array
 print(myArray)
