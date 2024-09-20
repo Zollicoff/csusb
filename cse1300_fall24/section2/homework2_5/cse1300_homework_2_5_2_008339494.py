@@ -1,12 +1,15 @@
-# Create a 2-dimensional array containing the arrays [2, 17], [18, 15], [3, 6], [1, 9], [5, 4], [12, 19], [10, 13].
+# Insert 'r' into the last row of myArr.
 
 # Code:
 
-# Load the necessary package
+# Load necessary package
 import numpy as np
 
-# Create an array
-myArray = np.array([[2, 17], [18, 15], [3, 6], [1, 9], [5, 4], [12, 19], [10, 13]])
+# Create array
+myArr = [['n', 'x', 's', 'y'], ['q', 'v', 'l', 'p']]
+
+# Insert character into the last row of array
+myArr = np.insert(myArr, 1, 'r', axis=0)
 
 # Print the array
-print(myArray)
+print(myArr)
