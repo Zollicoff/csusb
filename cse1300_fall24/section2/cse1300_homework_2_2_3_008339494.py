@@ -11,9 +11,9 @@ exampleDict = {'tarantula': 0.11, 'hornet': 0.05, 'tuna': 1}
 print(exampleDict)
 
 # Modify the value of the element with key 'tuna' to 0.98
-
+exampleDict['tuna'] = 0.98
 print(exampleDict)
 
 # Remove element with key 'hornet'
-# Your code goes here
+exampleDict.pop('hornet')
 print(exampleDict)
