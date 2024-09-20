@@ -9,7 +9,7 @@ import numpy as np
 myArr = np.array([['n', 'x', 's', 'y'], ['q', 'v', 'l', 'p']])
 
 # Insert character 'r' into the last row of the array
-myArr = np.append(myArr[1], 'r')
+myArr = myArr = myArr[:-1] + [myArr[-1] + ['r']]
 
 # Print the array
 print(myArr)
