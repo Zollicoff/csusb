@@ -6,11 +6,10 @@
 import numpy as np
 
 # Create array
-myArr = [['n', 'x', 's', 'y'], ['q', 'v', 'l', 'p']]
+myArr = np.array([['n', 'x', 's', 'y'], ['q', 'v', 'l', 'p']])
 
-# Insert character into the last row of array
-myArr = np.array(myArr)
-myArr[-1, 0] = 'r'
+# Insert character 'r' into the last row of the array
+myArr[-1] = np.append(myArr[-1], 'r')
 
 # Print the array
 print(myArr)
