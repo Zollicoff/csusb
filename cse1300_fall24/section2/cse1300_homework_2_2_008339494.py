@@ -19,13 +19,14 @@ practiceList1[2] = 'v'
 print(practiceList1)
 
 # Append 26 to the list
-practiceList.append(26)
+practiceList1.append(26)
 print(practiceList1)
 
 # Remove the first element from the list
-my_list.pop[0]
+practiceList1.pop(0)
 print(practiceList1)
 
 # Combine practiceList1 and practiceList2
 combinedList = practiceList1 + practiceList2
 print(combinedList)
+
