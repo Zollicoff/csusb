@@ -9,8 +9,7 @@ import numpy as np
 myArr = [['n', 'x', 's', 'y'], ['q', 'v', 'l', 'p']]
 
 # Insert character into the last row of array
-myArr = myArr[1].append('r')
-
+myArr[1].append('r')
 
 # Print the array
 print(myArr)
