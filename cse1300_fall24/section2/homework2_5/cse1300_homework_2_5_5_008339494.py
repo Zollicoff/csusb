@@ -13,3 +13,4 @@ myArr = np.log(myArr)
 
 # Print the array
 print(myArr)
+
