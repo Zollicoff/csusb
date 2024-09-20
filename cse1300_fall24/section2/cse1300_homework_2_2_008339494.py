@@ -1,9 +1,8 @@
-    # Create a list practiceList1 with elements 3, 'b', and 11.
-    # Replace the third element with 'v'.
-    # Append 26 to practiceList1.
-    # Remove the first element from practiceList1.
-    # Combine practiceList1 with the list practiceList2.
-
+# Create a list practiceList1 with elements 3, 'b', and 11.
+# Replace the third element with 'v'.
+# Append 26 to practiceList1.
+# Remove the first element from practiceList1.
+# Combine practiceList1 with the list practiceList2.
 # The code provided displays all results and creates the second list, practiceList2.
 
 # Code:
