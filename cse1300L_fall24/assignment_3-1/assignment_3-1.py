@@ -6,7 +6,6 @@
 # Find the standard deviation of the column mpg, from the sample10Cars dataframe
 # Find the standard deviation of the column mpg, from the cars dataframe
 # Calculate the disp features' skewness, from the cars dataframe.
-
 # Here is the template:
 
 import pandas as pd
@@ -20,10 +19,13 @@ sample10Cars = cars.sample(n=10, replace=False, random_state=5)
 print(sample10Cars)
 
 # Find the mean of the column wt, from the cars dataframe
-mean = cars['wt'].mean()# Your code here
+mean = cars['wt'].mean()
 
 # Find the median of the column wt, from the cars dataframe
-median = cars['wt'].median()# Your code here
+median = cars['wt'].median()
+
+# Find the mode of the column wt, from the cars dataframe
+mode = cars['wt'].mode()[0]
 
 # Find the standard deviation of the column mpg, from the sample10Cars dataframe
 stdSample = sample10Cars['mpg'].std(ddof=1)
@@ -34,6 +36,6 @@ std = cars['mpg'].std(ddof=0)
 # Calculate the disp features' skewness, from the cars dataframe. 
 skew = cars['disp'].skew()
 
-print("mean = {:.5f}, median = {:.3f}".format(mean, median))
+print("mean = {:.5f}, median = {:.3f}, mode = {:.3f}".format(mean, median, mode))
 print("stdSample = {:.3f}, std = {:.3f}".format(stdSample, std))
 print("skew = {:.3f}".format(skew))
