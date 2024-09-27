@@ -16,25 +16,12 @@
 # Code:
 # Loads necessary packages
 import pandas as pd
-import os
 
-# Check if the file exists
-file_path = 'taxi.csv'
-if not os.path.exists(file_path):
-    print(f"File {file_path} does not exist.")
-else:
-    try:
-        # Loads the taxi.csv dataset
-        taxisNY = pd.read_csv(file_path)
-        
-        # Check if the 'tolls' column exists
-        if 'tolls' in taxisNY.columns:
-            # Subset a column of the taxisNY dataframe by specifying the column name
-            tolls = taxisNY['tolls']
-            
-            # Prints the column
-            print(tolls)
-        else:
-            print("Column 'tolls' does not exist in the dataset.")
-    except Exception as e:
-        print(f"An error occurred while reading the file: {e}")
+# Loads the taxi.csv dataset
+taxisNY = pd.read_csv('taxi.csv')
+
+# Subset a column of the taxisNY dataframe by specifying the column name
+tolls = taxisNY['tolls']
+
+# Prints the column
+print(tolls)
