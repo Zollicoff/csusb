@@ -25,11 +25,12 @@ gpa = pd.read_csv('gpa.csv')
 
 # Get the value of the proportion for the null hypothesis
 value = float(input())
+
 # Get the gpa cutoff
 cutoff = float(input())
 
 # Determine the number of students with a gpa higher than cutoff
-counts = float(gpa[gpa['gpa'] > cutoff].count())
+counts = int(gpa[gpa['gpa'] > cutoff].count()['gpa'])
 
 # Determine the total number of students
 nobs = int(gpa['gpa'].count())
@@ -40,7 +41,6 @@ print("(", end="")
 print('%.3f' % ztest[0] + ", ", end="")
 print('%.3f' % ztest[1] + ")")
 
-
 if ztest[1] < 0.01:
     print("The two-tailed p-value, ", end="")
     print('%.3f' % ztest[1] + ", is less than \u03B1. Thus, sufficient evidence exists to support the hypothesis that the proportion is different from", value)
@@ -48,9 +48,7 @@ else:
     print("The two-tailed p-value, ", end="")
     print('%.3f' % ztest[1] + ", is greater than \u03B1. Thus, insufficient evidence exists to support the hypothesis that the proportion is different from", value)
 
-
 # Find the 95% confidence interval for counts, nobs, alpha and method
-# notice: you should set alpha and method by yourself
 confint = proportion_confint(counts, nobs, alpha=0.05, method='normal')
 print("(", end="")
 print('%.3f' % confint[0] + ", ", end="")
