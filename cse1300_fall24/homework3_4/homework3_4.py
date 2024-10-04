@@ -10,10 +10,10 @@ def calculate_z_score(X, mu, sigma):
     z = (X - mu) / sigma
     return z
 
-# Taking user inputs
-X = float(input("Enter the data point (X): "))
-mu = float(input("Enter the mean (mu): "))
-sigma = float(input("Enter the standard deviation (sigma): "))
+# Hardcoded values
+X = 34.46
+mu = 35
+sigma = 0.32 
 
 # Checking if sigma is non-zero
 if sigma != 0:
