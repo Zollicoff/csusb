@@ -24,6 +24,10 @@
 import scipy.stats as st
 from scipy.stats import norm, binom
 
+# Mean and standard deviation of the IQ distribution
+mean_IQ = 100
+std_IQ = 15
+
 # Input two IQs, making sure that IQ1 is less than IQ2
 IQ1 = float(input())
 IQ2 = float(input())
@@ -39,23 +43,20 @@ Coin2 = int(input())
 
 while Coin1 > Coin2:
     print("Coin1 should be less than Coin2. Enter numbers again.")
-    Coin1 = float(input())
-    Coin2 = float(input())
+    Coin1 = int(input())
+    Coin2 = int(input())
 
-# The intelligence quotient (IQ) of a randomly selected person follows a normal distribution with 
-# a mean of 100 and a standard deviation of 15.
-# Calculate the probability that a randomly selected person has an IQ less than or equal to IQ1.
-probLT = norm.cdf(IQ1, Loc=mean_IQ, scale=std_IQ)
+# Calculate the probability that a randomly selected person has an IQ less than or equal to IQ1
+probLT = norm.cdf(IQ1, loc=mean_IQ, scale=std_IQ)
 
 # Calculate the probability that a randomly selected person has an IQ between IQ1 and IQ2
-probBetw = norm.cdf(IQ2, Loc=mean_IQ, scale=std_IQ) - norm.cdf(IQ1, Loc=mean_IQ, scale=std_IQ)
+probBetw = norm.cdf(IQ2, loc=mean_IQ, scale=std_IQ) - norm.cdf(IQ1, loc=mean_IQ, scale=std_IQ)
 
-# If you toss a coin you might ask yourself “Will I get a heads?”
-# Calculate the probability that you toss a coin Coin2 times, and you have Coin1 heads.
-probEqual = norm.pmf(Coin1, Coin2, 0.5)
+# Calculate the probability that you toss a coin Coin2 times, and you have Coin1 heads
+probEqual = binom.pmf(Coin1, Coin2, 0.5)
 
-# Calculate the probability that you toss a coin Coin2 times, and you have at least Coin1 heads.
-probAtLeast = norm.cdf(Coin1, Coin2, 0.5)
+# Calculate the probability that you toss a coin Coin2 times, and you have at least Coin1 heads
+probAtLeast = 1 - binom.cdf(Coin1 - 1, Coin2, 0.5)
 
 print("The probability that a randomly selected person \n has an IQ less than or equal to " + str(IQ1) + " is ", end="")
 print('%.3f' % probLT + ".")
