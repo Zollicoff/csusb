@@ -15,7 +15,7 @@ P_A_or_B = P_A + P_B - P_A_and_B  # P(A or B)
 P_A_given_B = P_A_and_B / P_B     # P(A|B): Probability of A given B
 P_B_given_A = P_A_and_B / P_A     # P(B|A): Probability of B given A
 
-# Output the probabilities
+# Output the probabilitiese
 print("P(A) =", P_A)
 print("P(B) =", P_B)
 print("P(A and B) =", P_A_and_B)
