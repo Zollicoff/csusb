@@ -1,0 +1,153 @@
+% Beginning of preamble 
+% Specify the type of document you want (usually article) and the font size
+\documentclass[12pt]{article}  
+
+% Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+
+% Some other packages that I find useful
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+% allow for urls and hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
+
+% Set the margins other page formatting
+\usepackage{geometry}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{enumitem}
+\usepackage{setspace} 
+\setlength\parindent{0pt}
+\linespread{1.2}
+%\pagestyle{empty}  %This style will suppress page numbering
+
+% Define a few theorem-type environments
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{problem}{Problem}
+\newtheorem*{conjecture}{Conjecture}
+
+\theoremstyle{definition} 
+\newtheorem*{definition}{Definition}
+\newtheorem*{answer}{Answer}
+\newtheorem*{example}{Example}
+
+% Make the font Helvetica (Best font ever)
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Some notation shortcut commands
+\newcommand{\R}{\mathbb{R}} %the reals
+\newcommand{\Q}{\mathbb{Q}} %the rationals
+\newcommand{\N}{\mathbb{N}} %the natural numbers
+\newcommand{\Z}{\mathbb{Z}} %the integers
+\newcommand{\eps}{\varepsilon} %a cooler epsilon
+\newcommand{\solution}{\textcolor{PineGreen}{Solution:\newline}}
+
+%%%%% End of preamble %%%%%
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+Math 3100 \hfill Zachary A. Hampton
+
+\LaTeX~Assignment 4 \hfill 
+\text 10-07-2024
+
+\bigskip
+
+\section*{Section 2.4}
+
+%% Beginning of Problem 2.4.3
+\begin{enumerate}[leftmargin=*]
+\setcounter{enumi}{2}
+\item %%% You do not need to write the problem directions for problem 3
+
+%% Begin parts to problem 2.4.3
+    \begin{enumerate}
+        %% Part A
+        \item [(a)] \((\exists x \in \mathbb{Q})(x > \sqrt{2})\)
+        
+        \solution 
+        \begin{itemize}
+            \item In English, this statement says, "There exists a rational number \(x\) such that \(x > \sqrt{2}\)."
+            \item The negation is \((\forall x \in \mathbb{Q})(x \leq \sqrt{2})\).
+            \item In English, the negation says, "For all rational numbers \(x\), \(x \leq \sqrt{2}\)."
+        \end{itemize}
+
+        %% Part C
+        \item [(c)] \((\forall x \in \mathbb{Z})(x \text{ is even or } x \text{ is odd})\)
+        
+        \solution
+        \begin{itemize}
+            \item In English, this statement says, "For all integers \(x\), \(x\) is even or odd."
+            \item The negation is \((\exists x \in \mathbb{Z})(x \text{ is not even and } x \text{ is not odd})\)
+            \item In English, the negation says, "There exists an integer \(x\), such that \(x\) is not even and not odd."
+        \end{itemize}
+
+        %% Part E
+        \item [(e)] \((\forall x \in \mathbb{Z})(\text{If } x^2 \text{ is odd, then } x \text{ is odd})\)
+        
+        \solution
+        \begin{itemize}
+            \item In English, this statement says, "For all integers \(x\), if \(x^2\) is odd, then \(x\) is odd."
+            \item The negation is \((\exists x \in \mathbb{Z})(x^2 \text{ is odd and } x \text{ is even})\).
+            \item In English, the negation says, "There exists an integer \(x\), such that \(x^2\) is odd and \(x\) is even."
+        \end{itemize}
+    \end{enumerate}
+
+%% Problem 2.4.4 (e)
+\setcounter{enumi}{3}
+\item 
+    \begin{enumerate}[label=(e)]
+        \item \((\exists n \in \mathbb{Z})(\forall m \in \mathbb{Z})(m^2 > n)\)
+        
+        \solution
+        \begin{itemize}
+            \item \((\forall n \in \mathbb{Z})(\exists m \in \mathbb{Z})(m^2 \leq n)\)
+            \item For all integers \(n\), there exists an integer \(m\), such that \(m^2 \leq n\).
+        \end{itemize}
+    \end{enumerate}
+
+\newpage
+
+%% Problem 2.4.11
+\setcounter{enumi}{10}
+\item 
+    \begin{enumerate}[label=(\alph*)]
+        %% Part A
+        \item A function \(f\) is continuous at the real number \(a\) provided that ...
+        
+        \solution
+        \begin{itemize}
+            \item \((\forall \epsilon > 0)(\exists \delta > 0)(\text{If } |x - a| < \delta, \text{ then } |f(x) - f(a)| < \epsilon)\)
+
+        \end{itemize}
+        
+        %% Part C
+        \item A function \(f\) is not continuous at the real number \(a\) provided that ...
+        
+        \solution
+        \begin{itemize}
+            \item \((\exists \epsilon > 0)(\forall \delta > 0)(|x - a| < \delta \text{ and } |f(x) - f(a)| \geq \epsilon)\)
+        \end{itemize}
+        
+        %% Part E
+        \item In English, A function \(f\) is not continuous at the real number \(a\) provided that . . .
+
+        
+        \solution
+        \begin{itemize}
+            \item There exists an \(\epsilon > 0\), for all \(\delta > 0\), such that \(|x - a| < \delta\) and \(|f(x) - f(a)| \geq \epsilon\).
+
+        \end{itemize}
+    \end{enumerate}
+    
+\end{enumerate}
+
+%-------------------------------------------------------------------
+%Do not delete \end{document}
+
+\end{document}

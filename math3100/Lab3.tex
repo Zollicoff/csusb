@@ -1,0 +1,85 @@
+% Beginning of preamble 
+% Specify the type of document you want (usually article) and the font size
+\documentclass[12pt]{article}  
+
+% Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+
+% Some other packages that I find useful
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+% allow for urls and hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
+
+% Set the margins other page formatting
+\usepackage{geometry}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{enumitem}
+\usepackage{setspace} 
+\setlength\parindent{0pt}
+\linespread{1.2}
+%\pagestyle{empty}  %This style will suppress page numbering
+
+% Define a few theorem-type environments
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{problem}{Problem}
+\newtheorem*{conjecture}{Conjecture}
+
+\theoremstyle{definition} 
+\newtheorem*{definition}{Definition}
+\newtheorem*{answer}{Answer}
+\newtheorem*{example}{Example}
+
+% Make the font Helvetica (Best font ever)
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Some notation shortcut commands
+\newcommand{\R}{\mathbb{R}} %the reals
+\newcommand{\Q}{\mathbb{Q}} %the rationals
+\newcommand{\N}{\mathbb{N}} %the natural numbers
+\newcommand{\Z}{\mathbb{Z}} %the integers
+\newcommand{\eps}{\varepsilon} %a cooler epsilon
+\newcommand{\solution}{\textcolor{PineGreen}{Solution:\newline}}
+
+%%%%% End of preamble %%%%%
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+Math 3100 \hfill Zachary A. Hampton
+
+\LaTeX~Assignment 3 \hfill 
+\text 09-23-2024
+
+\bigskip
+
+\begin{theorem}
+    $(P \lor Q) \rightarrow R \equiv (P \rightarrow R) \land (Q \rightarrow R)$
+\end{theorem}
+    
+\solution 
+\begin{proof}
+    Let $P, Q$, and $R$ be statements. We begin with the left side and work towards the right side:
+    \begin{align*}
+        (P \lor Q) \rightarrow R &\equiv \neg (P \lor Q) \lor R  && \text{[Conditional as Disjunction]} \\
+        &\equiv (\neg P \land \neg Q) \lor R  && \text{[De Morgan's Law]} \\
+        &\equiv (\neg P \lor R) \land (\neg Q \lor R)  && \text{[Distribution]} \\
+        &\equiv (P \rightarrow R) \land (Q \rightarrow R)  && \text{[Conditional as Disjunction]}            
+    \end{align*}
+    Therefore, $(P \lor Q) \rightarrow R \equiv (P \rightarrow R) \land (Q \rightarrow R)$.
+\end{proof}
+
+\textbf{Reflection:}
+    \begin{itemize}
+        \item I worked from the left side and found the right.
+        \item Remembering the problem we did in-class, the left side jumped out instantly at me.
+        \item I did not get stuck, it just takes some time.
+        \item I did not use Dr. Johnson's solution or help from any other source other than The Summary of Useful Logical Equivalences and my notes; I did however use ChatGPT to help clean up my Latex code.
+    \end{itemize}
+
+\end{document}

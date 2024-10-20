@@ -1,0 +1,163 @@
+% Beginning of preamble 
+% Specify the type of document you want (usually article) and the font size
+\documentclass[12pt]{article}  
+
+% Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+
+% My additional packages
+\usepackage{listings}
+\usepackage{xcolor}  % For custom colors
+\lstset{
+  language=Python,                  % Programming language
+  basicstyle=\ttfamily\footnotesize, % Code font style and size
+  keywordstyle=\color{blue},         % Keyword color
+  commentstyle=\color{green},        % Comment color
+  stringstyle=\color{red},           % String color
+  numbers=left,                      % Line numbers on the left
+  numberstyle=\tiny\color{gray},     % Line number style
+  stepnumber=1,                      % Line number step
+  showstringspaces=false,            % Don't show spaces in strings
+  frame=single,                      % Frame around code
+  breaklines=true,                   % Line breaking
+  tabsize=4                          % Tab size
+}
+
+% Some other packages that I find useful
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+% allow for urls and hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
+
+% Set the margins other page formatting
+\usepackage{geometry}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{enumitem}
+\usepackage{setspace} 
+\setlength\parindent{0pt}
+\linespread{1.2}
+%\pagestyle{empty}  %This style will suppress page numbering
+
+% Define a few theorem-type environments
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{problem}{Problem}
+\newtheorem*{conjecture}{Conjecture}
+
+\theoremstyle{definition} 
+\newtheorem*{definition}{Definition}
+\newtheorem*{answer}{Answer}
+\newtheorem*{example}{Example}
+
+% Make the font Sans Serif
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Some notation shortcut commands
+\newcommand{\R}{\mathbb{R}} %the reals
+\newcommand{\Q}{\mathbb{Q}} %the rationals
+\newcommand{\N}{\mathbb{N}} %the natural numbers
+\newcommand{\Z}{\mathbb{Z}} %the integers
+\newcommand{\eps}{\varepsilon} %a cooler epsilon
+\newcommand{\solution}{\textcolor{Red}{Solution:\newline}}
+
+%%%%% End of preamble %%%%%
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+Math 3100 \hfill Zachary A. Hampton
+
+\LaTeX~Lab Assignment 1 \hfill 
+\text 09-09-2024
+
+\bigskip
+
+\begin{enumerate}
+    \item Which of the following sentences are statements? (Complete each justification.)
+    
+    \begin{enumerate}
+        \item $(a+b)^2=a^2 + b^2$
+    
+        
+       \solution This sentence is a not a statement because $a$ and $b$ are ambiguous; there is not enough information.
+        
+        \item There exists a real number $x$ such that $x^2 + 1 = 0$.
+        
+       \solution This sentence is a statement because $x$ is not ambiguous, the statement can be true or false. In this case, the statement is false because any number squared is positive, and adding 1 to any positive number will never add up to 0.
+       
+    \end{enumerate}
+    
+    \item Identify the hypothesis and the conclusion of the conditional statement:
+    
+   \textit{If the numbers $m$ and $n$ are odd integers, then the product $mn$ is an odd integer.}
+    
+   \solution
+    The hypothesis is: "$m$ and $n$ are odd integers"
+    
+    The conclusion is: "the product $m$$n$ is an odd integer"
+    
+    \item \textbf{Problem 1.1.1(k)} Complete the exploration for the following conjecture:
+ 
+    \begin{conjecture}
+    Every even natural number greater than or equal to 4 is the sum of two prime numbers.
+    \end{conjecture}
+
+        \begin{enumerate}[label=(\alph*)]
+            \item The sentence above is a statement because...
+
+            \solution It's a declarative statement that can be true or false.
+            
+            \item Let's explore to make a conjecture about the truth value of the statement. We will see if we can write the first few even integers as a sum of two primes. Continue the list for the even integers up to 20. (Note: the first few lines demonstrate three different ways to display equations. You should practice using each method)
+
+            \solution
+            $$4 = 2 + 2$$
+            $$6 = 3 + 3$$
+            $$8 = 3 + 5$$
+            $$10 = 3 + 7$$
+            $$12 = 5 + 7$$
+            $$14 = 3 + 11$$
+            $$16 = 11 + 5$$
+            $$18 = 7 + 11$$
+            $$20 = 7 + 13$$
+                        
+            \item Choose your own even integer greater than 60 and try to write it as the sum of two primes.
+            
+            \solution
+            $$67 + 3 = 70$$
+            $$7 + 8,999,993 = 9,000,000$$
+
+            \begin{lstlisting}
+            # I couldn't help myself and wrote a basic Python program to calculate 9,000,000 systematically. This green is super hideous though.
+            from sympy import isprime
+
+            target_sum = 9000000
+
+            for p1 in range(2, target_sum):
+            if isprime(p1):
+                p2 = target_sum - p1
+                if isprime(p2):
+                    print(f"The two primes that add up to {target_sum} are {p1} and {p2}.")
+                    break
+
+            \end{lstlisting}
+            
+            \item Based on your explorations, do you think the conjecture above is true or false?
+            
+            \solution Based on my explorations, I believe the conjecture is true.
+            
+            \item This conjecture has a name. Use the internet to find it's name and learn a little about the conjecture. Write at least two sentences about what you learned and create a footnote to cite your source.
+            
+            \solution
+
+            The conjecture is called Goldbach's Conjecture, and it is one of the oldest and best known problems in all of mathematics. While it has been shown to hold true for really big numbers (up to $4 \times 10^{18}$), it still remains unproven to this day.\footnote{\url{https://en.wikipedia.org/wiki/Goldbach's_conjecture}}.
+            
+        \end{enumerate}
+        
+\end{enumerate}
+%-----------------------------------------------
+
+ \end{document}

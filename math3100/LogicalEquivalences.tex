@@ -1,0 +1,89 @@
+% Beginning of preamble 
+% Specify the type of document you want (usually article) and the font size
+\documentclass[12pt]{article}  
+
+% Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+
+% Some other packages that I find useful
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+% allow for urls and hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
+
+% Set the margins other page formatting
+\usepackage{geometry}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{enumitem}
+\usepackage{setspace} 
+\setlength\parindent{0pt}
+\linespread{1.2}
+
+% Make the font Helvetica (Best font ever)
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Some notation shortcut commands
+\newcommand{\R}{\mathbb{R}} %the reals
+\newcommand{\Q}{\mathbb{Q}} %the rationals
+\newcommand{\N}{\mathbb{N}} %the natural numbers
+\newcommand{\Z}{\mathbb{Z}} %the integers
+\newcommand{\eps}{\varepsilon} %a cooler epsilon
+
+%%%%% End of preamble %%%%%
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+Math 3100 \hfill Zachary A. Hampton
+
+\LaTeX~ \hfill 
+09-30-2024
+
+\bigskip
+
+\begin{center}
+    \textbf{Important Logical Equivalences}
+\end{center}
+
+\[
+\begin{array}{rrcl}
+\text{DeMorgan's Laws:} & \neg(P \land Q) & \equiv & \neg P \lor \neg Q \\
+                         & \neg(P \lor Q) & \equiv & \neg P \land \neg Q \\[10pt]
+
+\text{Converse:} & P \implies Q & \text{is} & Q \implies P \\[10pt]
+                         
+\text{Contrapositive:} & P \implies Q & \equiv & \neg Q \implies \neg P \\[10pt]
+
+\text{Inverse:} & P \implies Q & \equiv & \neg P \implies \neg Q \\[10pt]
+
+\text{Conditional as a Disjunction:} & P \implies Q & \equiv & \neg P \lor Q \\[10pt]
+
+\text{Negation of a Conditional:} & \neg(P \implies Q) & \equiv & P \land \neg Q \\[10pt]
+
+\text{Biconditional Statement:} & P \iff Q & \equiv & (P \implies Q) \land (Q \implies P) \\[10pt]
+
+\text{Double Negation:} & \neg(\neg P) & \equiv & P \\[10pt]
+
+\text{Idempotent:} & P \lor P & \equiv & P \\ 
+                   & P \land P & \equiv & P \\[10pt]
+
+\text{Commutativity:} & P \land Q & \equiv & Q \land P \\ 
+                      & P \lor Q & \equiv & Q \lor P \\[10pt]
+
+\text{Associativity:} & (P \land Q) \land R & \equiv & P \land (Q \land R) \\
+                      & (P \lor Q) \lor R & \equiv & P \lor (Q \lor R) \\[10pt]
+
+\text{Distribution:} & P \land (Q \lor R) & \equiv & (P \land Q) \lor (P \land R) \\
+                     & P \lor (Q \land R) & \equiv & (P \lor Q) \land (P \lor R) \\[10pt]
+
+\text{Conditional with a Disjunction:} & P \implies (Q \lor R) & \equiv & (P \land \neg Q) \implies R \\
+                                       & (P \lor Q) \implies R & \equiv & (P \implies R) \land (Q \implies R)
+\end{array}
+\]
+
+\end{document}
