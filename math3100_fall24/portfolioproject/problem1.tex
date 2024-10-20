@@ -1,0 +1,127 @@
+%  DO NOT touch any of the code that appears in the preamble (i.e before \begin{document}). Removing packages could break things you're trying to do. Adding packages usually isn't a big deal, but some packages don't play well with each other. Keep that in mind.
+%--------------------------------------------------------------------------
+
+% Beginning of preamble 
+% Specify the type of document you want (usually article) and the font size
+\documentclass[12pt]{article}  
+
+% Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+
+% Some other packages that I find useful
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{lineno}
+
+% allow for urls and hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
+
+% Set the margins other page formatting
+\usepackage{geometry}
+    \geometry{left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{enumitem}
+\usepackage{setspace} 
+\setlength\parindent{0pt}
+\linespread{1.2}
+\linenumbers
+
+% Define a few theorem-type environments
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{problem}{Problem}
+
+\theoremstyle{definition} 
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+
+
+% Make the font Sans Serif
+\renewcommand{\familydefault}{\sfdefault}
+
+% Some notation shortcut commands
+\newcommand{\R}{\mathbb{R}} %the reals
+\newcommand{\Q}{\mathbb{Q}} %the rationals
+\newcommand{\N}{\mathbb{N}} %the natural numbers
+\newcommand{\Z}{\mathbb{Z}} %the integers
+\newcommand{\eps}{\varepsilon} %a cooler epsilon
+
+
+
+%%%%% End of preamble %%%%%
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+%%%%% Begin body  %%%%%
+\section{Portfolio Problem 1}
+
+\subsection{Examples and Definitions}
+\textcolor{Red}{Include your examples/exploratory work and any relevant definitions the reader may need. Your examples must be typed formally using complete sentences. Delete these directions and the textcolor command before submitting your work.}
+
+
+
+
+
+\subsection{Know-Show Table}
+%%%%% Include your know-show table below. You will need to add more rows for your particular problem. %%%%%
+\begin{center}
+    \begin{tabular}{|p{.1\textwidth}|p{.5\textwidth}|p{.3\textwidth}|}
+    \hline
+    \textbf{Step} & \textbf{Know} & \textbf{Reason} \\
+    \hline
+         &  & \\
+    \hline
+         &  & \\
+    \hline
+         &  & \\
+    \hline
+     \textbf{Step} & \textbf{Show} & \textbf{Reason} \\
+    \hline
+    \end{tabular}
+\end{center}
+
+%%%%% Include a second know-show table if your problem contains two propositions %%%%%
+
+
+
+
+%%%%% Include your first attempt at a formal proof. %%%%%
+\subsection{First Draft}
+
+
+\begin{theorem}
+Theorem statement goes here.
+\end{theorem}
+
+
+
+\begin{proof}
+Proof of theorem goes here. 
+\end{proof}
+
+%%%%% Include another theorem and proof environment below if your problem contains two propositions %%%%%
+
+
+
+
+%%%%% Bibliography %%%%%
+\vspace{1em}
+\begin{thebibliography}{9}
+\bibitem{Sund21} Sundstrom, T., \emph{Mathematical Reasoning: Writing and Proof}, Version 3,  Creative Commons, 2020.
+
+
+\bibitem{Whatever21} Include any other references: images from the internet,
+definition or theorem from a book other than our class text, etc. Change the name in curly brackets to an appropriate reference name. If you have no other references, delete this item.
+\end{thebibliography}
+
+
+%%%%% End body - do not edit after this line %%%%%
+%%%%% Do not delete \end{document} %%%%%
+
+ \end{document}
+
