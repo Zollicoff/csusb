@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  20 OCT 2024 16:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  20 OCT 2024 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -411,15 +411,8 @@ File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
  ***********
-
-
-Package rerunfilecheck Warning: File `problem1.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `problem1.out':
-(rerunfilecheck)             Before: CDBE4A9676E152C89B88AB5CF56FA3BA;652
-(rerunfilecheck)             After:  2A6473AD8E5F0087F7684E1375DA1096;652.
+Package rerunfilecheck Info: File `problem1.out' has not changed.
+(rerunfilecheck)             Checksum: 2A6473AD8E5F0087F7684E1375DA1096;652.
  ) 
 Here is how much of TeX's memory you used:
  11504 strings out of 473579
