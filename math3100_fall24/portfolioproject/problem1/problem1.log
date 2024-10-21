@@ -417,10 +417,10 @@ Package rerunfilecheck Info: File `problem1.out' has not changed.
 (rerunfilecheck)             Checksum: 2A6473AD8E5F0087F7684E1375DA1096;652.
  ) 
 Here is how much of TeX's memory you used:
- 11508 strings out of 473579
- 175158 string characters out of 5732256
- 609905 words of memory out of 5000000
- 34248 multiletter control sequences out of 15000+600000
+ 11507 strings out of 473579
+ 175146 string characters out of 5732256
+ 609873 words of memory out of 5000000
+ 34247 multiletter control sequences out of 15000+600000
  568417 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,12n,80p,620b,536s stack positions out of 10000i,1000n,20000p,200000b,200000s
