@@ -1,9 +1,6 @@
-%  DO NOT touch any of the code that appears in the preamble (i.e before \begin{document}). Removing packages could break things you're trying to do. Adding packages usually isn't a big deal, but some packages don't play well with each other. Keep that in mind.
-%--------------------------------------------------------------------------
-
-% Beginning of preamble 
+% Beginning of preamble
 % Specify the type of document you want (usually article) and the font size
-\documentclass[12pt]{article}  
+\documentclass[12pt]{article}
 
 % Packages to load which give you useful commands
 \usepackage{amssymb, amsmath, amsthm, amsfonts}
@@ -23,7 +20,7 @@
 \usepackage{geometry}
 \geometry{left=1in, right=1in, top=1in, bottom=1in}
 \usepackage{enumitem}
-\usepackage{setspace} 
+\usepackage{setspace}
 \setlength\parindent{0pt}
 \linespread{1.2}
 \linenumbers
@@ -34,7 +31,7 @@
 \newtheorem*{cor}{Corollary}
 \newtheorem*{lemma}{Lemma}
 \newtheorem*{problem}{Problem}
-\theoremstyle{definition} 
+\theoremstyle{definition}
 \newtheorem*{definition}{Definition}
 \newtheorem*{example}{Example}
 
@@ -48,12 +45,11 @@
 \newcommand{\Z}{\mathbb{Z}} %the integers
 \newcommand{\eps}{\varepsilon} %a cooler epsilon
 
-%%%%% End of preamble %%%%%
+% End of preamble
 %--------------------------------------------------------------------------
 
 \begin{document}
 
-%%%%% Begin body  %%%%%
 \section{Portfolio Problem 1 - Divisibility by 4}
 
 \subsection{Examples and Definitions}
@@ -63,6 +59,8 @@
 \begin{prop}
     For each integer \( n \), \( n \) is even if and only if 4 divides \( n^2 \).
 \end{prop}
+
+% Exploratory work
 
 \textbf{Exploratory work/Examples:}
 \begin{itemize}
@@ -83,8 +81,10 @@
     \end{itemize}
 \end{itemize}
 
+% Know-SHow table for Forward Direction
+
 \subsection[]{Know-Show Table: If \( n \) is even, then \( 4 \mid n^2 \) (Forward)}
-%%%%% This table handles the forward direction: If \( n \) is even, then \( 4 \mid n^2 \). %%%%%
+
 \begin{center}
     \begin{tabular}{|p{.1\textwidth}|p{.5\textwidth}|p{.3\textwidth}|}
     \hline
@@ -109,8 +109,10 @@
     \end{tabular}
 \end{center}
 
+% Know-Show table for Reverse Direction
+
 \subsection[]{Know-Show Table: If \( 4 \mid n^2 \), then \( n \) is even (Reverse)}
-%%%%% This table handles the reverse direction: If \( 4 \mid n^2 \), then \( n \) is even. %%%%%
+
 \begin{center}
     \begin{tabular}{|p{.1\textwidth}|p{.55\textwidth}|p{.25\textwidth}|}
     \hline
@@ -143,43 +145,43 @@
     \end{tabular}
 \end{center}
 
-
-%%%%% Include a second know-show table if your problem contains two propositions %%%%%
-
-
-%%%%% Include your first attempt at a formal proof. %%%%%
 \subsection{First Draft}
 
+%T Theorem
 
 \begin{theorem}
     For each integer \( n \), \( n \) is even if and only if 4 divides \( n^2 \).
 \end{theorem}
 
-
-
+% Proof
 
 \begin{proof}
-Proofy McProoferson goes here. 
+    In order to prove this biconditional statement, we must prove the if/then statement in both the forward and reverse directions.
+
+    \vspace{1em}
+
+    For the forward direction, we assume \( n \) is even, and we will prove that \( 4 \mid n^2 \). By the definition of even, there exists an integer \( k \) such that \( n = 2k \). Substituting for \( n \) into \( n^2 \), we get:
+    \[ n^2 = (2k)^2 = 4k^2 \]
+    Then, we factor:
+    \[ 4k^2 = 2(2k^2) \]
+    We find that \( 2k^2 \) is an integer due to closure under multiplication. Now, we can write \( n^2 = 2q \), where \( q = 2k^2 \) is an integer, which shows that \( n^2 \) is divisible by 4. Therefore, we have proven that if \( n \) is even, then \( 4 \mid n^2 \).
+
+    \vspace{1em}
+
+    For the reverse direction, we assume \( 4 \mid n^2 \), and we will prove that \( n \) is even. By the definition of divides, there exists an integer \( m \) such that \( n^2 = 4m \). Because of the relationship with congruence, this can be restated as:
+    \[ n^2 \equiv 0 \pmod{4} \]
+    Due to integers not being closed under roots, we assume for contradiction that \( n \) is odd. By the definition of odd, \( n = 2k + 1 \) for some \( k \in \mathbb{Z} \). Substituting for \( n \) into \( n^2 \), we get:
+    \[ n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 \]
+    Then, we factor:
+    \[ 4k^2 + 4k + 1 = 4(k^2 + k) + 1 \]
+    So, \( n^2 = 4(k^2 + k) + 1 \), which implies that, \( n^2 \equiv 1 \pmod{4} \). However, we assumed that \( 4 \mid n^2 \), which implies \( n^2 \equiv 0 \pmod{4} \). Therefore, our assumption that \( n \) is odd must be false, and it follows that \( n \) is even.
 \end{proof}
 
-%%%%% Include another theorem and proof environment below if your problem contains two propositions %%%%%
-
-
-
-
-%%%%% Bibliography %%%%%
+% Bibliography
 \vspace{1em}
 \begin{thebibliography}{9}
 \bibitem{Sund21} Sundstrom, T., \emph{Mathematical Reasoning: Writing and Proof}, Version 3,  Creative Commons, 2020.
 
-
-\bibitem{Whatever21} Include any other references: images from the internet,
-definition or theorem from a book other than our class text, etc. Change the name in curly brackets to an appropriate reference name. If you have no other references, delete this item.
 \end{thebibliography}
 
-
-%%%%% End body - do not edit after this line %%%%%
-%%%%% Do not delete \end{document} %%%%%
-
  \end{document}
-
