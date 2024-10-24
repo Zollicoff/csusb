@@ -14,17 +14,13 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Read the CSV file
-movie = pd.read_csv('movie2.csv', na_values=['NULL'])
+movie = pd.read_csv('movie1.csv')
 
 # Display the DataFrame to check column names
 print(movie.columns)
 
-pd.set_option('display.notebook_repr_html', False)
-
-def create_connection():
-    return sqlite3.connect(':memory:')
-
-conn = create_connection()
+# Create an in-memory SQLite database
+conn = sqlite3.connect(':memory:')
 
 # Write the DataFrame to the SQLite database
 movie.to_sql('movie', conn, if_exists='replace', index=False)
@@ -38,7 +34,7 @@ ORDER BY RatingCode DESC
 """
 
 # Execute the query and read the results into a DataFrame
-movie = pd.read_sql_query(movie_query, conn)
+result = pd.read_sql_query(movie_query, conn)
 
 # Print the result
-print(movie)
+print(result)
