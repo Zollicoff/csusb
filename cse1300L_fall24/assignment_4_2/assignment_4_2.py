@@ -14,7 +14,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Read the CSV file
-movie = pd.read_csv('movie1.csv')
+movie = pd.read_csv('movie2.csv')
 
 # Display the DataFrame to check column names
 print(movie.columns)
