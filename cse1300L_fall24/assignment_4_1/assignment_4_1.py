@@ -13,7 +13,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Read the corrected CSV file
-horse = pd.read_csv('horse1.csv')
+horse = pd.read_csv('horse2.csv')
 
 # Display the DataFrame to check column names
 print(horse.columns)
