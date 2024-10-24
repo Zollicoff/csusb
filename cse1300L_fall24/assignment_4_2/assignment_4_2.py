@@ -27,10 +27,10 @@ movie.to_sql('movie', conn, if_exists='replace', index=False)
 
 # Define the SQL query
 movie_query = """
-SELECT DISTINCT Rating 
+SELECT DISTINCT RatingCode 
 FROM movie 
 WHERE Year = 2020 
-ORDER BY Rating DESC
+ORDER BY RatingCode DESC
 """
 
 # Execute the query and read the results into a DataFrame
