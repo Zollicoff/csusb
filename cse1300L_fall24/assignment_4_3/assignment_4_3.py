@@ -9,9 +9,13 @@
 import pandas as pd
 import sqlite3 # sql package
 import warnings
+
 warnings.filterwarnings("ignore")
+
 # read csvfile movie1.csv
 movie = pd.read_csv('movie1.csv')
+
+# Display the DataFrame to check column names
 pd.set_option('display.notebook_repr_html', False)
 def create_connection():
     return sqlite3.connect(':memory:')
