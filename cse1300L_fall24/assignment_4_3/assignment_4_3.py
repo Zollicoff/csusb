@@ -13,7 +13,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # read csvfile movie1.csv
-movie = pd.read_csv('movie1.csv')
+movie = pd.read_csv('movie2.csv')
 
 # Display the DataFrame to check column names
 pd.set_option('display.notebook_repr_html', False)
