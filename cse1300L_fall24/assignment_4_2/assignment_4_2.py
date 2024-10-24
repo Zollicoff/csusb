@@ -8,33 +8,25 @@
 # Hint: Use the WHERE and DISTINCT clause.
 
 import pandas as pd
-import sqlite3
+import sqlite3 # sql package
 import warnings
 
 warnings.filterwarnings("ignore")
+# read csvfile movie1.csv
 
-# Read the CSV file
 movie = pd.read_csv('movie1.csv')
-
-# Display the DataFrame to check column names
-print(movie.columns)
-
-# Create an in-memory SQLite database
-conn = sqlite3.connect(':memory:')
-
-# Write the DataFrame to the SQLite database
+pd.set_option('display.notebook_repr_html', False)
+def create_connection():
+    return sqlite3.connect(':memory:')
+conn = create_connection()
+# take data stored in Pandas DataFrame (df) and writes it into a SQL database table
 movie.to_sql('movie', conn, if_exists='replace', index=False)
-
-# Define the SQL query
 movie_query = """
-SELECT DISTINCT RatingCode 
-FROM movie 
-WHERE Year = 2020 
+SELECT DISTINCT RatingCode
+FROM movie
+WHERE Year = 2020
 ORDER BY RatingCode DESC
 """
 
-# Execute the query and read the results into a DataFrame
-result = pd.read_sql_query(movie_query, conn)
-
-# Print the result
-print(result)
+movie = pd.read_sql_query(movie_query, conn)
+print(movie)
