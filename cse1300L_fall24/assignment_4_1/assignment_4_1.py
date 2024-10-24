@@ -19,6 +19,6 @@ def create_connection():
 conn = create_connection()
 # take data stored in Pandas DataFrame (df) and writes it into a SQL database table
 horse.to_sql('horse', conn, if_exists='replace', index=False)
-horse_query =  "SELECT * FROM horses"
+horse_query = "SELECT RegisteredName, Height FROM horse WHERE Height BETWEEN 15.0 AND 16.0"
 horse = pd.read_sql_query(horse_query, conn)
 print(horse)
