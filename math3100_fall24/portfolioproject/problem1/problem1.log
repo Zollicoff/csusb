@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  21 OCT 2024 13:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  23 OCT 2024 17:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/hampt/OneDrive/Development/GitHub/csusb-1/math3100_fall24/portfolioproject/problem1/problem1
-(c:/Users/hampt/OneDrive/Development/GitHub/csusb-1/math3100_fall24/portfolioproject/problem1/problem1.tex
+**i:/OneDrive/Development/GitHub/csusb/math3100_fall24/portfolioproject/problem1/problem1
+(i:/OneDrive/Development/GitHub/csusb/math3100_fall24/portfolioproject/problem1/problem1.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
 (c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -413,24 +413,17 @@ File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
  ***********
-
-
-Package rerunfilecheck Warning: File `problem1.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `problem1.out':
-(rerunfilecheck)             Before: A08449FF6AA6E05634B7910CF282A267;657
-(rerunfilecheck)             After:  2A6473AD8E5F0087F7684E1375DA1096;652.
+Package rerunfilecheck Info: File `problem1.out' has not changed.
+(rerunfilecheck)             Checksum: 2A6473AD8E5F0087F7684E1375DA1096;652.
  ) 
 Here is how much of TeX's memory you used:
  11507 strings out of 473579
- 175188 string characters out of 5732256
+ 175146 string characters out of 5732256
  609873 words of memory out of 5000000
  34247 multiletter control sequences out of 15000+600000
  568417 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,12n,80p,634b,536s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,12n,80p,620b,536s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb>
 Output written on problem1.pdf (3 pages, 111436 bytes).
 PDF statistics:
