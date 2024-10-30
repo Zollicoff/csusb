@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  23 OCT 2024 20:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  28 OCT 2024 21:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -408,27 +408,38 @@ File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 
 [2]
 
-[3] (./problem1.aux)
+[3]
+
+[4]
+
+[5] (./problem1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
  ***********
-Package rerunfilecheck Info: File `problem1.out' has not changed.
-(rerunfilecheck)             Checksum: 2A6473AD8E5F0087F7684E1375DA1096;652.
+
+
+Package rerunfilecheck Warning: File `problem1.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `problem1.out':
+(rerunfilecheck)             Before: 2A6473AD8E5F0087F7684E1375DA1096;652
+(rerunfilecheck)             After:  84FCE8026F5E887CF901E7947EB39E7F;879.
  ) 
 Here is how much of TeX's memory you used:
- 11507 strings out of 473579
- 175146 string characters out of 5732256
- 609873 words of memory out of 5000000
- 34247 multiletter control sequences out of 15000+600000
+ 11513 strings out of 473579
+ 175242 string characters out of 5732256
+ 597873 words of memory out of 5000000
+ 34249 multiletter control sequences out of 15000+600000
  568417 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,12n,80p,620b,536s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,12n,80p,620b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb>
-Output written on problem1.pdf (3 pages, 111436 bytes).
+Output written on problem1.pdf (5 pages, 115225 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
+ 113 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

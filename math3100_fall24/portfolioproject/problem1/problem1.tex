@@ -83,6 +83,8 @@
 
 % Know-SHow table for Forward Direction
 
+\newpage
+
 \subsection[]{Know-Show Table: If \( n \) is even, then \( 4 \mid n^2 \) (Forward)}
 
 \begin{center}
@@ -145,6 +147,8 @@
     \end{tabular}
 \end{center}
 
+\newpage
+
 \subsection{First Draft}
 
 %T Theorem
@@ -177,6 +181,57 @@
     So, \( n^2 = 4(k^2 + k) + 1 \), which implies that, \( n^2 \equiv 1 \pmod{4} \). However, we assumed that \( 4 \mid n^2 \), which implies \( n^2 \equiv 0 \pmod{4} \). Therefore, our assumption that \( n \) is odd must be false, and it follows that \( n \) is even.
 \end{proof}
 
+\newpage
+
+\subsection{Second Draft}
+
+\begin{theorem}
+    For each integer \( n \), \( n \) is even if and only if 4 divides \( n^2 \).
+\end{theorem}
+
+\begin{proof}
+    Let \( n \) be an integer. To prove the biconditional statement, "\( n \) is even if and only if 4 divides \( n^2 \)", we must prove the if/then statement in both the forward and reverse directions.
+
+    \vspace{1em}
+
+    For the forward direction, we assume \( n \) is even, and we will prove that \( 4 \mid n^2 \). By the definition of even, there exists an integer \( k \) such that \( n = 2k \). Substituting for \( n \) into \( n^2 \), we get:
+    \begin{align*}
+        n^2 &= (2k)^2 \\
+             &= 4k^2 \\
+             &= 2(2k^2)
+    \end{align*}
+
+    We find that \( 2k^2 \) is an integer due to closure under multiplication. Now, we can write \( n^2 = 2q \), where \( q = 2k^2 \) is an integer, which shows that \( n^2 \) is divisible by 4. Therefore, we have proven that if \( n \) is even, then \( 4 \mid n^2 \).
+
+    \vspace{1em}
+
+    For the reverse direction, we assume \( 4 \mid n^2 \), and we will prove that \( n \) is even. By the definition of divides, there exists an integer \( m \) such that \( n^2 = 4m \). Because of the relationship with congruence, this can be restated as:
+    \[ n^2 \equiv 0 \pmod{4} \]
+    Due to integers not being closed under roots, we assume for contradiction that \( n \) is odd. By the definition of odd, \( n = 2k + 1 \) for some \( k \in \mathbb{Z} \). Substituting for \( n \) into \( n^2 \), we get:
+    \begin{align*}
+        n^2 &= (2k + 1)^2 \\
+             &= 4k^2 + 4k + 1 \\
+             &= 4(k^2 + k) + 1
+    \end{align*}
+    So, \( n^2 = 4(k^2 + k) + 1 \), which implies that, \( n^2 \equiv 1 \pmod{4} \). However, we assumed that \( n^2 \equiv 0 \pmod{4} \). Thus, our assumption that \( n \) is odd must be false, and it follows that \( n \) is even.
+
+    \vspace{1em}
+    
+    Therefore, we have proven that \( 4 \mid n^2 \) if and only if \( n \) is even.
+\end{proof}
+ 
+\newpage
+
+\subsection{Reflection}
+
+    \begin{itemize}
+        \item My first draft doesn't declare n as an integer, so I added a sentence at the beginning of the first paragraph. 
+        \item I decided to state what we're proving more clearly by referencing the theorem.
+        \item Also, it was pointed out that I was restating something on lines 35 and 36, which I trimmed down.
+        \item I stacked the math and aligned by the equation symbol. And I also restated the conclusion a little more clearly.\
+        \item All-in-all, I think the proof is nearly dialed in, I'm excited for Dr. Johnson's critique.
+    \end{itemize}
+
 % Bibliography
 \vspace{1em}
 \begin{thebibliography}{9}
@@ -184,4 +239,4 @@
 
 \end{thebibliography}
 
- \end{document}
+\end{document}
