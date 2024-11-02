@@ -13,4 +13,5 @@ healthy = pd.read_csv('healthy_example.csv')
 # Remove instances with duplicate values of annual_hours_worked 
 healthyClean = healthy.drop_duplicates(subset='annual_hours_worked')
 
+# Display the cleaned dataset information
 healthyClean.info()
