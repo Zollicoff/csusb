@@ -8,11 +8,12 @@ import pandas as pd
 # Load the dataset
 healthy = pd.read_csv('healthy_example.csv')
 
-# Calculate the mean values of the features, to use in the next part
-healthyMean = healthy.mean()
-print('Mean:', healthyMean['sunshine_hours'], '\n')
+# Calculate the mean value of sunshine_hours
+mean_sunshine_hours = healthy['sunshine_hours'].mean()
+print('Mean:', mean_sunshine_hours, '\n')
 
-# Replace missing values of sunshine_hours in place with the mean of sunshine_hours
-healthy['sunshine_hours'].fillna(healthyMean['sunshine_hours'], inplace=True)
+# Replace missing values of sunshine_hours with the mean value
+healthy['sunshine_hours'] = healthy['sunshine_hours'].fillna(mean_sunshine_hours)
 
+# Display the final result
 print(healthy['sunshine_hours'])
