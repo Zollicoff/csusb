@@ -69,7 +69,7 @@ Consider the following proposition: If \( n \) is an integer, then \( 3 \mid (n^
     \[
     n^3 - n = (3k + 2)^3 - (3k + 2).
     \]
-    Expanding \( (3k + 2)^3 \):
+    Expanding \( (3k + 2)^3 \): 
     \[
     (3k + 2)^3 = 27k^3 + 54k^2 + 36k + 8,
     \]
@@ -225,21 +225,31 @@ Note: For \( x, y \in \mathbb{R} \), the function \( \max(x, y) \) is defined to
 
 \item Write a formal proof of the proposition using a proof by cases.
 
-\textbf{Proof:} Let \( x, y \in \mathbb{R} \). We consider two cases.
+\textbf{Proof:} Let \( x, y \in \mathbb{R} \). We will prove the proposition by considering two cases based on the relationship between \( x \) and \( y \).
+
 
 \textbf{Case 1:} Assume \( x \geq y \). Then \( |x - y| = x - y \), so we calculate:
 \[
-\frac{|x - y| + x + y}{2} = \frac{(x - y) + x + y}{2} = \frac{2x}{2} = x.
+\begin{aligned}
+    \frac{|x - y| + x + y}{2} &= \frac{(x - y) + x + y}{2} \\
+    &= \frac{2x}{2} \\
+    &= x.
+\end{aligned}
 \]
-Since \( x \geq y \), it follows that \( \max(x, y) = x \). Thus, the expression \( \frac{|x - y| + x + y}{2} \) is equal to \( \max(x, y) \) in this case.
+Since \( x \geq y \), it follows that \( \max(x, y) = x \). Thus, the expression \( \frac{|x - y| + x + y}{2} \) is equal to \( \max(x, y) \) for this case.
 
 \textbf{Case 2:} Assume \( x < y \). Then \( |x - y| = y - x \), so we calculate:
 \[
-\frac{|x - y| + x + y}{2} = \frac{(y - x) + x + y}{2} = \frac{2y}{2} = y.
+\begin{aligned}
+    \frac{|x - y| + x + y}{2} &= \frac{(y - x) + x + y}{2} \\
+    &= \frac{2y}{2} \\
+    &= y.
+\end{aligned}
 \]
-Since \( y > x \), it follows that \( \max(x, y) = y \). Thus, the expression \( \frac{|x - y| + x + y}{2} \) is equal to \( \max(x, y) \) in this case.
+Since \( y > x \), it follows that \( \max(x, y) = y \). Thus, the expression \( \frac{|x - y| + x + y}{2} \) is equal to \( \max(x, y) \) for this case.
 
 In both cases, we have shown that \( \max(x, y) = \frac{|x - y| + x + y}{2} \). Therefore, the proposition holds for all \( x, y \in \mathbb{R} \).
+
 
 \end{enumerate}
 \end{problem}
