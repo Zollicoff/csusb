@@ -13,7 +13,7 @@ df = pd.read_csv('credit_card_5-3.csv')
 ccOriginal = df[['Avg_Credit_Limit', 'Total_visits_bank']]
 
 # Normalize dataframe and return as an array
-normalizedArray = preprocessing.normalize(ccOriginal)
+normalizedArray = preprocessing.MinMaxScaler(ccOriginal)
 
 # Convert normalized array to dataframe
 ccOriginalNormalized = pd.DataFrame(normalizedArray, columns=['Avg_Credit_Limit', 'Total_visits_bank'])
