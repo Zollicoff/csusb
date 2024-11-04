@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  2 NOV 2024 09:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  4 NOV 2024 10:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**i:/OneDrive/Development/GitHub/csusb/math3100_fall24/problemsets/problemset8/math3100-problemset8-zacharyampton
-(i:/OneDrive/Development/GitHub/csusb/math3100_fall24/problemsets/problemset8/math3100-problemset8-zacharyampton.tex
+**c:/Users/hampt/OneDrive/Development/GitHub/csusb-1/math3100_fall24/problemsets/problemset8/math3100-problemset8-zacharyampton
+(c:/Users/hampt/OneDrive/Development/GitHub/csusb-1/math3100_fall24/problemsets/problemset8/math3100-problemset8-zacharyampton.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
 (c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -389,7 +389,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <12> not available
 (Font)              Font shape `OT1/phv/b/sl' tried instead on input line 68.
 
-Overfull \hbox (18.40347pt too wide) in paragraph at lines 98--109
+Overfull \hbox (18.40347pt too wide) in paragraph at lines 95--106
  [] 
  []
 
@@ -398,11 +398,11 @@ Overfull \hbox (18.40347pt too wide) in paragraph at lines 98--109
 [1
 
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 138.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 133.
  (c:/texlive/2024/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
-Overfull \hbox (18.40347pt too wide) in paragraph at lines 152--161
+Overfull \hbox (18.40347pt too wide) in paragraph at lines 147--156
  [] 
  []
 
@@ -422,17 +422,17 @@ Package rerunfilecheck Info: File `math3100-problemset8-zacharyampton.out' has n
  ) 
 Here is how much of TeX's memory you used:
  11343 strings out of 473579
- 172556 string characters out of 5732256
- 590218 words of memory out of 5000000
- 34057 multiletter control sequences out of 15000+600000
+ 172634 string characters out of 5732256
+ 591218 words of memory out of 5000000
+ 34059 multiletter control sequences out of 15000+600000
  572304 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,80p,644b,815s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,80p,658b,815s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on math3100-problemset8-zacharyampton.pdf (4 pages, 121971 bytes).
+Output written on math3100-problemset8-zacharyampton.pdf (4 pages, 122370 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
- 30 named destinations out of 1000 (max. 500000)
+ 119 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
+ 28 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

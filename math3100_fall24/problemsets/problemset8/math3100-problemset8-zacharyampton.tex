@@ -57,7 +57,7 @@ Problem Set 8 \hfill
 
 \bigskip
 
-\section*{Problem 1}
+\section*{Problem Set 8}
 
 \begin{problem}
 Consider the following proposition: If \( n \) is an integer, then \( 3 \mid (n^3 - n) \).
@@ -65,19 +65,16 @@ Consider the following proposition: If \( n \) is an integer, then \( 3 \mid (n^
 \begin{enumerate}[label=(\alph*)]
     \item Write a paragraph proof for the third case of this proposition without using properties of congruence.
     
-    \textbf{Solution:} To prove \( 3 \mid (n^3 - n) \), we examine the form \( n = 3k + 2 \) for some integer \( k \), as we assume two other cases (for \( n = 3k \) and \( n = 3k + 1 \)) were covered previously.
-    \[
-    n^3 - n = (3k + 2)^3 - (3k + 2).
-    \]
-    Expanding \( (3k + 2)^3 \): 
-    \[
-    (3k + 2)^3 = 27k^3 + 54k^2 + 36k + 8,
-    \]
-    so
-    \[
-    n^3 - n = 27k^3 + 54k^2 + 36k + 8 - (3k + 2) = 27k^3 + 54k^2 + 33k + 6.
-    \]
-    Each term in this expression is divisible by 3, so we conclude \( 3 \mid (n^3 - n) \).
+    \textbf{Solution:} To prove \( 3 \mid (n^3 - n) \), we examine the form \( n = 3k + 2 \) for some integer \( k \), assuming the cases for \( n = 3k \) and \( n = 3k + 1 \) were covered previously.
+    \begin{align*}
+        n^3 - n &= (3k + 2)^3 - (3k + 2) \\
+        &= 27k^3 + 54k^2 + 36k + 8 - (3k + 2) \\
+        &= 27k^3 + 54k^2 + 36k + 8 - 3k - 2 \\
+        &= 27k^3 + 54k^2 + 33k + 6.
+    \end{align*}
+
+Each term in this expression is divisible by 3, so we conclude \( 3 \mid (n^3 - n) \).
+
 
     \item Briefly explain why this proposition is equivalent to the statement \( n^3 \equiv n \pmod{3} \).
     
@@ -111,8 +108,6 @@ Consider the following proposition: If \( n \) is an integer, then \( 3 \mid (n^
 \end{problem}
 
 \bigskip
-
-\section*{Problem 2}
 
 \begin{problem}
 Consider the proposition: Let \( n \in \mathbb{Z} \). If \( n \not\equiv 0 \pmod{5} \), then \( n^2 \equiv 1 \pmod{5} \) or \( n^2 \equiv 4 \pmod{5} \).
@@ -163,8 +158,6 @@ Consider the proposition: Let \( n \in \mathbb{Z} \). If \( n \not\equiv 0 \pmod
 \end{problem}
 
 \bigskip
-
-\section*{Problem 3}
 
 \begin{problem}
 Consider the following proposition:
