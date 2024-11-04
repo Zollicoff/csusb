@@ -4,7 +4,7 @@
 
 # Import packages and functions
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
+from sklearn import preprocessing
 
 # Load the dataset
 df = pd.read_csv('credit_card_5-3.csv')
@@ -12,11 +12,8 @@ df = pd.read_csv('credit_card_5-3.csv')
 # Create a new dataframe with two features
 ccOriginal = df[['Avg_Credit_Limit', 'Total_visits_bank']]
 
-# Initialize the MinMaxScaler
-scaler = MinMaxScaler()
-
 # Normalize dataframe and return as an array
-normalizedArray = scaler.fit_transform(ccOriginal)
+normalizedArray = preprocessing.normalize(ccOriginal)
 
 # Convert normalized array to dataframe
 ccOriginalNormalized = pd.DataFrame(normalizedArray, columns=['Avg_Credit_Limit', 'Total_visits_bank'])
