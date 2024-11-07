@@ -24,7 +24,7 @@ conn = create_connection()
 
 # Load the CSV file into a Pandas DataFrame
 movie_df = pd.read_csv('movie1-1.csv')
-rating_df = pd.read_csv('rating1.csv')
+rating_df = pd.read_csv('Rating.csv')
 
 # Write the DataFrame to the SQL database
 movie_df.to_sql('Movie', conn, index=False, if_exists='replace')
