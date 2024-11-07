@@ -10,16 +10,18 @@
 # Write a SELECT statement to select the Title, Year, and rating Description. Display all movies, whether or not a RatingCode is available.
 #Hint: Perform a LEFT JOIN on the Movie and Rating tables, matching the RatingCode and Code columns.
 
+# Import the required libraries
 import pandas as pd
 import sqlite3
 import warnings
 
+# Suppress warnings
 warnings.filterwarnings("ignore")
 pd.set_option('display.notebook_repr_html', False)
 
+# Create a connection to an in-memory SQLite database
 def create_connection():
     return sqlite3.connect(':memory:')
-
 conn = create_connection()
 
 # Load the CSV file into a Pandas DataFrame
