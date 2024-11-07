@@ -22,7 +22,7 @@ def create_connection():
 conn = create_connection()
 
 # Load the CSV file into a Pandas DataFrame
-horse_df = pd.read_csv('horse1-1.csv')
+horse_df = pd.read_csv('horse2-1.csv')
 
 # Write the DataFrame to the SQL database
 horse_df.to_sql('Horse', conn, index=False, if_exists='replace')
