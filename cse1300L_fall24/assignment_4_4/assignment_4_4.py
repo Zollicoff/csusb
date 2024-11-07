@@ -23,7 +23,7 @@ def create_connection():
 conn = create_connection()
 
 # Load the CSV file into a Pandas DataFrame
-movie_df = pd.read_csv('movie1-1.csv')
+movie_df = pd.read_csv('movie2-1.csv')
 rating_df = pd.read_csv('Rating.csv')
 
 # Write the DataFrame to the SQL database
