@@ -29,8 +29,10 @@ horse_df.to_sql('Horse', conn, index=False, if_exists='replace')
 
 # SQL query to perform the LEFT JOIN and retrieve the desired columns
 horse_query = """
-SELECT Horse.Name, Horse.Breed, Horse.Age
+SELECT RegisteredName, Height
 FROM Horse
+WHERE Height > (SELECT AVG(Height) FROM Horse)
+ORDER BY Height ASC
 """
 
 # Execute the query and load the result into a DataFrame
