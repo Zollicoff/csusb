@@ -9,7 +9,7 @@
 import pandas as pd
 
 # Read in hmeq_small.csv
-hmeq = pd.read_csv('hmeq_small.csv')
+hmeq = pd.read_csv('hmeq_sample.csv')
 
 # Create a new data frame with the rows with missing values dropped
 hmeqDelete = hmeq.dropna()
