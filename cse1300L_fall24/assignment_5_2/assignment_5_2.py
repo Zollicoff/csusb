@@ -8,7 +8,11 @@
 import pandas as pd
 from sklearn import preprocessing
 
+# Read in hmeq_small.csv
 hmeq = pd.read_csv('hmeq_small.csv')
+
+# Handle missing values by filling them with the mean of the column
+hmeq = hmeq.fillna(hmeq.mean())
 
 # Standardize the data
 standardized = preprocessing.scale(hmeq)
@@ -25,5 +29,5 @@ hmeqNorm = pd.DataFrame(normalized, columns=hmeq.columns)
 # Print the means and standard deviations of hmeqStand and hmeqNorm
 print("The means of hmeqStand are ", hmeqStand.mean())
 print("The standard deviations of hmeqStand are ", hmeqStand.std())
-print("The means of hmeqNorm are ", # Your code here)
-print("The standard deviations of hmeqNorm are ", hmeqNorm.std()))
+print("The means of hmeqNorm are ", hmeqNorm.mean())
+print("The standard deviations of hmeqNorm are ", hmeqNorm.std())
