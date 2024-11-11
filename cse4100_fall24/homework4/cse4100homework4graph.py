@@ -13,7 +13,7 @@ network_topology = {
     'h': {'d': 6, 'f': 5, 'g': 4}
 }
 
-# Initialize an empty graph
+# Initialize the graph
 G = nx.Graph()
 
 # Add edges to the graph
@@ -21,15 +21,24 @@ for node, neighbors in network_topology.items():
     for neighbor, weight in neighbors.items():
         G.add_edge(node, neighbor, weight=weight)
 
-# Draw the graph
-pos = nx.spring_layout(G)  # Positioning the nodes
+# Custom positions for each node to match your reference layout
+pos = {
+    'a': (0, 1),
+    'b': (1, 2),
+    'c': (3, 2),
+    'd': (4, 1),
+    'e': (1, 0),
+    'f': (3, 0),
+    'g': (0, -1),
+    'h': (4, -1)
+}
 
-# Draw nodes and edges with weights
+# Draw the graph with custom node positions
+plt.figure(figsize=(8, 6))
 nx.draw(G, pos, with_labels=True, node_size=700, font_size=14, font_weight='bold')
 edge_labels = nx.get_edge_attributes(G, 'weight')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=12)
 
-# Save the graph as an image file
-plt.title("Network Topology Graph")
-plt.savefig("network_topology_graph.png")
+# Display the graph
+plt.title("Customized Network Topology Graph")
 plt.show()
