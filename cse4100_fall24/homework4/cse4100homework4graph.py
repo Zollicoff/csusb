@@ -28,14 +28,6 @@ pos = {
     'g': (2, 0)  # Bottom row, centered
 }
 
-# Draw the graph with custom node positions
-plt.figure(figsize=(8, 6))
-nx.draw(G, pos, with_labels=True, node_size=700, font_size=14, font_weight='bold')
-edge_labels = nx.get_edge_attributes(G, 'weight')
-nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=12)
-plt.title("Centered Symmetrical Network Topology Graph")
-plt.show()
-
 # Dijkstra's Algorithm for step-by-step table creation
 nodes = list(network_topology.keys())
 distances = {node: np.inf for node in nodes}
@@ -68,5 +60,22 @@ while len(visited) < len(nodes):
 # Convert steps to a DataFrame for easier visualization
 df = pd.DataFrame(steps)
 
-# Display the DataFrame as a table
-print(df)
+# Plot both graph and table side by side
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+fig.suptitle("Network Topology and Dijkstra's Algorithm Steps")
+
+# Draw the graph on the first subplot
+nx.draw(G, pos, with_labels=True, ax=ax1, node_size=700, font_size=14, font_weight='bold')
+edge_labels = nx.get_edge_attributes(G, 'weight')
+nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=12, ax=ax1)
+ax1.set_title("Network Topology Graph")
+
+# Display the DataFrame as a table on the second subplot
+ax2.axis('off')  # Hide axes for the table display
+table = ax2.table(cellText=df.values, colLabels=df.columns, cellLoc='center', loc='center')
+table.auto_set_font_size(False)
+table.set_fontsize(10)
+table.auto_set_column_width(col=list(range(len(df.columns))))
+ax2.set_title("Dijkstra's Algorithm Steps")
+
+plt.show()
