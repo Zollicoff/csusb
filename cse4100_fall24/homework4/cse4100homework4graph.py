@@ -21,16 +21,11 @@ for node, neighbors in network_topology.items():
     for neighbor, weight in neighbors.items():
         G.add_edge(node, neighbor, weight=weight)
 
-# Custom positions for each node to match your reference layout
+# Custom positions for each node to create a symmetrical, three-row layout
 pos = {
-    'a': (0, 1),
-    'b': (1, 2),
-    'c': (3, 2),
-    'd': (4, 1),
-    'e': (1, 0),
-    'f': (3, 0),
-    'g': (0, -1),
-    'h': (4, -1)
+    'b': (1, 2), 'c': (2, 2), 'd': (3, 2),   # Top row
+    'a': (0, 1), 'e': (1, 1), 'f': (2, 1), 'h': (3, 1),  # Middle row
+    'g': (1.5, 0)  # Bottom row, centered
 }
 
 # Draw the graph with custom node positions
@@ -40,5 +35,5 @@ edge_labels = nx.get_edge_attributes(G, 'weight')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=12)
 
 # Display the graph
-plt.title("Customized Network Topology Graph")
+plt.title("Symmetrical Network Topology Graph")
 plt.show()
