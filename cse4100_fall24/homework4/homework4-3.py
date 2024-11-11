@@ -28,6 +28,44 @@ pos = {
     'g': (2, 0)  # Bottom row, centered
 }
 
+# --- Dijkstra's Algorithm for Step-by-Step Table ---
+
+nodes = list(network_topology.keys())
+distances = {node: np.inf for node in nodes}
+previous_nodes = {node: None for node in nodes}
+distances['a'] = 0  # Starting from node 'a'
+visited = set()
+steps = []
+
+# Dijkstra's Algorithm with steps recorded
+step_number = 0
+while len(visited) < len(nodes):
+    # Find the unvisited node with the smallest distance
+    current_node = min((node for node in distances if node not in visited), key=distances.get)
+    visited.add(current_node)
+
+    # Record the step with format: Step | N' | D(node),P(node) for each node
+    step = {'Step': step_number, 'N\'': ''.join(visited)}
+    for node in nodes:
+        distance = distances[node] if distances[node] != np.inf else '∞'
+        predecessor = previous_nodes[node] if previous_nodes[node] else ''
+        step[f"D({node}),P({node})"] = f"{distance},{predecessor}"
+    steps.append(step)
+
+    # Update the distances for neighbors of the current node
+    for neighbor, weight in network_topology[current_node].items():
+        if neighbor not in visited:
+            new_distance = distances[current_node] + weight
+            if new_distance < distances[neighbor]:
+                distances[neighbor] = new_distance
+                previous_nodes[neighbor] = current_node
+
+    # Move to the next step
+    step_number += 1
+
+# Convert steps to a DataFrame for easier visualization
+dijkstra_df = pd.DataFrame(steps)
+
 # --- Distance Vector Algorithm Initialization (t=0) ---
 
 # Initial Distance Vector at t=0 for each router
@@ -62,8 +100,8 @@ dv_table_d_t1 = pd.DataFrame([distance_vectors['d']], index=['Router d at t=1'])
 dv_table_d_t1.columns = [f"DV to {col}" for col in dv_table_d_t1.columns]
 
 # Plot both graph and tables side by side
-fig, axs = plt.subplots(1, 3, figsize=(18, 8))
-fig.suptitle("Network Topology, Initial Distance Vectors at t=0, and Distance Vector for Router d at t=1")
+fig, axs = plt.subplots(1, 4, figsize=(24, 8))
+fig.suptitle("Network Topology, Dijkstra's Algorithm Steps, and Distance Vector Tables")
 
 # Draw the network graph
 nx.draw(G, pos, with_labels=True, ax=axs[0], node_size=700, font_size=14, font_weight='bold')
@@ -71,20 +109,28 @@ edge_labels = nx.get_edge_attributes(G, 'weight')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=12, ax=axs[0])
 axs[0].set_title("Network Topology Graph")
 
-# Display the Distance Vector table for all routers at t=0
+# Display the Dijkstra's Algorithm table
 axs[1].axis('off')
-table1 = axs[1].table(cellText=dv_table_t0.values, colLabels=dv_table_t0.columns, rowLabels=dv_table_t0.index, cellLoc='center', loc='center')
+table1 = axs[1].table(cellText=dijkstra_df.values, colLabels=dijkstra_df.columns, cellLoc='center', loc='center')
 table1.auto_set_font_size(False)
 table1.set_fontsize(8)
-table1.auto_set_column_width(col=list(range(len(dv_table_t0.columns))))
-axs[1].set_title("Distance Vectors for All Routers at t=0")
+table1.auto_set_column_width(col=list(range(len(dijkstra_df.columns))))
+axs[1].set_title("Dijkstra's Algorithm Steps")
 
-# Display the Distance Vector table for router 'd' at t=1
+# Display the Distance Vector table for all routers at t=0
 axs[2].axis('off')
-table2 = axs[2].table(cellText=dv_table_d_t1.values, colLabels=dv_table_d_t1.columns, rowLabels=dv_table_d_t1.index, cellLoc='center', loc='center')
+table2 = axs[2].table(cellText=dv_table_t0.values, colLabels=dv_table_t0.columns, rowLabels=dv_table_t0.index, cellLoc='center', loc='center')
 table2.auto_set_font_size(False)
 table2.set_fontsize(8)
-table2.auto_set_column_width(col=list(range(len(dv_table_d_t1.columns))))
-axs[2].set_title("Distance Vector for Router d at t=1")
+table2.auto_set_column_width(col=list(range(len(dv_table_t0.columns))))
+axs[2].set_title("Distance Vectors for All Routers at t=0")
+
+# Display the Distance Vector table for router 'd' at t=1
+axs[3].axis('off')
+table3 = axs[3].table(cellText=dv_table_d_t1.values, colLabels=dv_table_d_t1.columns, rowLabels=dv_table_d_t1.index, cellLoc='center', loc='center')
+table3.auto_set_font_size(False)
+table3.set_fontsize(8)
+table3.auto_set_column_width(col=list(range(len(dv_table_d_t1.columns))))
+axs[3].set_title("Distance Vector for Router d at t=1")
 
 plt.show()
