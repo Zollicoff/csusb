@@ -30,7 +30,6 @@ pos = {
 }
 
 # --- Dijkstra's Algorithm for Step-by-Step Table ---
-
 nodes = list(network_topology.keys())
 distances = {node: np.inf for node in nodes}
 previous_nodes = {node: None for node in nodes}
