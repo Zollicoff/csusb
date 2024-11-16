@@ -1,0 +1,237 @@
+% Beginning of preamble 
+% Specify the type of document you want (usually article) and the font size
+\documentclass[12pt]{article}  
+
+% Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+
+% Some other packages that may be useful
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+% Allow for URLs and hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
+
+% Set the margins and other page formatting
+\usepackage{geometry}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{enumitem}
+\usepackage{setspace} 
+\setlength\parindent{0pt}
+\linespread{1.2}
+%\pagestyle{empty}  %This style will suppress page numbering
+
+% Define a few custom environments with numbering
+\newtheorem{problem}{Problem} 
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{conjecture}{Conjecture}
+\theoremstyle{definition} 
+\newtheorem*{definition}{Definition}
+\newtheorem*{answer}{Answer}
+\newtheorem*{example}{Example}
+
+% Set the font to Helvetica
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Custom notation shortcut commands (currently unused)
+\newcommand{\Z}{\mathbb{Z}}
+% \newcommand{\R}{\mathbb{R}}
+% \newcommand{\Q}{\mathbb{Q}}
+% \newcommand{\N}{\mathbb{N}}
+% \newcommand{\eps}{\varepsilon}
+% \newcommand{\solution}{\textcolor{PineGreen}{Solution:\newline}}
+
+%%%%% End of preamble %%%%%
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+Math 3100 \hfill Zachary A. Hampton
+
+Problem Set 8 \hfill 
+\text{Due Date: November 2, 2024}
+
+\bigskip
+
+\section*{Problem 1}
+
+\begin{problem}
+Consider the sum \(1 + 3 + 5 + \cdots + (2n - 1)\) where \(n\) is a natural number.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Fill in the chart below to find the sum for the first ten natural numbers. Notice that some of the rows have been filled in for you.
+    
+    \begin{center}
+    \begin{tabular}{|c|l|c|}
+    \hline
+    \(n\) & Summation & Total \\
+    \hline
+    1 & \(1\) & \(1\) \\
+    2 & \(1 + 3\) & \(4\) \\
+    3 & \(1 + 3 + 5\) & \(9\) \\
+    4 & \(1 + 3 + 5 + 7\) & \(16\) \\
+    5 & \(1 + 3 + 5 + 7 + 9\) & \(25\) \\
+    6 & \(1 + 3 + 5 + 7 + 9 + 11\) & \(36\) \\
+    7 & \(1 + 3 + 5 + 7 + 9 + 11 + 13\) & \(49\) \\
+    8 & \(1 + 3 + 5 + 7 + 9 + 11 + 13 + 15\) & \(64\) \\
+    9 & \(1 + 3 + 5 + 7 + 9 + 11 + 13 + 15 + 17\) & \(81\) \\
+    10 & \(1 + 3 + 5 + 7 + 9 + 11 + 13 + 15 + 17 + 19\) & \(100\) \\
+    \hline
+    \end{tabular}
+    \end{center}
+    
+    \item Based upon your work in part (a), make a conjecture about the value of the sum.
+    
+    \textbf{Conjecture:} If \( n \in \mathbb{N} \), then
+    \[
+    1 + 3 + 5 + \cdots + (2n - 1) = n^2.
+    \]
+    
+    \item Suppose we will prove the statement in part (b) using mathematical induction. State the inductive hypothesis and what we must prove in the inductive step. You must be more specific than saying “We assume \( P(k) \) is true and we will prove \( P(k + 1) \) is true.”
+    
+    \textbf{Inductive Hypothesis:} Assume that for some \( k \in \mathbb{N} \),
+    \[
+    1 + 3 + 5 + \cdots + (2k - 1) = k^2.
+    \]
+    
+    \textbf{What we must prove:} We need to show that
+    \[
+    1 + 3 + 5 + \cdots + (2k - 1) + [2(k+1) - 1] = (k+1)^2.
+    \]
+    That is, adding the next odd number \( 2(k+1) - 1 \) to the sum up to \( k \) yields \( (k+1)^2 \).
+    
+    \item Write a formal proof by induction to prove the statement in part (b).
+    
+    \textbf{Proof by Mathematical Induction:}
+
+    We will prove that for all \( n \in \mathbb{N} \),
+    \[
+    1 + 3 + 5 + \cdots + (2n - 1) = n^2.
+    \]
+
+    \begin{proof}
+    \textbf{Base Case (\( n = 1 \)):}
+    
+    When \( n = 1 \),
+    \[
+    1 = 1^2 = 1.
+    \]
+    Therefore, the statement holds for \( n = 1 \).
+    
+    \textbf{Inductive Step:}
+    
+    Assume that the statement holds for some \( k \in \mathbb{N} \); that is,
+    \[
+    1 + 3 + 5 + \cdots + (2k - 1) = k^2.
+    \]
+    
+    We need to prove that the statement holds for \( n = k + 1 \):
+    \[
+    1 + 3 + 5 + \cdots + (2k - 1) + [2(k+1) - 1] = (k+1)^2.
+    \]
+    
+    Starting with the left-hand side (LHS) for \( n = k + 1 \):
+    \[
+    \begin{aligned}
+    \text{LHS} &= \left( 1 + 3 + 5 + \cdots + (2k - 1) \right) + \left[ 2(k+1) - 1 \right] \\
+    &= k^2 + [2(k+1) - 1] \quad \text{(by the inductive hypothesis)} \\
+    &= k^2 + (2k + 2 - 1) \\
+    &= k^2 + (2k + 1) \\
+    &= k^2 + 2k + 1 \\
+    &= (k + 1)^2.
+    \end{aligned}
+    \]
+    
+    Therefore, the statement holds for \( n = k + 1 \).
+    
+    By the principle of mathematical induction, the statement holds for all \( n \in \mathbb{N} \).
+    \end{proof}
+    
+\end{enumerate}
+\end{problem}
+
+\section*{Problem 2}
+
+\begin{problem}
+In this problem, we will consider the difference \( 5^n - 2^n \).
+
+\begin{enumerate}[label=(\alph*)]
+    \item Find the value of \( 5^n - 2^n \) for \( n = 1, 2, 3, 4, 5, \) and \( 6 \). Organize your work in a table similar to the one below:
+
+    \begin{center}
+    \begin{tabular}{|c|c|l|}
+    \hline
+    \( n \) & \( 5^n - 2^n \) & Calculation \\
+    \hline
+    1 & \( 5^1 - 2^1 = 3 \) & \( 5 - 2 = 3 \) \\
+    2 & \( 5^2 - 2^2 = 21 \) & \( 25 - 4 = 21 \) \\
+    3 & \( 5^3 - 2^3 = 117 \) & \( 125 - 8 = 117 \) \\
+    4 & \( 5^4 - 2^4 = 609 \) & \( 625 - 16 = 609 \) \\
+    5 & \( 5^5 - 2^5 = 3093 \) & \( 3125 - 32 = 3093 \) \\
+    6 & \( 5^6 - 2^6 = 15561 \) & \( 15625 - 64 = 15561 \) \\
+    \hline
+    \end{tabular}
+    \end{center}
+    
+    \item Based upon your work in part (a), make a conjecture for the following statement.
+
+    \textbf{Conjecture:} If \( n \in \mathbb{N} \), then \( 3 \) divides \( 5^n - 2^n \).
+
+    \item Prove the inductive step. The inductive step should follow the Elements of Style and Writing Guidelines. You do not need to prove the base case, nor write an opening/conclusion to your proof.
+
+    \textbf{Proof of Inductive Step:}
+
+    Assume that for some integer \( k \geq 1 \), the following statement holds:
+
+    \[
+    3 \text{ divides } 5^k - 2^k.
+    \]
+
+    That is, there exists an integer \( m \) such that:
+
+    \[
+    5^k - 2^k = 3m.
+    \]
+
+    We need to show that:
+
+    \[
+    3 \text{ divides } 5^{k+1} - 2^{k+1}.
+    \]
+
+    \begin{proof}
+    Consider \( 5^{k+1} - 2^{k+1} \):
+
+    \[
+    \begin{aligned}
+    5^{k+1} - 2^{k+1} &= 5 \cdot 5^k - 2 \cdot 2^k \\
+    &= 5(5^k - 2^k) + 5 \cdot 2^k - 2 \cdot 2^k \\
+    &= 5(5^k - 2^k) + (5 - 2) \cdot 2^k \\
+    &= 5(5^k - 2^k) + 3 \cdot 2^k.
+    \end{aligned}
+    \]
+
+    From the inductive hypothesis, \( 5^k - 2^k = 3m \), so we substitute:
+
+    \[
+    \begin{aligned}
+    5^{k+1} - 2^{k+1} &= 5(3m) + 3 \cdot 2^k \\
+    &= 15m + 3 \cdot 2^k \\
+    &= 3(5m + 2^k).
+    \end{aligned}
+    \]
+
+    Since \( 5m + 2^k \) is an integer, it follows that \( 5^{k+1} - 2^{k+1} \) is a multiple of \( 3 \).
+
+    Therefore, \( 3 \) divides \( 5^{k+1} - 2^{k+1} \), completing the inductive step.
+    \end{proof}
+
+
+\end{enumerate}
+\end{problem}
+
+\end{document}
