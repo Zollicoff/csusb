@@ -17,7 +17,7 @@ X = flights[['dep_delay']].values.reshape(-1, 1)
 y = flights[['arr_delay']].values.reshape(-1, 1)
 
 # Initialize and fit a linear regression model
-# Your code goes here
 linearModel = LinearRegression()
+linearModel.fit(X, y)
 
 print('Intercept:', linearModel.intercept_[0])
