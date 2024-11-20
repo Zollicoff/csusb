@@ -35,7 +35,7 @@ plt.savefig('titanic_bar_1.png')
 plt.clf()  # Clear the current figure
 
 # Create a bar chart for the second and third class passengers grouped by survival status
-sns.countplot(data=secondThird, x='pclass', hue='survived', palette=['#ff7f0e', '#1f77b4'])  # Orange for not survived, blue for survived
+sns.countplot(data=secondThird, x='pclass', hue='survived', palette=['#1f77b4', '#ff7f0e'])  # Orange for not survived, blue for survived
 plt.title('Second and Third Class Passengers by Survival Status')
 plt.legend(labels=["Not Survived", "Survived"], title="Survived")
 plt.savefig('titanic_bar_2.png')
