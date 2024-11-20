@@ -29,7 +29,7 @@ print(firstSouth.head())
 print(secondThird.head())
 
 # Create a bar chart for the first class passengers who embarked in Southampton grouped by sex
-sns.countplot(data=firstSouth, x='sex', palette=['#1f77b4', '#ff7f0e'])  # Blue for female, orange for male
+sns.countplot(data=firstSouth, x='sex', hue='count', palette=['#1f77b4', '#ff7f0e'])  # Blue for female, orange for male
 plt.title('First Class Passengers from Southampton by Sex')
 plt.savefig('titanic_bar_1.png')
 plt.clf()  # Clear the current figure
