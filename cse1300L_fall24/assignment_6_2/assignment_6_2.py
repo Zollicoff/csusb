@@ -25,19 +25,26 @@ firstSouth = titanic[(titanic['pclass'] == 1) & (titanic['embarked'] == 'S')]
 # Subset the titanic dataset to include either second or third class passengers
 secondThird = titanic[(titanic['pclass'] == 2) | (titanic['pclass'] == 3)]
 
+# Print the first few rows for debugging
 print(firstSouth.head())
 print(secondThird.head())
 
 # Create a bar chart for the first class passengers who embarked in Southampton grouped by sex
-sns.countplot(data=firstSouth, x='sex', hue='sex', palette=['#1f77b4', '#ff7f0e'])  # Blue for female, orange for male
+plt.figure(figsize=(10, 5))
+sns.countplot(data=firstSouth, x='pclass', hue='sex', palette=['#1f77b4', '#ff7f0e'])  # Blue for female, orange for male
 plt.title('First Class Passengers from Southampton by Sex')
+plt.xlabel('pclass')
+plt.ylabel('count')
 plt.legend(title="Sex")
 plt.savefig('titanic_bar_1.png')
-plt.clf()  # Clear the current figure
+plt.show()
 
 # Create a bar chart for the second and third class passengers grouped by survival status
-sns.countplot(data=secondThird, x='pclass', hue='survived', palette=['#ff7f0e', '#1f77b4'])  # Orange for not survived, blue for survived
+plt.figure(figsize=(10, 5))
+sns.countplot(data=secondThird, x='pclass', hue='survived', palette=['#1f77b4', '#ff7f0e'])  # Orange for not survived, blue for survived
 plt.title('Second and Third Class Passengers by Survival Status')
+plt.xlabel('pclass')
+plt.ylabel('count')
 plt.legend(labels=["Not Survived", "Survived"], title="Survived")
 plt.savefig('titanic_bar_2.png')
-plt.clf()  # Clear the current figure
+plt.show()
