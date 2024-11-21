@@ -10,8 +10,6 @@ class SodaMachineFSM:
             print(f"Coin inserted: {coin_value}. Total: {self.tot}.")
             if self.tot >= self.soda_cost:
                 self.transition_to_dispense()
-        elif self.state == "Init":
-            print("Machine is initializing. Insert coin after initialization.")
         else:
             print(f"Cannot insert coin in current state: {self.state}")
 
@@ -19,6 +17,9 @@ class SodaMachineFSM:
         if self.state == "DispSoda":
             print("Soda dispensed!")
             self.state = "DispChange" if self.tot > self.soda_cost else "Init"
+            if self.state == "DispChange":
+                print(f"Returning change: {self.tot - self.soda_cost}")
+                self.tot = 0
         elif self.state == "DispChange":
             print("Change dispensed!")
             self.state = "Init"
@@ -38,7 +39,7 @@ class SodaMachineFSM:
 
     def reset(self):
         print("Resetting machine.")
-        self.state = "Init"
+        self.state = "Wait"  # Transition to Wait after resetting
         self.tot = 0
 
     def get_state(self):
