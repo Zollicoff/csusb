@@ -16,13 +16,17 @@ class SodaMachineFSM:
     def press_dispense(self):
         if self.state == "DispSoda":
             print("Soda dispensed!")
-            self.state = "DispChange" if self.tot > self.soda_cost else "Init"
-            if self.state == "DispChange":
+            if self.tot > self.soda_cost:
+                self.state = "DispChange"
                 print(f"Returning change: {self.tot - self.soda_cost}")
                 self.tot = 0
+            else:
+                self.state = "Init"
         elif self.state == "DispChange":
             print("Change dispensed!")
             self.state = "Init"
+        elif self.state == "Init":
+            print("Machine is ready. Please insert coins.")
         else:
             print(f"Cannot dispense in current state: {self.state}")
 
@@ -53,5 +57,5 @@ if __name__ == "__main__":
     fsm.reset()
     fsm.input_coin(5)  # Insert a coin
     fsm.input_coin(3)  # Insert another coin
-    fsm.press_dispense()  # Press the dispense button
-    fsm.press_dispense()  # Dispense change (if applicable)
+    fsm.press_dispense()  # Dispense soda
+    fsm.press_dispense()  # Try dispensing again (change or Init state)
