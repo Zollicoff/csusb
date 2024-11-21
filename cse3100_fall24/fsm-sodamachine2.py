@@ -1,6 +1,5 @@
 class SodaMachineFSM:
     def __init__(self):
-        # Initial state and soda options
         self.state = "Init"
         self.tot = 0
         self.selected_soda = None
@@ -40,6 +39,12 @@ class SodaMachineFSM:
             print(f"Soda selection not allowed in the current state: {self.state}")
 
     def input_money(self, amount):
+        try:
+            amount = float(amount)
+        except ValueError:
+            print(f"Invalid input: '{amount}' is not a valid number.")
+            return
+
         if amount not in self.valid_denominations:
             print(f"Invalid denomination: ${amount:.2f}. Acceptable denominations are: {self.valid_denominations}")
             return
@@ -91,14 +96,24 @@ class SodaMachineFSM:
         return self.state
 
 
-# Example usage
+# Interactive Console
 if __name__ == "__main__":
     fsm = SodaMachineFSM()
-    fsm.reset()
-    fsm.display_menu()
 
-    # Example process flow
-    fsm.select_soda("Coke")  # Select a soda
-    fsm.input_money(1.00)  # Insert money
-    fsm.input_money(2.00)  # Insert money
-    fsm.press_dispense()  # Dispense soda
+    print("Welcome to the Soda Machine!")
+    while True:
+        if fsm.state == "Init":
+            fsm.display_menu()
+            soda_name = input("\nSelect a soda by name (or type 'exit' to quit): ").strip()
+            if soda_name.lower() == "exit":
+                print("Goodbye!")
+                break
+            fsm.select_soda(soda_name)
+        elif fsm.state == "Wait":
+            money = input("Insert money (acceptable denominations: 0.01, 0.05, 0.10, 0.25, 1.00, 5.00) or type 'cancel' to reset: ").strip()
+            if money.lower() == "cancel":
+                fsm.reset()
+            else:
+                fsm.input_money(money)
+        elif fsm.state in ["DispSoda", "DispChange"]:
+            fsm.press_dispense()
