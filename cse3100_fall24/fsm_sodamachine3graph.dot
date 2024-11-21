@@ -1,0 +1,13 @@
+digraph SodaMachineFSM {
+    rankdir=LR;
+    node [shape=circle];
+
+    Init -> Wait [label="Select Soda"];
+    Wait -> Wait [label="Insert Money"];
+    Wait -> DispSoda [label="Exact Money"];
+    Wait -> DispChange [label="Overpaid"];
+    Wait -> DispChange [label="Dispense Change Button"];
+    DispSoda -> Init [label="Dispense Soda"];
+    DispChange -> Init [label="Dispense Soda + Change"];
+    DispChange -> Init [label="Return Money"];
+}
