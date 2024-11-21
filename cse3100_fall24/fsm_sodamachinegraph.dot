@@ -6,7 +6,8 @@ digraph SodaMachineFSM {
     Wait -> Wait [label="Insert Money (Insufficient Funds)"];
     Wait -> DispSoda [label="Insert Money (Exact Amount)"];
     Wait -> DispChange [label="Insert Money (Overpaid)"];
-    Wait -> Init [label="Press Dispense Change Button"];
+    Wait -> DispChange [label="Press Dispense Change Button"];
     DispSoda -> Init [label="Dispense Soda"];
     DispChange -> Init [label="Dispense Soda + Change"];
+    DispChange -> Init [label="Return Money"];
 }
