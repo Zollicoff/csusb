@@ -13,6 +13,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
 
 # Read in nbaallelo_slr.csv
 nba = pd.read_csv('nbaallelo_slr.csv')
@@ -44,3 +45,16 @@ print('%.3f' % slope[0] + ". ")
 score = SLRModel.score(X, y)
 print('The proportion of variation explained by the linear regression model is ', end="")
 print('%.3f' % score + ". ")
+
+# Plotting the data points and regression line
+plt.scatter(X, y, color='blue', alpha=0.5, label='Data Points')
+plt.plot(X, SLRModel.predict(X), color='red', linewidth=2, label='Regression Line')
+
+# Adding labels and title
+plt.xlabel('Elo Rating Before Game (elo_i)')
+plt.ylabel('Points Difference (y)')
+plt.title('Simple Linear Regression: Elo Rating vs Points Difference')
+plt.legend()
+
+# Show the plot
+plt.show()
