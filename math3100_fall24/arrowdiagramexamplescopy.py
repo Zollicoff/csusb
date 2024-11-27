@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def plot_injective_surjective_bijective():
+def plot_corrected_diagrams():
     fig, axs = plt.subplots(1, 3, figsize=(18, 6))
 
     # Helper function to draw arrows and points
@@ -13,31 +13,30 @@ def plot_injective_surjective_bijective():
             ax.scatter(1, len(B) - j, color='orange', s=50)
             ax.text(1.2, len(B) - j, str(b), fontsize=12, ha='center')
         # Draw arrows
-        for a, bs in mappings.items():
-            for b in bs:
-                ax.arrow(0, len(A) - A.index(a), 0.8, len(B) - B.index(b) - len(A) + A.index(a),
-                         head_width=0.2, head_length=0.05, fc='black', ec='black')
+        for a, b in mappings.items():
+            ax.arrow(0, len(A) - A.index(a), 0.8, len(B) - B.index(b) - len(A) + A.index(a),
+                     head_width=0.2, head_length=0.05, fc='black', ec='black')
         ax.axis('off')
         ax.set_title(title, fontsize=14)
 
     # Define A, B, and mappings for each case
-    A = [1, 2, 3]
-    B = ['a', 'b', 'c', 'd']
+    A = [1, 2, 3, 4]
+    B = [1, 2, 3, 4, 5]
 
-    # Injective (Not Surjective)
-    injective_mapping = {1: ['a'], 2: ['b'], 3: ['c']}  # 'd' is not covered
-    draw_arrows(axs[0], A, B, injective_mapping, "Injective (not surjective)")
+    # Injective
+    injective_mapping = {1: 2, 2: 1, 3: 3, 4: 4}  # 5 is unused
+    draw_arrows(axs[0], A, B, injective_mapping, "Injective")
 
-    # Surjective (Not Injective)
-    surjective_mapping = {1: ['a'], 2: ['b'], 3: ['b']}  # 'a', 'b', and 'c' are hit, but overlap exists
-    draw_arrows(axs[1], A, B, surjective_mapping, "Surjective (not injective)")
+    # Surjective
+    surjective_mapping = {1: 2, 2: 1, 3: 3, 4: 3}  # 4 and 3 in B are hit, some overlap
+    draw_arrows(axs[1], A, B, surjective_mapping, "Surjective")
 
-    # Bijective (Injective and Surjective)
-    bijective_mapping = {1: ['a'], 2: ['b'], 3: ['c']}  # Perfect one-to-one
-    draw_arrows(axs[2], A, B[:3], bijective_mapping, "Bijective (injective, surjective)")
+    # Bijective
+    bijective_mapping = {1: 2, 2: 1, 3: 5, 4: 3}  # Perfect one-to-one matching
+    draw_arrows(axs[2], A, B, bijective_mapping, "Bijective")
 
     plt.tight_layout()
     plt.show()
 
 # Call the function to create the plots
-plot_injective_surjective_bijective()
+plot_corrected_diagrams()
