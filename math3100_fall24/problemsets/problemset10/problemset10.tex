@@ -1,0 +1,328 @@
+% Beginning of preamble 
+% Specify the type of document you want (usually article) and the font size
+\documentclass[12pt]{article}  
+
+% Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+
+% Some other packages that may be useful
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+% Allow for URLs and hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
+
+% Set the margins and other page formatting
+\usepackage{geometry}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{enumitem}
+\usepackage{setspace} 
+\setlength\parindent{0pt}
+\linespread{1.2}
+%\pagestyle{empty}  %This style will suppress page numbering
+
+% Define a few custom environments with numbering
+\newtheorem{problem}{Problem} 
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{conjecture}{Conjecture}
+\theoremstyle{definition} 
+\newtheorem*{definition}{Definition}
+\newtheorem*{answer}{Answer}
+\newtheorem*{example}{Example}
+
+% Set the font to Helvetica
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Custom notation shortcut commands (currently unused)
+\newcommand{\Z}{\mathbb{Z}}
+% \newcommand{\R}{\mathbb{R}}
+% \newcommand{\Q}{\mathbb{Q}}
+% \newcommand{\N}{\mathbb{N}}
+% \newcommand{\eps}{\varepsilon}
+% \newcommand{\solution}{\textcolor{PineGreen}{Solution:\newline}}
+
+%%%%% End of preamble %%%%%
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+Math 3100 \hfill Zachary Hampton
+
+Problem Set 10 \hfill Due Date: 11-29-2024
+
+\bigskip
+
+\section*{Problem 1}
+
+\begin{problem}
+1. Use roster notation to explicitly list the elements in each of the following sets. When applicable, include any supporting work.
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\{\, a \in \mathbb{N} \mid 3a - 4 \leq 17 \,\}$
+    \item $\{\, x \in \mathbb{R} \mid 2x^2 + 3x - 2 = 0 \,\}$
+    \item $\{\, p \in \mathbb{Z} \mid -4 < \sqrt{p} < 4 \,\}$
+    \item $\{\, n \in \mathbb{Z} \mid n \equiv 1 \pmod{4} \,\}$
+    \item $\{\, y \in \mathbb{Q} \mid \left| y - \dfrac{1}{3} \right| = \dfrac{8}{3} \,\}$
+\end{enumerate}
+\end{problem}
+
+\textbf{Solution:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\{\, a \in \mathbb{N} \mid 3a - 4 \leq 17 \,\}$
+
+    \textit{Work:} Solve the inequality for $a$:
+    \[
+    3a - 4 \leq 17 \implies 3a \leq 21 \implies a \leq 7.
+    \]
+    Since $a \in \mathbb{N}$, the set is:
+    \[
+    \{1, 2, 3, 4, 5, 6, 7\}.
+    \]
+
+    \item $\{\, x \in \mathbb{R} \mid 2x^2 + 3x - 2 = 0 \,\}$
+
+    \textit{Work:} Factor the quadratic equation:
+    \[
+    2x^2 + 3x - 2 = 0.
+    \]
+    Look for factors of $2x^2$ and $-2$ that sum to $3x$:
+    \[
+    (2x - 1)(x + 2) = 2x^2 + 4x - x -2 = 2x^2 + 3x -2.
+    \]
+    Set each factor to zero:
+    \[
+    2x - 1 = 0 \implies x = \dfrac{1}{2}, \quad x + 2 = 0 \implies x = -2.
+    \]
+    Therefore, the set is:
+    \[
+    \left\{ -2,\ \dfrac{1}{2} \right\}.
+    \]
+
+    \item $\{\, p \in \mathbb{Z} \mid -4 < \sqrt{p} < 4 \,\}$
+
+    \textit{Work:} Since $\sqrt{p}$ is real, $p \geq 0$. Then:
+    \[
+    0 \leq \sqrt{p} < 4 \implies 0 \leq p < 16.
+    \]
+    Therefore, $p$ can be any integer from $0$ to $15$. The set is:
+    \[
+    \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15\}.
+    \]
+
+    \item $\{\, n \in \mathbb{Z} \mid n \equiv 1 \pmod{4} \,\}$
+
+    \textit{Work:} This set includes all integers that leave a remainder of $1$ when divided by $4$:
+    \[
+    \{\ldots, -7, -3, 1, 5, 9, 13, 17, \ldots\}.
+    \]
+
+    \item $\{\, y \in \mathbb{Q} \mid \left| y - \dfrac{1}{3} \right| = \dfrac{8}{3} \,\}$
+
+    \textit{Work:} Solve for $y$:
+    \[
+    \left| y - \dfrac{1}{3} \right| = \dfrac{8}{3} \implies y - \dfrac{1}{3} = \pm \dfrac{8}{3}.
+    \]
+    Thus:
+    \[
+    y = \dfrac{1}{3} + \dfrac{8}{3} = \dfrac{9}{3} = 3, \quad y = \dfrac{1}{3} - \dfrac{8}{3} = -\dfrac{7}{3}.
+    \]
+    Therefore, the set is:
+    \[
+    \left\{ -\dfrac{7}{3},\ 3 \right\}.
+    \]
+
+\end{enumerate}
+
+\newpage
+
+\section*{Problem 2}
+
+\begin{problem}
+2. Let $A$ and $B$ be subsets of a universal set $U$, and let $x \in U$. Write useful negations of the definitions of set intersection, set union, and set difference by completing the sentences below:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $x \notin A \cap B$ provided that \underline{\hspace{4cm}}.
+    \item $x \notin A \cup B$ provided that \underline{\hspace{4cm}}.
+    \item $x \notin A - B$ provided that \underline{\hspace{4cm}}.
+\end{enumerate}
+\end{problem}
+
+\textbf{Solution:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item $x \notin A \cap B$ provided that \textbf{$x \notin A$ or $x \notin B$}.
+
+    \item $x \notin A \cup B$ provided that \textbf{$x \notin A$ and $x \notin B$}.
+
+    \item $x \notin A - B$ provided that \textbf{$x \notin A$ or $x \in B$}.
+\end{enumerate}
+
+\newpage
+
+\section*{Problem 3}
+
+\begin{problem}
+3. Let $U = \mathbb{N}$ and let:
+
+\begin{align*}
+    A &= \{\, x \in \mathbb{N} \mid x \geq 7 \,\}, \\
+    B &= \{\, x \in \mathbb{N} \mid x \text{ is odd} \,\}, \\
+    C &= \{\, x \in \mathbb{N} \mid x \equiv 0 \pmod{3} \,\}, \\
+    D &= \{\, x \in \mathbb{N} \mid x \text{ is even} \,\}.
+\end{align*}
+
+Use the roster method to list all of the elements in each of the following sets. When applicable, show your work by finding the sets in parentheses first:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $(A \cup B)^\complement$
+    \item $A^\complement \cap B^\complement$
+    \item $(A \cup B) \cap C$
+    \item $B \cap D$
+    \item $(B \cap D)^\complement$
+    \item $B - D$
+\end{enumerate}
+\end{problem}
+
+\textbf{Solution:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item $(A \cup B)^\complement$
+
+    \textit{Work:} First, find $A \cup B$:
+    \[
+    A = \{7, 8, 9, 10, 11, \ldots\}, \quad B = \{1, 3, 5, 7, 9, \ldots\}.
+    \]
+    So:
+    \[
+    A \cup B = \{1, 3, 5, 7, 8, 9, 10, 11, \ldots\}.
+    \]
+    Then, the complement with respect to $U = \mathbb{N}$:
+    \[
+    (A \cup B)^\complement = \{2, 4, 6\}.
+    \]
+
+    \item $A^\complement \cap B^\complement$
+
+    \textit{Work:} Find the complements:
+    \[
+    A^\complement = \{1, 2, 3, 4, 5, 6\}, \quad B^\complement = \{2, 4, 6, 8, 10, \ldots\}.
+    \]
+    Then:
+    \[
+    A^\complement \cap B^\complement = \{2, 4, 6\}.
+    \]
+
+    \item $(A \cup B) \cap C$
+
+    \textit{Work:} We have:
+    \[
+    C = \{3, 6, 9, 12, 15, \ldots\}.
+    \]
+    Then:
+    \[
+    (A \cup B) \cap C = \{3, 9, 12, 15, 18, \ldots\}.
+    \]
+    Listing the elements:
+    \[
+    \{3, 9, 12, 15, 18, 21, 24, \ldots\}.
+    \]
+
+    \item $B \cap D$
+
+    \textit{Work:} Since $B$ contains odd numbers and $D$ contains even numbers:
+    \[
+    B \cap D = \emptyset.
+    \]
+
+    \item $(B \cap D)^\complement$
+
+    \textit{Work:} Since $B \cap D = \emptyset$, its complement is:
+    \[
+    (B \cap D)^\complement = U = \mathbb{N}.
+    \]
+
+    \item $B - D$
+
+    \textit{Work:} Since $B$ contains odd numbers and $D$ contains even numbers:
+    \[
+    B - D = B.
+    \]
+    So:
+    \[
+    B - D = \{1, 3, 5, 7, 9, 11, \ldots\}.
+    \]
+
+\end{enumerate}
+
+\newpage
+
+\section*{Problem 4}
+
+\begin{problem}
+4. Let:
+
+\begin{align*}
+    A &= \{1, 2\}, \\
+    B &= \{a, b, c, d\}, \\
+    C &= \{1, a, b\}.
+\end{align*}
+
+Use the roster method to list all of the elements in each of the following sets. When applicable, show your work by finding the sets in parentheses first:
+
+\begin{enumerate}[label=(\alph*)]
+    \item $A \times B$
+    \item $B \times A$
+    \item $A \times (B \cap C)$
+    \item $(A \times B) \cap (A \times C)$
+\end{enumerate}
+\end{problem}
+
+\textbf{Solution:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item $A \times B$
+
+    \textit{Work:} Compute the Cartesian product:
+    \[
+    A \times B = \{ (1, a),\ (1, b),\ (1, c),\ (1, d),\ (2, a),\ (2, b),\ (2, c),\ (2, d) \}.
+    \]
+
+    \item $B \times A$
+
+    \textit{Work:} Compute the Cartesian product:
+    \[
+    B \times A = \{ (a, 1),\ (a, 2),\ (b, 1),\ (b, 2),\ (c, 1),\ (c, 2),\ (d, 1),\ (d, 2) \}.
+    \]
+
+    \item $A \times (B \cap C)$
+
+    \textit{Work:} First, find $B \cap C$:
+    \[
+    B \cap C = \{a, b\}.
+    \]
+    Then:
+    \[
+    A \times (B \cap C) = \{ (1, a),\ (1, b),\ (2, a),\ (2, b) \}.
+    \]
+
+    \item $(A \times B) \cap (A \times C)$
+
+    \textit{Work:} Compute $A \times C$:
+    \[
+    A \times C = \{ (1, 1),\ (1, a),\ (1, b),\ (2, 1),\ (2, a),\ (2, b) \}.
+    \]
+    Then:
+    \[
+    (A \times B) \cap (A \times C) = \{ (1, a),\ (1, b),\ (2, a),\ (2, b) \}.
+    \]
+
+\end{enumerate}
+
+\newpage
+
+\end{document}
