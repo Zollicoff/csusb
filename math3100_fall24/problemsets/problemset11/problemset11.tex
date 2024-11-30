@@ -1,0 +1,275 @@
+% Beginning of preamble 
+% Specify the type of document you want (usually article) and the font size
+\documentclass[12pt]{article}  
+
+% Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+
+% Some other packages that may be useful
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+% Allow for URLs and hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
+
+% Set the margins and other page formatting
+\usepackage{geometry}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{enumitem}
+\usepackage{setspace} 
+\setlength\parindent{0pt}
+\linespread{1.2}
+%\pagestyle{empty}  %This style will suppress page numbering
+
+% Define a few custom environments with numbering
+\newtheorem{problem}{Problem} 
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{conjecture}{Conjecture}
+\theoremstyle{definition} 
+\newtheorem*{definition}{Definition}
+\newtheorem*{answer}{Answer}
+\newtheorem*{example}{Example}
+
+% Set the font to Helvetica
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Custom notation shortcut commands (currently unused)
+\newcommand{\Z}{\mathbb{Z}}
+% \newcommand{\R}{\mathbb{R}}
+% \newcommand{\Q}{\mathbb{Q}}
+% \newcommand{\N}{\mathbb{N}}
+% \newcommand{\eps}{\varepsilon}
+% \newcommand{\solution}{\textcolor{PineGreen}{Solution:\newline}}
+
+%%%%% End of preamble %%%%%
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+Math 3100 \hfill Zachary Hampton
+
+Problem Set 11 \hfill Due Date: 11-29-2024
+
+\bigskip
+
+\section*{Problem 1}
+
+\begin{problem}
+Let $A$, $B$, $C$, and $D$ be subsets of a universal set $U$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Complete the following sentence (write the full sentence in your work):
+
+    We say that $(A - B) \subseteq (C \cap D)$ provided that for each $x \in U$, if $x \in (A - B)$, then \underline{\hspace{4cm}}.
+
+    \item Write a useful negation of the statement from part (a).
+
+    \item Write the contrapositive of the statement from part (a).
+\end{enumerate}
+\end{problem}
+
+\textbf{Solution:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item We say that $(A - B) \subseteq (C \cap D)$ provided that for each $x \in U$, if $x \in (A - B)$, then \textbf{$x \in C$ and $x \in D$}.
+
+    \item The negation of the statement is:
+
+    There exists an $x \in U$ such that $x \in (A - B)$ and \textbf{($x \notin C$ or $x \notin D$)}.
+
+    \item The contrapositive of the statement is:
+
+    For each $x \in U$, if \textbf{$x \notin C$ or $x \notin D$}, then $x \notin (A - B)$.
+
+    Since $x \notin (A - B)$ means that $x \notin A$ or $x \in B$, we can also express it as:
+
+    For each $x \in U$, if $x \notin C$ or $x \notin D$, then $x \notin A$ or $x \in B$.
+\end{enumerate}
+
+\newpage
+
+\section*{Problem 2}
+
+\begin{problem}
+Let $S = \{\, x \in \mathbb{R} \mid x^2 < 9 \,\}$ and $T = \{\, x \in \mathbb{R} \mid x < 3 \,\}$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Is $S \subseteq T$? Justify your conclusion with a formal proof or a formal counterexample argument.
+
+    \item Is $T \subseteq S$? Justify your conclusion with a formal proof or a formal counterexample argument.
+\end{enumerate}
+\end{problem}
+
+\textbf{Solution:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Yes, $S \subseteq T$.}
+
+    \textit{Proof:}
+
+    Let $x \in S$. Then by definition, $x^2 < 9$.
+
+    This implies that $-3 < x < 3$.
+
+    Therefore, $x < 3$.
+
+    Hence, $x \in T$.
+
+    Since every element of $S$ is also in $T$, we conclude that $S \subseteq T$.
+
+    \item \textbf{No, $T \nsubseteq S$.}
+
+    \textit{Counterexample:}
+
+    Consider $x = -4$.
+
+    We have $x = -4 < 3$, so $x \in T$.
+
+    However, $x^2 = (-4)^2 = 16 \geq 9$, so $x \notin S$.
+
+    Therefore, $T \nsubseteq S$.
+\end{enumerate}
+
+\newpage
+
+\section*{Problem 3}
+
+\begin{problem}
+Let $A = \{\, x \in \mathbb{Z} \mid x \equiv 1 \pmod{5} \,\}$ and $B = \{\, y \in \mathbb{Z} \mid y \equiv 7 \pmod{10} \,\}$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item List at least five different elements of the set $A$ and at least five different elements of the set $B$. Each list should contain at least one negative integer. Use proper set notation to write your lists.
+
+    \item Write a formal proof to show that $A$ and $B$ are disjoint (i.e., $A \cap B = \emptyset$).
+\end{enumerate}
+\end{problem}
+
+\textbf{Solution:}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Elements of $A$:
+
+    Since $x \equiv 1 \pmod{5}$, $x = 5k + 1$ for some $k \in \mathbb{Z}$.
+
+    Examples:
+
+    \[
+    \begin{aligned}
+    &k = -3: \quad x = 5(-3) + 1 = -14 \\
+    &k = -2: \quad x = 5(-2) + 1 = -9 \\
+    &k = -1: \quad x = 5(-1) + 1 = -4 \\
+    &k = 0: \quad x = 5(0) + 1 = 1 \\
+    &k = 1: \quad x = 5(1) + 1 = 6
+    \end{aligned}
+    \]
+
+    Therefore, a subset of $A$ is:
+
+    \[
+    A = \{ -14,\ -9,\ -4,\ 1,\ 6,\ \ldots \}
+    \]
+
+    Elements of $B$:
+
+    Since $y \equiv 7 \pmod{10}$, $y = 10m + 7$ for some $m \in \mathbb{Z}$.
+
+    Examples:
+
+    \[
+    \begin{aligned}
+    &m = -2: \quad y = 10(-2) + 7 = -13 \\
+    &m = -1: \quad y = 10(-1) + 7 = -3 \\
+    &m = 0: \quad y = 10(0) + 7 = 7 \\
+    &m = 1: \quad y = 10(1) + 7 = 17 \\
+    &m = 2: \quad y = 10(2) + 7 = 27
+    \end{aligned}
+    \]
+
+    Therefore, a subset of $B$ is:
+
+    \[
+    B = \{ -13,\ -3,\ 7,\ 17,\ 27,\ \ldots \}
+    \]
+
+    \item \textit{Proof that $A \cap B = \emptyset$:}
+
+    Suppose, for contradiction, that there exists an integer $x$ such that $x \in A \cap B$.
+
+    Then:
+
+    \[
+    \begin{cases}
+    x \equiv 1 \pmod{5} \\
+    x \equiv 7 \pmod{10}
+    \end{cases}
+    \]
+
+    Since $x \equiv 1 \pmod{5}$, it means $x \mod 5 = 1$.
+
+    Since $x \equiv 7 \pmod{10}$, we have $x \mod 10 = 7$.
+
+    Observe that:
+
+    \[
+    x \mod 5 = (x \mod 10) \mod 5.
+    \]
+
+    Compute $(x \mod 10) \mod 5$:
+
+    \[
+    (7 \mod 5) = 2.
+    \]
+
+    Therefore:
+
+    \[
+    x \mod 5 = 2.
+    \]
+
+    But this contradicts the earlier conclusion that $x \mod 5 = 1$.
+
+    Therefore, no such $x$ exists, and $A \cap B = \emptyset$.
+\end{enumerate}
+
+\newpage
+
+\section*{Problem 4}
+
+\begin{problem}
+Read the proof below. For each algebraic step, provide justification by citing the appropriate parts of Theorem 5.18 and Theorem 5.20.
+
+\textbf{Proposition:} If $A$, $B$, and $C$ are subsets of some universal set $U$, then:
+
+\[
+A - (B \cup C) = (A - B) \cap (A - C).
+\]
+
+\textbf{Proof:} Let $A$, $B$, and $C$ be subsets of some universal set $U$. Beginning with the left side, we have:
+
+\begin{align*}
+A - (B \cup C) &= A \cap (B \cup C)^{c} \quad \\
+&= A \cap (B^{c} \cap C^{c}) \quad \\
+&= (A \cap B^{c}) \cap C^{c} \quad \\
+&= (A \cap B^{c}) \cap (A \cap C^{c}) \quad \\
+&= (A - B) \cap (A - C) \quad 
+\end{align*}
+
+Therefore, \[A - (B \cup C) = (A - B) \cap (A - C)\] for any sets $A$, $B$, and $C$.
+\end{problem}
+
+\textbf{Solution:}
+\begin{align*}
+\text{Step 1:}\quad A - (B \cup C) &= A \cap (B \cup C)^{c} \quad \text{[Definition of Set Difference]} \\
+\text{Step 2:}\quad &= A \cap (B^{c} \cap C^{c}) \quad \text{[De Morgan's Law]} \\
+\text{Step 3:}\quad &= (A \cap B^{c}) \cap C^{c} \quad \text{[Associative Law of Intersection]} \\
+\text{Step 4:}\quad &= (A \cap B^{c}) \cap (A \cap C^{c}) \quad \text{[Distributive Law]} \\
+\text{Step 5:}\quad &= (A - B) \cap (A - C) \quad \text{[Definition of Set Difference]}
+\end{align*}
+
+\newpage
+
+\end{document}
