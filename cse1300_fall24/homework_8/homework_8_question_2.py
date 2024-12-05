@@ -15,8 +15,10 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-# Replaced np.random.RandomState with np.random.default_rng due to deprecation
+# Use the new-style random number generator
 rng = np.random.default_rng(41)
+# Extract an integer seed from rng to use as random_state
+seed = rng.integers(0, 4294967295) 
 
 # Load the dataset
 loblolly = pd.read_csv('loblollySample.csv')
@@ -30,14 +32,15 @@ testProportionPercent = 0.2
 trainAndValidate, testDataset = train_test_split(
     loblolly,
     test_size=testProportionPercent,
-    random_state=rng
+    random_state=seed
 )
 
 # Split training/validation data into training data and validation data
+# Use the same seed to keep things consistent
 trainDataset, validateDataset = train_test_split(
     trainAndValidate, 
     train_size=trainProportionPercent/(trainProportionPercent+validateProportionPercent),
-    random_state=rng
+    random_state=seed
 )
 
 # Print split sizes and test dataset
