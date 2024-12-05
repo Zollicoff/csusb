@@ -15,10 +15,9 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-# Use the new-style random number generator
-rng = np.random.default_rng(41)
-
+# Replaced np.random.RandomState with np.random.default_rng due to deprecation
 # Extract an integer seed from rng to use as random_state
+rng = np.random.default_rng(41)
 seed = rng.integers(0, 4294967295) 
 
 # Load the dataset
