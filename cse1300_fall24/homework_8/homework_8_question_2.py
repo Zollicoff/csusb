@@ -17,6 +17,7 @@ from sklearn.model_selection import train_test_split
 
 # Use the new-style random number generator
 rng = np.random.default_rng(41)
+
 # Extract an integer seed from rng to use as random_state
 seed = rng.integers(0, 4294967295) 
 
