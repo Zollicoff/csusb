@@ -5,7 +5,7 @@
 
 # Import packages and functions
 import pandas as pd
-import numpy as np
+import numpy as np # Missing in template
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import mean_squared_error
@@ -37,5 +37,5 @@ MSE = mean_squared_error(y, yPredicted)
 RMSE = np.sqrt(MSE)
 
 # Print metrics
-print('Mean squared error =', MSE)
-print('Root mean squared error =', RMSE)
+print('Mean Squared Error (MSE) =', MSE)
+print('Root Mean Squared Error (RMSE) =', RMSE)
