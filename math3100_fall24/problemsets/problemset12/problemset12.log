@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  6 DEC 2024 13:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  6 DEC 2024 14:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -473,8 +473,7 @@ File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count319
 \l__pdf_internal_box=\box66
-)
-No file problemset12.aux.
+) (./problemset12.aux)
 \openout1 = `problemset12.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
@@ -495,7 +494,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
-(c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count320
 \scratchdimen=\dimen272
@@ -515,6 +514,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring ON on input line 41.
+ (./problemset12.out) (./problemset12.out)
 \@outlinefile=\write4
 \openout4 = `problemset12.out'.
 
@@ -582,21 +582,14 @@ LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <12> not available
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
  ***********
-
-
-Package rerunfilecheck Warning: File `problemset12.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `problemset12.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `problemset12.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21375 strings out of 473579
- 391296 string characters out of 5732256
- 776012 words of memory out of 5000000
- 43896 multiletter control sequences out of 15000+600000
+ 21383 strings out of 473579
+ 391456 string characters out of 5732256
+ 776073 words of memory out of 5000000
+ 43898 multiletter control sequences out of 15000+600000
  571991 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,7n,87p,623b,613s stack positions out of 10000i,1000n,20000p,200000b,200000s
