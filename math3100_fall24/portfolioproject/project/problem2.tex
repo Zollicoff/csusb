@@ -1,58 +1,4 @@
-% Beginning of preamble
-% Specify the type of document you want (usually article) and the font size
-\documentclass[12pt]{article}
-
-% Packages to load which give you useful commands
-\usepackage{amssymb, amsmath, amsthm, amsfonts}
-
-% Some other packages that I find useful
-\usepackage{euscript}
-\usepackage{graphicx}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{lineno}
-
-% allow for urls and hyperlinks
-\usepackage{url}
-\usepackage{hyperref}
-\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
-
-% Set the margins other page formatting
-\usepackage{geometry}
-\geometry{left=1in, right=1in, top=1in, bottom=1in}
-\usepackage{enumitem}
-\usepackage{setspace}
-\setlength\parindent{0pt}
-\linespread{1.2}
-\linenumbers
-
-% Define a few theorem-type environments
-\newtheorem*{theorem}{Theorem}
-\newtheorem*{prop}{Proposition}
-\newtheorem*{cor}{Corollary}
-\newtheorem*{lemma}{Lemma}
-\newtheorem*{problem}{Problem}
-\theoremstyle{definition}
-\newtheorem*{definition}{Definition}
-\newtheorem*{example}{Example}
-
-% Make the font Sans Serif
-\renewcommand{\familydefault}{\sfdefault}
-
-% Some notation shortcut commands
-\newcommand{\R}{\mathbb{R}} %the reals
-\newcommand{\Q}{\mathbb{Q}} %the rationals
-\newcommand{\N}{\mathbb{N}} %the natural numbers
-\newcommand{\Z}{\mathbb{Z}} %the integers
-\newcommand{\eps}{\varepsilon} %a cooler epsilon
-
-% End of preamble
-%--------------------------------------------------------------------------
-
-\begin{document}
-
-\section{Portfolio Problem 2 - C. Squares and Cubes}
-
-\subsection{Examples and Definitions}
+{Examples and Definitions}
 
 \textbf{Problem to prove:} Construct both a know-show table and a first attempt at a formal proof of the following proposition.
 
@@ -86,7 +32,7 @@ To find four pairs of natural numbers \( (a, b) \) such that \( a^2 = b^3 \) and
         \end{itemize}
     \item Column D: Verification column for \( b^3 \) (\( b^3 \in \N \)).
         \begin{itemize}
-            \item Formula: \texttt{=IF(AND(C2>0, C2=INT(C2)), C2*C2*C2 \& "\(\in\mathbb{N}\)", "b\(\notin\)\mathbb{N}")}
+            \item Formula: \texttt{=IF(AND(C2>0, C2=INT(C2)), C2*C2*C2 \& "$\in\mathbb{N}$", "b$\notin\mathbb{N}$")}
         \end{itemize}
     \item Column E: Even or Odd verification for \( a \).
         \begin{itemize}
@@ -114,7 +60,7 @@ To find four pairs of natural numbers \( (a, b) \) such that \( a^2 = b^3 \) and
 
 \textbf{Spreadsheet Screenshot:}
 \begin{center}
-    \includegraphics[width=\textwidth]{Portfolio Problem 2 Spreadsheet.png}
+    \includegraphics[width=\textwidth]{s.png}
 
 \end{center}
 
@@ -224,43 +170,6 @@ We aim to prove the following proposition:
 
 \newpage
 
-\subsection{Final Draft of Proof}
-
-\textbf{Proposition:} Let \( a, b \in \mathbb{N} \). If \( a^2 = b^3 \) and \( a \) is even, then \( 4 \mid a \).
-
-\begin{proof}
-    Assume \( a \) and \( b \) are natural numbers. We will prove that if \( a^2 = b^3 \) and \( a \) is even, then \( 4 \) divides \( a \). Since \( a \) is even, there exists an integer \( k \) such that \( a = 2k \). Substituting \( a = 2k \) into \( a^2 \), we get:
-    \[
-    a^2 = (2k)^2 = 4k^2.
-    \]
-
-    By the hypothesis \( a^2 = b^3 \), it follows that:
-    \[
-    b^3 = 4k^2.
-    \]
-
-    Since \( b^3 \) is divisible by \( 4 \), it follows that \( b^3 \) is even. By previous results, \( n^3 \) is even if and only if \( n \) is even, so \( b \) must also be even. Thus, there exists an integer \( m \) such that \( b = 2m \). Substituting \( b = 2m \) into \( b^3 \), we have:
-
-    \[
-    b^3 = (2m)^3 = 8m^3.
-    \]
-
-    Thus, the equation becomes:
-    \begin{align*}
-        4k^2 & = 8m^3, \\
-        k^2 & = 2m^3.
-    \end{align*}
-
-    By previous results, since \( k^2 \) is even, \( k \) must also be even. Let \( k = 2n \) for some integer \( n \). Recalling that \( a = 2k \), we substitute \( k = 2n \) into the expression for \( a \), and we have:  
-    \[
-    a = 2(2n) = 4n.
-    \]
-
-    Therefore, \( a \) is divisible by \( 4 \), which proves the proposition that if \( a^2 = b^3 \) and \( a \) is even, then \( a \) must be divisible by \( 4 \).
-\end{proof}
-
-\newpage
-
 \subsection{Reflection}
 
 \begin{itemize}
@@ -268,11 +177,3 @@ We aim to prove the following proposition:
     \item The second draft improved these explanations, making the reasoning more direct and ensuring each step was justified.
     \item The final draft streamlined the logic, referenced prior results explicitly, and presented a fully rigorous and clear argument that \( a \) must be divisible by 4.
 \end{itemize}
-
-% Bibliography
-\vspace{1em}
-\begin{thebibliography}{9}
-\bibitem{Sund21} Sundstrom, T., \emph{Mathematical Reasoning: Writing and Proof}, Version 3,  Creative Commons, 2020.
-\end{thebibliography}
-
-\end{document}

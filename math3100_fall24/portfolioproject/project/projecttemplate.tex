@@ -1,0 +1,159 @@
+\documentclass[12pt]{article} 
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet, linkcolor=black}
+
+\usepackage{pdfpages}
+
+\usepackage{array}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{setspace} 
+%\setlength\parindent{0pt}
+\linespread{1.2}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{prop}{Proposition}
+
+\theoremstyle{definition} 
+\newtheorem*{definition}{Definition}
+
+%\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\R}{\mathbb{R}} %the reals
+\newcommand{\Q}{\mathbb{Q}} %the rationals
+\newcommand{\N}{\mathbb{N}} %the natural numbers
+\newcommand{\Z}{\mathbb{Z}} %the integers
+\newcommand{\eps}{\varepsilon} %a cooler epsilon
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\solution}{\textcolor{PineGreen}{Solution:\newline}}
+
+
+%%%%% End of preamble %%%%%
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+    \LARGE{Math 3100 Final Portfolio}
+    
+    \bigskip
+    
+    \Large{Your name here}
+    
+    \medskip
+    
+    \Large{Semester and year here}
+\end{center}
+
+ \vfill
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=.8\textwidth]{flower.jpg}
+        \caption{Choose a graphic that resonates with you! Include}{ a descriptive subtitle. Credit the image source or creator.\cite{Flower08}}
+        \label{fig:my_label}
+    \end{figure}
+    
+    \vfill
+\end{titlepage}
+
+
+\tableofcontents
+
+%------------Project Reflection -------------
+
+\section{Project Reflection}
+
+\textcolor{ForestGreen}{Write your Project Reflection here. Delete all directions on this page, including the prompts below, and replace with your reflection. All of your work should use the default black textcolor, not green, so please delete the command for textcolor.}
+
+Your reflection should be a \textbf{narrative} that incorporates responses to the prompts below. In a narrative, the prompts should \textit{not} be answered one-by-one. Rather, you should weave your responses together in order to tell your story.
+
+The goal of this essay is to provide an opportunity for you to reflect on your growth in learning throughout the term. Think about how your problem-solving and writing processes have developed overall. The reflection will be assessed on the demonstrated level of deep thinking.  Include specific details and avoid vague, general statements. Please see the \href{https://docs.google.com/document/d/1ZoyNXkFwPxKgQ_22qHUumA9VEkiKF3V_9EUi0xIVFfw/edit?usp=sharing}{rubric for reflections} for more detail. Use professional writing conventions including appropriate grammar and spelling.
+
+\begin{itemize}
+    \item Describe how you grew as a mathematician (or mathematical thinker) this term. 
+    \item Which part of your writing do you feel improved the most through this project? Describe how your writing improved or evolved. Provide specific details and highlights.
+    \item In what ways has your understanding of what it means to ``do mathematics'' evolved? Provide specific details and highlights.
+    \item What is something you will take away from the Portfolio Project? For example, describe ways in which what you've learned by creating this project has benefited you, or how might it support future work moving forward.
+    \item What else can you share that might help the reader understand your process and what you learned?
+    \item Include other thoughts you have about your learning journey this term.
+    \item After completing this portfolio project, what advice do you have for the novice proof-writer or new Math 3100 student?
+\end{itemize}
+
+
+
+%------------Problem 1 -------------
+
+\section{Portfolio Problem 1}
+
+\subsection{Introductory Material and Definitions} Include any relevant definitions and theorems that will be used in your argument (e.g. definitions of even/odd, definition of divides, Pythagorean triple, etc.).
+
+\subsection{Examples} Include formal write-up of the exploratory examples that were asked for in the problem. You should be writing in complete sentences, only showing the work that justifies your example. 
+
+
+\subsection{Final Draft}
+\begin{prop}
+proposition statement goes here
+\end{prop}
+
+\begin{proof}
+final draft of proof goes here
+\end{proof}
+
+\noindent Include additional proposition and proof environments as needed.
+
+\noindent Reminder: Include citations for any material from any source including collaborations \cite{Collab1}, the textbook \cite{Sund21}, or other sources \cite{Whatever24}
+
+%------------Problem 2 -------------
+
+\section{Portfolio Problem 2}
+
+\textcolor{ForestGreen}{See Problem 1 for directions and formatting.}
+
+
+%------------Appendices -------------
+
+\appendix
+
+%------------ Problem 1 Rough Drafts -------------
+
+\section{Appendix: Problem 1 Rough Drafts}
+\textcolor{ForestGreen}{Include the work from the first and second rough drafts for both Portfolio Problems. Delete all directions, including the directions below. All of your work should use the default black textcolor, not green, so please delete the command for textcolor.}
+
+Use the command below to link to the .tex file with your problem 1 rough drafts. In the curly brackets, type the name of the file (e.g. problem1)
+
+\input{}
+
+
+%------------ Problem 2 Rough Drafts -------------
+
+\section{Appendix: Problem 2 Rough Drafts}
+See Problem 1 for directions.
+
+
+%------------Bibliography -------------
+
+\begin{thebibliography}{9}
+ \bibitem{Sund21} Include a properly formatted reference to your textbook here.
+ \bibitem{Collab1} Include a statement with the names of your collaborators
+ \bibitem{Flower08} Image source: \url{https://commons.wikimedia.org/wiki/File:Columbine_Aquilegia_%27Blue_Butterflies%27_Flower_2568px.jpg} (Note the use of the url command for the web link.)
+  \bibitem{Whatever24} Include any other references: images from the internet, definition or theorem from a book other than our class text, etc.
+\end{thebibliography}
+\addcontentsline{toc}{section}{References}
+
+
+
+\end{document}
