@@ -11,6 +11,34 @@ module wireTest2_tb;
 
 reg W;
 reg X;
+wire Y;
+wire Z;
 
+wireTest2 uut (W, X, Y, Z);
+
+initial begin
+
+    $dumpfile("wireTest2_tb.vcd");
+    $dumpvars(0, wiretest2_tb);
+
+    W = 0;
+    X = 0;
+    #20
+
+    W = 1;
+    #20
+
+    X = 1;
+    #20
+
+    W = 0;
+    #20
+
+    X = 0;
+    #20
+
+    $display("Wire test complete!")
+
+end
 
 endmodule
