@@ -1,0 +1,115 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+S_0x13c611ae0 .scope module, "allSevenGatesUsingNOR_tb" "allSevenGatesUsingNOR_tb" 2 4;
+ .timescale -9 -9;
+v0x13c627210_0 .var "a", 0 0;
+v0x13c6272a0_0 .net "and_out", 0 0, L_0x13c628050;  1 drivers
+v0x13c627330_0 .var "b", 0 0;
+v0x13c6273c0_0 .net "nand_out", 0 0, L_0x13c628290;  1 drivers
+v0x13c627450_0 .net "nor_out", 0 0, L_0x13c628370;  1 drivers
+v0x13c627520_0 .net "not_out", 0 0, L_0x13c6279c0;  1 drivers
+v0x13c6275d0_0 .net "or_out", 0 0, L_0x13c627ea0;  1 drivers
+v0x13c627680_0 .net "xnor_out", 0 0, L_0x13c628c50;  1 drivers
+v0x13c627730_0 .net "xor_out", 0 0, L_0x13c6289f0;  1 drivers
+S_0x13c613f80 .scope module, "uut" "allSevenGatesUsingNOR" 2 10, 3 4 0, S_0x13c611ae0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "and_out";
+    .port_info 3 /OUTPUT 1 "or_out";
+    .port_info 4 /OUTPUT 1 "nand_out";
+    .port_info 5 /OUTPUT 1 "nor_out";
+    .port_info 6 /OUTPUT 1 "xor_out";
+    .port_info 7 /OUTPUT 1 "xnor_out";
+    .port_info 8 /OUTPUT 1 "not_out";
+L_0x13c627860 .functor OR 1, v0x13c627210_0, v0x13c627210_0, C4<0>, C4<0>;
+L_0x13c627910 .functor NOT 1, L_0x13c627860, C4<0>, C4<0>, C4<0>;
+L_0x13c6279c0 .functor BUFZ 1, L_0x13c627910, C4<0>, C4<0>, C4<0>;
+L_0x13c627ab0 .functor OR 1, v0x13c627330_0, v0x13c627330_0, C4<0>, C4<0>;
+L_0x13c627b60 .functor NOT 1, L_0x13c627ab0, C4<0>, C4<0>, C4<0>;
+L_0x13c627c10 .functor OR 1, v0x13c627210_0, v0x13c627330_0, C4<0>, C4<0>;
+L_0x13c627d80 .functor NOT 1, L_0x13c627c10, C4<0>, C4<0>, C4<0>;
+L_0x13c627df0 .functor OR 1, L_0x13c627d80, L_0x13c627d80, C4<0>, C4<0>;
+L_0x13c627ea0 .functor NOT 1, L_0x13c627df0, C4<0>, C4<0>, C4<0>;
+L_0x13c627fe0 .functor OR 1, L_0x13c627910, L_0x13c627b60, C4<0>, C4<0>;
+L_0x13c628050 .functor NOT 1, L_0x13c627fe0, C4<0>, C4<0>, C4<0>;
+L_0x13c6281a0 .functor OR 1, L_0x13c628050, L_0x13c628050, C4<0>, C4<0>;
+L_0x13c628290 .functor NOT 1, L_0x13c6281a0, C4<0>, C4<0>, C4<0>;
+L_0x13c628370 .functor BUFZ 1, L_0x13c627d80, C4<0>, C4<0>, C4<0>;
+L_0x13c628460 .functor OR 1, L_0x13c627910, v0x13c627330_0, C4<0>, C4<0>;
+L_0x13c628300 .functor NOT 1, L_0x13c628460, C4<0>, C4<0>, C4<0>;
+L_0x13c6285d0 .functor OR 1, v0x13c627210_0, L_0x13c627b60, C4<0>, C4<0>;
+L_0x13c6286d0 .functor NOT 1, L_0x13c6285d0, C4<0>, C4<0>, C4<0>;
+L_0x13c628550 .functor OR 1, L_0x13c628300, L_0x13c6286d0, C4<0>, C4<0>;
+L_0x13c628860 .functor NOT 1, L_0x13c628550, C4<0>, C4<0>, C4<0>;
+L_0x13c6288d0 .functor OR 1, L_0x13c628860, L_0x13c628860, C4<0>, C4<0>;
+L_0x13c6289f0 .functor NOT 1, L_0x13c6288d0, C4<0>, C4<0>, C4<0>;
+L_0x13c628aa0 .functor OR 1, L_0x13c6289f0, L_0x13c6289f0, C4<0>, C4<0>;
+L_0x13c628c50 .functor NOT 1, L_0x13c628aa0, C4<0>, C4<0>, C4<0>;
+v0x13c60b890_0 .net *"_ivl_0", 0 0, L_0x13c627860;  1 drivers
+v0x13c625fa0_0 .net *"_ivl_10", 0 0, L_0x13c627c10;  1 drivers
+v0x13c626040_0 .net *"_ivl_14", 0 0, L_0x13c627df0;  1 drivers
+v0x13c6260f0_0 .net *"_ivl_18", 0 0, L_0x13c627fe0;  1 drivers
+v0x13c6261a0_0 .net *"_ivl_22", 0 0, L_0x13c6281a0;  1 drivers
+v0x13c626290_0 .net *"_ivl_28", 0 0, L_0x13c628460;  1 drivers
+v0x13c626340_0 .net *"_ivl_32", 0 0, L_0x13c6285d0;  1 drivers
+v0x13c6263f0_0 .net *"_ivl_36", 0 0, L_0x13c628550;  1 drivers
+v0x13c6264a0_0 .net *"_ivl_40", 0 0, L_0x13c6288d0;  1 drivers
+v0x13c6265b0_0 .net *"_ivl_44", 0 0, L_0x13c628aa0;  1 drivers
+v0x13c626660_0 .net *"_ivl_6", 0 0, L_0x13c627ab0;  1 drivers
+v0x13c626710_0 .net "a", 0 0, v0x13c627210_0;  1 drivers
+v0x13c6267b0_0 .net "and_out", 0 0, L_0x13c628050;  alias, 1 drivers
+v0x13c626850_0 .net "b", 0 0, v0x13c627330_0;  1 drivers
+v0x13c6268f0_0 .net "nand_out", 0 0, L_0x13c628290;  alias, 1 drivers
+v0x13c626990_0 .net "nor_ab", 0 0, L_0x13c627d80;  1 drivers
+v0x13c626a30_0 .net "nor_out", 0 0, L_0x13c628370;  alias, 1 drivers
+v0x13c626bc0_0 .net "not_a", 0 0, L_0x13c627910;  1 drivers
+v0x13c626c50_0 .net "not_b", 0 0, L_0x13c627b60;  1 drivers
+v0x13c626ce0_0 .net "not_out", 0 0, L_0x13c6279c0;  alias, 1 drivers
+v0x13c626d70_0 .net "or_out", 0 0, L_0x13c627ea0;  alias, 1 drivers
+v0x13c626e10_0 .net "term1", 0 0, L_0x13c628300;  1 drivers
+v0x13c626eb0_0 .net "term2", 0 0, L_0x13c6286d0;  1 drivers
+v0x13c626f50_0 .net "xnor_out", 0 0, L_0x13c628c50;  alias, 1 drivers
+v0x13c626ff0_0 .net "xor_out", 0 0, L_0x13c6289f0;  alias, 1 drivers
+v0x13c627090_0 .net "xor_temp", 0 0, L_0x13c628860;  1 drivers
+    .scope S_0x13c611ae0;
+T_0 ;
+    %vpi_call 2 25 "$dumpfile", "allSevenGatesUsingNOR_tb.vcd" {0 0 0};
+    %vpi_call 2 26 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x13c611ae0 {0 0 0};
+    %vpi_call 2 29 "$monitor", "time=%0t: a=%b, b=%b | and=%b, or=%b, nand=%b, nor=%b, xor=%b, xnor=%b, not=%b", $time, v0x13c627210_0, v0x13c627330_0, v0x13c6272a0_0, v0x13c6275d0_0, v0x13c6273c0_0, v0x13c627450_0, v0x13c627730_0, v0x13c627680_0, v0x13c627520_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x13c627210_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x13c627330_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x13c627210_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x13c627330_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x13c627210_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x13c627330_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x13c627210_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x13c627330_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 38 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "allSevenGatesUsingNOR_tb.v";
+    "./allSevenGatesUsingNOR.v";
