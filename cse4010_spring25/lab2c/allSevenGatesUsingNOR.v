@@ -14,7 +14,8 @@ module allSevenGatesUsingNOR(
 );
 
     // Internal wires
-    wire not_a, not_b;
+    wire not_a,
+    wire not_b;
     wire nor_ab;
     wire term1, term2, xor_temp;
     
