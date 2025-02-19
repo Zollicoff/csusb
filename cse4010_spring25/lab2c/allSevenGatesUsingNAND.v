@@ -50,3 +50,5 @@ module allSevenGatesUsingNAND(
     assign xnor_out = ~(xor_out & xor_out);
 
 endmodule
+
+
