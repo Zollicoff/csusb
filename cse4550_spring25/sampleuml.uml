@@ -1,0 +1,58 @@
+@startuml
+actor "Regular User" as User
+actor "Admin" as Admin
+actor "Support" as Support
+
+package "Web Application" {
+
+  package "Account" {
+    usecase "Login" as UC_Login
+    usecase "Register" as UC_Register
+    usecase "Reset Password" as UC_Reset
+    usecase "Update Profile" as UC_Update
+    usecase "View Order History" as UC_OrderHis
+  }
+  
+  package "Shopping" {
+    usecase "Browse Catalog" as UC_Browse
+    usecase "Search Products" as UC_Search
+    usecase "View Product Details" as UC_View
+    usecase "Add to Cart" as UC_Add
+    usecase "Checkout" as UC_Checkout
+  }
+  
+  package "Administration" {
+    usecase "Manage Inventory" as UC_Inventory
+    usecase "Process Order" as UC_Process
+    usecase "Manage Users" as UC_ManageUsers
+    usecase "View Reports" as UC_Reports
+  }
+}
+
+' Relationships for authentication flow
+UC_Register --> UC_Login : extends
+UC_Reset ..> UC_Login : <<include>>
+
+' Regular user interactions
+User --> UC_Login
+User --> UC_Register
+User --> UC_Reset
+User --> UC_Update
+User --> UC_Browse
+User --> UC_Search
+User --> UC_View
+User --> UC_Add
+User --> UC_Checkout
+User --> UC_OrderHis
+
+' Admin interactions
+Admin --> UC_Login
+Admin --> UC_ManageUsers
+Admin --> UC_Inventory
+Admin --> UC_Process
+Admin --> UC_Reports
+
+' Support interactions (e.g., password resets)
+Support --> UC_Reset
+
+@enduml
