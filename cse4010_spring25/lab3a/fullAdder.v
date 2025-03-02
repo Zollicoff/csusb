@@ -2,6 +2,10 @@
  * File: fullAdder.v
  * Description: Implements a 1-bit full adder using half adders
  * A full adder adds three bits (A, B, and carry-in) and produces sum and carry-out
+ * A full adder is built from two half adders and an OR gate; 
+ * The first half adder adds A and B and produces a sum and a carry
+ * The second half adder adds the carry from the first half adder to the carry-in
+ * The OR gate adds the carries from the two half adders to produce the final carry-out
  */
 
 // Half Adder Module - Adds two bits and produces sum and carry
@@ -20,12 +24,12 @@ module halfAdder(op1, op2, sum, carry);
 endmodule
 
 // Full Adder Module - Adds three bits (A, B, carry-in) and produces sum and carry-out
-module fullAdder(A, B, carryIn, sum, carryOut);
+module fullAdder(A, B, Cin, sum, Cout);
 
     // Input ports
-    input A, B, carryIn;  // A and B are the bits to add, carryIn is the carry from previous addition
+    input A, B, Cin;  // A and B are the bits to add, carryIn is the carry from previous addition
     // Output ports
-    output sum, carryOut; // sum is the result bit, carryOut propagates to next addition
+    output sum, Cout; // sum is the result bit, carryOut propagates to next addition
     
     // Internal connections - wires to connect the half adders
     wire c;  // Sum output from first half adder
@@ -36,10 +40,10 @@ module fullAdder(A, B, carryIn, sum, carryOut);
     // First half adder - adds A and B
     halfAdder u1(A, B, c, d);
     // Second half adder - adds carryIn and the sum from first half adder
-    halfAdder u2(carryIn, c, e, f);
+    halfAdder u2(Cin, c, e, f);
     
     // Final carry out is OR of both half adder carries
-    assign carryOut = f | d;  // | is the OR operator
+    assign Cout = f | d;  // | is the OR operator
     // Final sum is the sum output from second half adder
     assign sum = e;
     
