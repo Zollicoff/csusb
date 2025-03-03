@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.27)  2 MAR 2025 22:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.27)  2 MAR 2025 22:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -366,34 +366,37 @@ Overfull \hbox (34.95674pt too wide) in paragraph at lines 31--34
 \OT1/cmr/bx/n/12 Lab: $[]$ 
  []
 
-[1
-
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2024/02/21 1.10 listings language file
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2024/02/21 1.10 listings language file
-) [2] [3]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 142.
+) [1
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [2]
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 138.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [4] [5] [6] [7] [8]
-<full_adder.png, id=256, 1007.765pt x 634.37pt>
+) [3] [4] [5]
+<full_adder.png, id=216, 1007.765pt x 634.37pt>
 File: full_adder.png Graphic file (type png)
 <use full_adder.png>
-Package pdftex.def Info: full_adder.png  used on input line 289.
+Package pdftex.def Info: full_adder.png  used on input line 281.
 (pdftex.def)             Requested size: 452.9679pt x 285.13475pt.
-<full_subtractor.png, id=258, 1003.75pt x 632.3625pt>
-File: full_subtractor.png Graphic file (type png)
-<use full_subtractor.png>
-Package pdftex.def Info: full_subtractor.png  used on input line 296.
-(pdftex.def)             Requested size: 452.9679pt x 285.37102pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9 <./full_adder.png>] [10 <./full_subtractor.png>] (./lab3.aux)
+<full_subtractor.png, id=218, 1003.75pt x 632.3625pt>
+File: full_subtractor.png Graphic file (type png)
+<use full_subtractor.png>
+Package pdftex.def Info: full_subtractor.png  used on input line 288.
+(pdftex.def)             Requested size: 452.9679pt x 285.37102pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6] [7 <./full_adder.png> <./full_subtractor.png>] (./lab3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -402,18 +405,18 @@ Package rerunfilecheck Info: File `lab3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 12167 strings out of 474116
- 183511 string characters out of 5743682
- 2356187 words of memory out of 5000000
+ 12164 strings out of 474116
+ 183492 string characters out of 5743682
+ 2368187 words of memory out of 5000000
  34163 multiletter control sequences out of 15000+600000
  565634 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,300b,2225s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,300b,2270s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on lab3.pdf (10 pages, 348265 bytes).
+Output written on lab3.pdf (7 pages, 346841 bytes).
 PDF statistics:
- 364 PDF objects out of 1000 (max. 8388607)
- 330 compressed objects within 4 object streams
- 232 named destinations out of 1000 (max. 500000)
+ 352 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 229 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
