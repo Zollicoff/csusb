@@ -56,27 +56,55 @@
 \section*{Source Code}
 \subsection*{fullAdder.v}
 \begin{lstlisting}[language=Verilog]
-module fullAdder(
-    input A,
-    input B,
-    input Cin,
-    output sum,
-    output Cout
-);
-    
-    wire sum1, carry1, carry2;
-    
-    // First half adder
-    assign sum1 = A ^ B;
-    assign carry1 = A & B;
-    
-    // Second half adder
-    assign sum = sum1 ^ Cin;
-    assign carry2 = sum1 & Cin;
-    
-    // Final carry output
-    assign Cout = carry1 | carry2;
+/*
+ * File: fullAdder.v
+ * Description: Implements a 1-bit full adder using half adders
+ * A full adder adds three bits (A, B, and carry-in) and produces sum and carry-out
+ * A full adder is built from two half adders and an OR gate; 
+ * The first half adder adds A and B and produces a sum and a carry
+ * The second half adder adds the carry from the first half adder to the carry-in
+ * The OR gate adds the carries from the two half adders to produce the final carry-out
+ */
 
+// Half Adder Module - Adds two bits and produces sum and carry
+module halfAdder(op1, op2, sum, carry);
+
+    // Inputs - two 1-bit operands
+    input op1, op2;
+    // Outputs - sum and carry bits
+    output sum, carry;
+    
+    // XOR operation - sum is 1 if either op1 or op2 is 1, but not both
+    assign sum = op1 ^ op2; // ^ is the xor operator
+    // AND operation - carry is 1 only if both op1 and op2 are 1
+    assign carry = op1 & op2; // & is the and operator
+    
+endmodule
+
+// Full Adder Module - Adds three bits (A, B, carry-in) and produces sum and carry-out
+module fullAdder(A, B, Cin, sum, Cout);
+
+    // Input ports
+    input A, B, Cin;  // A and B are the bits to add, carryIn is the carry from previous addition
+    // Output ports
+    output sum, Cout; // sum is the result bit, carryOut propagates to next addition
+    
+    // Internal connections - wires to connect the half adders
+    wire c;  // Sum output from first half adder
+    wire d;  // Carry output from first half adder
+    wire e;  // Sum output from second half adder
+    wire f;  // Carry output from second half adder
+    
+    // First half adder - adds A and B
+    halfAdder u1(A, B, c, d);
+    // Second half adder - adds carryIn and the sum from first half adder
+    halfAdder u2(Cin, c, e, f);
+    
+    // Final carry out is OR of both half adder carries
+    assign Cout = f | d;  // | is the OR operator
+    // Final sum is the sum output from second half adder
+    assign sum = e;
+    
 endmodule
 \end{lstlisting}
 
@@ -84,43 +112,58 @@ endmodule
 
 \subsection*{fullAdder\_tb.v}
 \begin{lstlisting}[language=Verilog]
-`timescale 1ns/1ns
+/*
+ * File: fullAdder_tb.v
+ * Description: Testbench for the 1-bit full adder
+ * Tests all possible input combinations (0-7) for A, B, carryIn
+ * The testbench uses a loop to iterate through all possible input combinations
+ * It displays the results of each test case
+ */
+ 
+// Define timescale for simulation: 1 nanosecond time unit, 1 nanosecond precision
+`timescale 1 ns / 1 ns
+// Include the module to be tested
 `include "fullAdder.v"
 
+// Testbench module - no external ports
 module fullAdder_tb;
-    reg A, B, Cin;
-    wire sum, Cout;
+
+// Test inputs - declared as registers since they will be driven
+reg A, B, Cin;
+// Test outputs - declared as wires since they will be monitored
+wire sum, Cout;
+
+// Instantiate the Unit Under Test (UUT) - connect to test signals
+fullAdder uut(A, B, Cin, sum, Cout);
+
+// Test sequence
+initial begin
+    // Generate VCD file for waveform viewing
+    $dumpfile("fullAdder_tb.vcd");
+    // Dump variables from the testbench (0 means all variables)
+    $dumpvars(0, fullAdder_tb);
     
-    fullAdder uut(
-        .A(A),
-        .B(B),
-        .Cin(Cin),
-        .sum(sum),
-        .Cout(Cout)
-    );
+    // Test case 0: A=0, B=0, Cin=0
+    {A, B, Cin} = 3'd0; #20;
+    // Test case 1: A=0, B=0, Cin=1
+    {A, B, Cin} = 3'd1; #20;
+    // Test case 2: A=0, B=1, Cin=0
+    {A, B, Cin} = 3'd2; #20;
+    // Test case 3: A=0, B=1, Cin=1
+    {A, B, Cin} = 3'd3; #20;
+    // Test case 4: A=1, B=0, Cin=0
+    {A, B, Cin} = 3'd4; #20;
+    // Test case 5: A=1, B=0, Cin=1
+    {A, B, Cin} = 3'd5; #20;
+    // Test case 6: A=1, B=1, Cin=0
+    {A, B, Cin} = 3'd6; #20;
+    // Test case 7: A=1, B=1, Cin=1
+    {A, B, Cin} = 3'd7; #20;
+    // Display a message to indicate completion of test cases
+    $display("Finished additions!");
     
-    initial begin
-        $dumpfile("fullAdder_tb.vcd");
-        $dumpvars(0, fullAdder_tb);
-        
-        // Test all input combinations
-        A = 0; B = 0; Cin = 0; #20;
-        A = 0; B = 0; Cin = 1; #20;
-        A = 0; B = 1; Cin = 0; #20;
-        A = 0; B = 1; Cin = 1; #20;
-        A = 1; B = 0; Cin = 0; #20;
-        A = 1; B = 0; Cin = 1; #20;
-        A = 1; B = 1; Cin = 0; #20;
-        A = 1; B = 1; Cin = 1; #20;
-        
-        $display("Test Complete!");
-        $finish;
-    end
-    
-    initial begin
-        $monitor("Time=%0d A=%b B=%b Cin=%b sum=%b Cout=%b",
-                 $time, A, B, Cin, sum, Cout);
-    end
+end
+
 endmodule
 \end{lstlisting}
 
@@ -128,26 +171,54 @@ endmodule
 
 \subsection*{fullSubtractor.v}
 \begin{lstlisting}[language=Verilog]
-module fullSubtractor(
-    input A,
-    input B,
-    input Bin,
-    output diff,
-    output Bout
-);
+/*
+ * File: fullSubtractor.v
+ * Description: Implements a 1-bit full subtractor using half subtractors
+ * A full subtractor subtracts three bits (A, B, and borrow-in) and produces difference and borrow-out
+ * A full subtractor is built from two half subtractors and an OR gate; 
+ * The first half subtractor subtracts B from A and produces a difference and a borrow
+ * The second half subtractor subtracts the borrow-in from the difference of the first half subtractor
+ * The OR gate combines the borrows from the two half subtractors to produce the final borrow-out
+ */
+
+// Half Subtractor Module - Subtracts one bit from another and produces difference and borrow
+module halfSubtractor(op1, op2, diff, borrow);
+
+    // Inputs - two 1-bit operands
+    input op1, op2;
+    // Outputs - difference and borrow bits
+    output diff, borrow;
+
+    // XOR operation - difference is 1 if op1 and op2 are different
+    assign diff = op1 ^ op2;
+
+    // AND operation with NOT on op2 - borrow is 1 if op1=1 and op2=0
+    assign borrow = op1 & !op2;
+
+endmodule
+
+// Full Subtractor Module - Subtracts three bits (A, B, borrow-in) and produces difference and borrow-out
+module fullSubtractor(A, B, Bin, diff, Bout);
+
+    // Input ports
+    input A, B, Bin;  // A is minuend, B is subtrahend, Bin is borrow-in from previous subtraction
+    // Output ports
+    output diff, Bout; // diff is the difference bit, Bout propagates borrow to next subtraction
     
-    wire diff1, borrow1, borrow2;
-    
-    // First half subtractor
-    assign diff1 = A ^ B;
-    assign borrow1 = !A & B;
-    
-    // Second half subtractor
-    assign diff = diff1 ^ Bin;
-    assign borrow2 = !diff1 & Bin;
-    
-    // Final borrow output
-    assign Bout = borrow1 | borrow2;
+    // Internal connections - wires to connect the half subtractors
+    wire c;  // Difference output from first half subtractor
+    wire d;  // Borrow output from first half subtractor
+    wire e;  // Difference output from second half subtractor (unused)
+    wire f;  // Borrow output from second half subtractor
+
+    // First half subtractor - subtracts B from A
+    halfSubtractor u1(A, B, c, d);
+
+    // Second half subtractor - subtracts Bin from the result of first half subtractor
+    halfSubtractor u2(c, Bin, diff, f);
+
+    // Final borrow out is OR of both half subtractor borrows
+    assign Bout = f | d;  // | is the OR operator
 
 endmodule
 \end{lstlisting}
@@ -156,43 +227,58 @@ endmodule
 
 \subsection*{fullSubtractor\_tb.v}
 \begin{lstlisting}[language=Verilog]
-`timescale 1ns/1ns
+/*
+ * File: fullSubtractor_tb.v
+ * Description: Testbench for the 1-bit full subtractor
+ * Tests all possible input combinations (0-7) for A, B, Bin
+ * The testbench uses a loop to iterate through all possible input combinations
+ * It displays the results of each test case
+ */
+ 
+// Define timescale for simulation: 1 nanosecond time unit, 1 nanosecond precision
+`timescale 1 ns / 1 ns
+// Include the module to be tested
 `include "fullSubtractor.v"
 
+// Testbench module - no external ports
 module fullSubtractor_tb;
-    reg A, B, Bin;
-    wire diff, Bout;
+
+// Test inputs - declared as registers since they will be driven
+reg A, B, Bin;
+// Test outputs - declared as wires since they will be monitored
+wire diff, Bout;
+
+// Instantiate the Unit Under Test (UUT) - connect to test signals
+fullSubtractor uut(A, B, Bin, diff, Bout);
+
+// Test sequence
+initial begin
+    // Generate VCD file for waveform viewing
+    $dumpfile("fullSubtractor_tb.vcd");
+    // Dump variables from the testbench (0 means all variables)
+    $dumpvars(0, fullSubtractor_tb);
     
-    fullSubtractor uut(
-        .A(A),
-        .B(B),
-        .Bin(Bin),
-        .diff(diff),
-        .Bout(Bout)
-    );
+    // Test case 0: A=0, B=0, Bin=0
+    {A, B, Bin} = 3'd0; #20;
+    // Test case 1: A=0, B=0, Bin=1
+    {A, B, Bin} = 3'd1; #20;
+    // Test case 2: A=0, B=1, Bin=0
+    {A, B, Bin} = 3'd2; #20;
+    // Test case 3: A=0, B=1, Bin=1
+    {A, B, Bin} = 3'd3; #20;
+    // Test case 4: A=1, B=0, Bin=0
+    {A, B, Bin} = 3'd4; #20;
+    // Test case 5: A=1, B=0, Bin=1
+    {A, B, Bin} = 3'd5; #20;
+    // Test case 6: A=1, B=1, Bin=0
+    {A, B, Bin} = 3'd6; #20;
+    // Test case 7: A=1, B=1, Bin=1
+    {A, B, Bin} = 3'd7; #20;
+    // Display a message to indicate completion of test cases
+    $display("Finished subtractions!");
     
-    initial begin
-        $dumpfile("fullSubtractor_tb.vcd");
-        $dumpvars(0, fullSubtractor_tb);
-        
-        // Test all input combinations
-        A = 0; B = 0; Bin = 0; #20;
-        A = 0; B = 0; Bin = 1; #20;
-        A = 0; B = 1; Bin = 0; #20;
-        A = 0; B = 1; Bin = 1; #20;
-        A = 1; B = 0; Bin = 0; #20;
-        A = 1; B = 0; Bin = 1; #20;
-        A = 1; B = 1; Bin = 0; #20;
-        A = 1; B = 1; Bin = 1; #20;
-        
-        $display("Test Complete!");
-        $finish;
-    end
-    
-    initial begin
-        $monitor("Time=%0d A=%b B=%b Bin=%b diff=%b Bout=%b",
-                 $time, A, B, Bin, diff, Bout);
-    end
+end
+
 endmodule
 \end{lstlisting}
 
