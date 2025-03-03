@@ -1,0 +1,233 @@
+% Beginning of preamble 
+\documentclass[12pt]{article}  
+
+% Packages to load which give you useful commands
+\usepackage{amssymb, amsmath, amsthm, amsfonts}
+\usepackage{euscript}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+% allow for urls and hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=RoyalBlue, citecolor=RedViolet}
+
+% Set the margins and other page formatting
+\usepackage{geometry}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+\usepackage{enumitem}
+\usepackage{setspace} 
+\setlength\parindent{0pt}
+\linespread{1.2}
+
+% Define a few theorem-type environments with numbering
+\newtheorem{problem}{Problem} % Automatically numbers each problem
+\theoremstyle{definition} 
+\newtheorem*{answer}{Answer}
+
+% Make the font Helvetica
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Some notation shortcut commands
+\newcommand{\R}{\mathbb{R}} % the reals
+\newcommand{\Q}{\mathbb{Q}} % the rationals
+\newcommand{\N}{\mathbb{N}} % the natural numbers
+\newcommand{\Z}{\mathbb{Z}} % the integers
+\newcommand{\eps}{\varepsilon} % a cooler epsilon
+\newcommand{\solution}{\textcolor{PineGreen}{\textbf{Solution:}}\newline}
+
+% Load the listings package for code boxes
+\usepackage{listings}
+
+%%%%% End of preamble %%%%%
+%--------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{flushright}
+CSE 5160 Machine Learning \hfill Giovanni Almaraz, Doug Fry, Zachary Hampton\\
+Dr. Haiyan Qiao \hfill 02-12-2025
+\end{flushright}
+
+\bigskip
+
+\section*{Group Assignment 1}
+
+\begin{problem}
+Describe the null hypotheses to which the p-values given in Table 3.4
+correspond. Explain what conclusions you can draw based on these
+p-values. Your explanation should be phrased in terms of sales, TV,
+radio, and newspaper, rather than in terms of the coefficients of the
+linear model.
+
+\solution
+\textbf{Null Hypotheses:}
+\begin{itemize}
+    \item \( H_0 \) for TV: There is no relationship between TV advertising budget and sales \(\beta_1 = 0\).
+    \item \( H_0 \) for Radio: There is no relationship between radio advertising budget and sales \(\beta_2 = 0\).
+    \item \( H_0 \) for Newspaper: There is no relationship between newspaper advertising budget and sales \(\beta_3 = 0\).
+\end{itemize}
+
+\textbf{P-values:}
+\begin{itemize}
+    \item TV (\( p < 0.0001 \)): The very low p-value indicates strong evidence against the null hypothesis, meaning TV advertising has a significant positive effect on sales.
+    \item Radio (\( p < 0.0001 \)): The very low p-value also suggests strong evidence against the null hypothesis, meaning radio advertising significantly impacts sales.
+    \item Newspaper (\( p = 0.8599 \)): The high p-value suggests we fail to reject the null hypothesis. This means newspaper advertising does not have a statistically significant impact on sales.
+\end{itemize}
+\end{problem}
+
+\bigskip
+
+% Ensure the problem numbers continue correctly
+\setcounter{problem}{2}
+
+\begin{problem}
+Suppose we have a data set with five predictors, 
+\[
+X_1 = \text{GPA}, \quad X_2 = \text{IQ}, \quad X_3 = \text{Level (1 for College, 0 for High School)},
+\]
+\[
+X_4 = \text{Interaction between GPA and IQ}, \quad X_5 = \text{Interaction between GPA and Level}.
+\]
+The response is starting salary after graduation (in thousands of dollars). Suppose we use least squares to fit the model and get
+
+\[
+\hat{\beta}_0 = 50, \quad \hat{\beta}_1 = 20, \quad \hat{\beta}_2 = 0.07, \quad \hat{\beta}_3 = 35, \quad \hat{\beta}_4 = 0.01, \quad \hat{\beta}_5 = -10.
+\]
+
+(a) Which answer is correct, and why?
+\begin{enumerate}
+    \item[i.] For a fixed value of IQ and GPA, high school graduates earn more, on average, than college graduates.
+    \item[ii.] For a fixed value of IQ and GPA, college graduates earn more, on average, than high school graduates.
+    \item[iii.] For a fixed value of IQ and GPA, high school graduates earn more, on average, than college graduates provided that the GPA is high enough.
+    \item[iv.] For a fixed value of IQ and GPA, college graduates earn more, on average, than high school graduates provided that the GPA is high enough.
+\end{enumerate}
+
+\solution
+For high school graduates (\(X_3 = 0\)), the salary model simplifies to:
+\[
+\hat{Y}_{\text{HS}} = 50 + 20 X_1 + 0.07 X_2 + 0.01 X_1 X_2.
+\]
+For college graduates (\(X_3 = 1\)):
+\[
+\hat{Y}_{\text{College}} = 50 + 20 X_1 + 0.07 X_2 + 35 + 0.01 X_1 X_2 - 10 X_1.
+\]
+\[
+= 85 + 10 X_1 + 0.07 X_2 + 0.01 X_1 X_2.
+\]
+Since the coefficient for GPA is larger for high school graduates (\(20\)) than for college graduates (\(10\)), high school graduates may earn more when GPA is sufficiently high. Therefore, option **iii** is correct.
+
+\bigskip
+
+(b) Predict the salary of a college graduate with IQ of 110 and a GPA of 4.0.
+
+\bigskip
+
+\solution
+Substituting \(X_1 = 4.0\), \(X_2 = 110\), and \(X_3 = 1\):
+\[
+\hat{Y} = 85 + (10 \times 4.0) + (0.07 \times 110) + (0.01 \times 4.0 \times 110).
+\]
+\[
+= 85 + 40 + 7.7 + 4.4 = 137.1.
+\]
+Thus, the predicted salary is \(\$137,100\).
+
+\bigskip
+
+(c) True or false: Since the coefficient for the GPA/IQ interaction term (\(\beta_4 = 0.01\)) is very small, there is very little evidence of an interaction effect.
+
+\bigskip
+
+\solution
+A small coefficient suggests a weak interaction effect, but without statistical significance (p-values), we cannot confirm its relevance. The statement is **likely true**, but statistical testing is required to conclude definitively.
+\end{problem}
+
+\bigskip
+
+% Ensure the problem numbers continue correctly
+\setcounter{problem}{7}
+
+\begin{problem}
+This question involves the use of simple linear regression on the \texttt{Auto} data set.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Use the \texttt{lm()} function to perform a simple linear regression with \texttt{mpg} as the response and \texttt{horsepower} as the predictor. Use the \texttt{summary()} function to print the results. Comment on the output. For example:
+    \begin{enumerate}[label=\roman*.]
+        \item Is there a relationship between the predictor and the response?
+        \item How strong is the relationship between the predictor and the response?
+        \item Is the relationship between the predictor and the response positive or negative?
+        \item What is the predicted \texttt{mpg} associated with a \texttt{horsepower} of 98? What are the associated 95\% confidence and prediction intervals?
+    \end{enumerate}
+    
+    % Insert the terminal output as one code box:
+
+    \solution
+    
+    \begin{lstlisting}[frame=single, caption={Terminal Output for Problem 8(a)}]
+> # Load the necessary package and data from ISLR2
+> library(ISLR2)
+> 
+> data(Auto)
+> 
+> # (a) Fit a simple linear regression model with mpg as the response
+> # and horsepower as the predictor, then print a summary of the fit.
+> model <- .... [TRUNCATED] 
+> 
+> summary(model)
+> 
+> Call:
+> lm(formula = mpg ~ horsepower, data = Auto)
+> 
+> Residuals:
+>      Min       1Q   Median       3Q      Max 
+> -13.5710  -3.2592  -0.3435   2.7630  16.9240 
+> 
+> Coefficients:
+>              Estimate Std. Error t value Pr(>|t|)    
+> (Intercept) 39.935861   0.717499   55.66   <2e-16 ***
+> horsepower  -0.157845   0.006446  -24.49   <2e-16 ***
+> ---
+> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> Residual standard error: 4.906 on 390 degrees of freedom
+> Multiple R-squared:  0.6059,	Adjusted R-squared:  0.6049 
+> F-statistic: 599.7 on 1 and 390 DF,  p-value: < 2.2e-16
+> 
+> 
+> # (b) Plot the data (mpg vs. horsepower) and add the least squares regression line.
+> plot(Auto$horsepower, Auto$mpg,
+> +      main = "MPG vs. Horsepo ..." ... [TRUNCATED] 
+> 
+> abline(model, col = "red", lwd = 2)  # add regression line in red
+> 
+> # (c) Produce diagnostic plots for the fitted model.
+> # Set up a 2x2 plotting layout.
+> par(mfrow = c(2, 2))
+> 
+> plot(model)
+> 
+> # Reset plotting layout to default.
+> par(mfrow = c(1, 1))
+    \end{lstlisting}
+    
+    \item Plot the response and the predictor. Use the \texttt{abline()} function to display the least squares regression line.
+    
+    \item Use the \texttt{plot()} function to produce diagnostic plots of the least squares regression fit. Comment on any problems you see with the fit.
+
+    \solution
+    There doesn't seem to be any issues with the fit.
+
+    \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Rplot.png} % Replace with actual filename
+    \caption{Screenshot for Part B and C}
+    \end{figure}
+
+    
+
+\end{enumerate}
+\end{problem}
+
+\end{document}
