@@ -95,7 +95,7 @@ Thus, \((4.2)\) and \((4.3)\) are indeed equivalent.
 
 \begin{answer}
 \solution
-Given that \(\beta_0 = -6\), \(\beta_1 = 0.05\), and \(\beta_2 = 1\), we estimate the probability of getting an A for a student studying 40 hours with a GPA of 3.5 as follows:
+\textbf{(a)} Given that \(\beta_0 = -6\), \(\beta_1 = 0.05\), and \(\beta_2 = 1\), we estimate the probability of getting an A for a student studying 40 hours with a GPA of 3.5 as follows:
 \[
     P(Y=1) 
     = \frac{1}{1 + e^{-(-6 + 0.05 \cdot 40 + 1 \cdot 3.5)}} 
@@ -103,34 +103,54 @@ Given that \(\beta_0 = -6\), \(\beta_1 = 0.05\), and \(\beta_2 = 1\), we estimat
     = \frac{1}{1 + e^{-0.5}} 
     \approx 0.378 \ (\text{37.8\%}).
 \]
+
+\textbf{(b)} To find the number of hours a student with a GPA of 3.5 needs to study to have a 50\% chance of getting an A, we set $P(Y=1) = 0.5$ and solve for $X_1$:
+\[
+0.5 = \frac{1}{1 + e^{-(-6 + 0.05 \cdot X_1 + 1 \cdot 3.5)}}
+\]
+
+Simplifying:
+\[
+\begin{aligned}
+0.5(1 + e^{-(-6 + 0.05 \cdot X_1 + 3.5)}) &= 1 \\
+1 + e^{-(-6 + 0.05 \cdot X_1 + 3.5)} &= 2 \\
+e^{-(-6 + 0.05 \cdot X_1 + 3.5)} &= 1 \\
+-(-6 + 0.05 \cdot X_1 + 3.5) &= 0 \\
+6 - 0.05 \cdot X_1 - 3.5 &= 0 \\
+2.5 - 0.05 \cdot X_1 &= 0 \\
+-0.05 \cdot X_1 &= -2.5 \\
+X_1 &= \frac{2.5}{0.05} = 50
+\end{aligned}
+\]
+
+Therefore, the student would need to study 50 hours to have a 50\% chance of getting an A in the class.
 \end{answer}
 
 \setcounter{problem}{7}
 \begin{problem}
-\textbf{Problem 8 (Part A):} Logistic Regression
+\textbf{Problem 8:} Comparison of Logistic Regression and K-Nearest Neighbors
 \end{problem}
 
 \begin{answer}
 \solution
-Suppose we fit a logistic regression model and obtain:
-\begin{itemize}
-    \item \textbf{Training error:} 20\%
-    \item \textbf{Test error:} 30\%
-\end{itemize}
-This suggests that although the model fits the training data with moderate success, it shows some misclassification on the test set. Logistic regression is typically stable and interpretable, but the test error of 30\% indicates there is still room for improvement.
-\end{answer}
+We have two classification methods:
 
-\begin{problem}
-\textbf{Problem 8 (Part B):} KNN with \(K=1\)
-\end{problem}
+\begin{enumerate}
+    \item \textbf{Logistic Regression:}
+    \begin{itemize}
+        \item Training error: 20\%
+        \item Test error: 30\%
+    \end{itemize}
+    
+    \item \textbf{1-Nearest Neighbor (K=1):}
+    \begin{itemize}
+        \item Average error: 18\%
+    \end{itemize}
+\end{enumerate}
 
-\begin{answer}
-\solution
-Using \(K=1\) in a K-Nearest Neighbors classifier, suppose we find:
-\begin{itemize}
-    \item \textbf{Average error:} 18\%
-\end{itemize}
-Although this is lower than the logistic regression test error, \(K=1\) tends to overfit. It can memorize the training data rather than learn a generalizable decision boundary. Choosing a slightly larger \(K\) (e.g., 5 or 10) often yields better generalization.
+Even though KNN (K=1) has a lower average error, it is prone to overfitting and does not generalize well. Logistic regression, despite having a higher test error, is more stable and interpretable.
+
+Thus, logistic regression is the better choice for classifying new observations in this case. However, using a better K value (e.g., K=5 or K=10) for KNN might improve its performance.
 \end{answer}
 
 \subsection*{Part B (Stock Market Data: Logistic Regression \& LDA)}
