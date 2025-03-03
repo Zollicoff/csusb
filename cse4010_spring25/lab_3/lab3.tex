@@ -1,105 +1,155 @@
 % Lab 3 Report - Full Subtractor Implementation
-\documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
+\documentclass[a4paper,12pt]{article}
 \usepackage{graphicx}
 \usepackage{listings}
-\usepackage{color}
-\usepackage{float}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{xcolor}
 \usepackage{amsmath}
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
 
-% Define Verilog syntax highlighting
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-\lstdefinestyle{verilog}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
+\lstset{
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    basicstyle=\ttfamily\small,
     keywordstyle=\color{blue},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
-    language=Verilog
+    commentstyle=\color{cyan},
+    stringstyle=\color{red},
+    breaklines=true,
+    backgroundcolor=\color{gray!10}
 }
 
-\title{Lab 3: Full Subtractor Implementation and Testing}
-\author{Your Name}
-\date{\today}
+\title{Lab Report\\ CSE4010 Computer Architecture}
+\author{}
+\date{}
 
 \begin{document}
 
 \maketitle
 
-\section{Introduction}
-This lab focuses on the design, implementation, and testing of a 1-bit full subtractor using Verilog HDL. A full subtractor is a combinational circuit that performs subtraction of three binary digits: minuend (A), subtrahend (B), and borrow-in (Bin). The circuit produces two outputs: difference (diff) and borrow-out (Bout).
+\noindent \textbf{Name:} \underline{Zachary A. Hampton\hspace{5cm}} \hfill \textbf{Score:} \underline{\hspace{2cm}/10} \\
+\textbf{Student ID:} \underline{008339494\hspace{6cm}} \hfill \textbf{Due:} \underline{02-23-2025} \\
+\textbf{Lab:} \underline{Lab 3 - Full Subtractor Implementation\hspace{6cm}}
 
-\section{Design Approach}
-The full subtractor is implemented using a hierarchical design approach with the following components:
+\section*{Report}
 \begin{itemize}
-    \item Half Subtractor module
-    \item Full Subtractor module (using two half subtractors)
+    \item What is a full subtractor? How does it differ from a half subtractor?
+    \begin{itemize}
+        \item A full subtractor is a combinational circuit that performs subtraction of three binary digits: minuend (A), subtrahend (B), and borrow-in (Bin), producing difference (diff) and borrow-out (Bout) outputs.
+        \item Unlike a half subtractor which only handles two inputs (A and B), a full subtractor can process a borrow from a previous stage, making it suitable for multi-bit subtraction operations.
+    \end{itemize}
+    
+    \item How can a full subtractor be constructed using half subtractors?
+    \begin{itemize}
+        \item A full subtractor can be built using two half subtractors and an OR gate:
+        \begin{itemize}
+            \item The first half subtractor subtracts B from A
+            \item The second half subtractor subtracts Bin from the difference of the first stage
+            \item The final borrow-out is the OR of both half subtractor borrows
+        \end{itemize}
+    \end{itemize}
 \end{itemize}
 
-\subsection{Half Subtractor}
-The half subtractor is the basic building block that subtracts two bits and produces a difference and borrow output. The logic equations for the half subtractor are:
-\begin{align*}
-    \text{diff} &= A \oplus B \text{ (XOR)} \\
-    \text{borrow} &= \overline{A} \cdot B \text{ (AND with NOT)}
-\end{align*}
+\newpage
 
-\subsection{Full Subtractor}
-The full subtractor is constructed using two half subtractors and an OR gate. The first half subtractor subtracts B from A, and the second half subtractor subtracts the borrow-in (Bin) from the difference of the first stage. The final borrow-out is the OR of the borrows from both half subtractors.
-
-\section{Implementation}
-\subsection{Verilog Code}
-\subsubsection{Half Subtractor Module}
-\begin{lstlisting}[style=verilog]
-module halfSubtractor(op1, op2, diff, borrow);
-    input op1, op2;
-    output diff, borrow;
+\section*{Source Code}
+\subsection*{halfSubtractor.v}
+\begin{lstlisting}[language=Verilog]
+module halfSubtractor(
+    input op1,
+    input op2,
+    output diff,
+    output borrow
+);
     
     assign diff = op1 ^ op2;
-    assign borrow = op1 & !op2;
+    assign borrow = !op1 & op2;
+
 endmodule
 \end{lstlisting}
 
-\subsubsection{Full Subtractor Module}
-\begin{lstlisting}[style=verilog]
-module fullSubtractor(A, B, Bin, diff, Bout);
-    input A, B, Bin;
-    output diff, Bout;
+\newpage
+
+\subsection*{fullSubtractor.v}
+\begin{lstlisting}[language=Verilog]
+module fullSubtractor(
+    input A,
+    input B,
+    input Bin,
+    output diff,
+    output Bout
+);
     
-    wire c, d, e, f;
+    wire diff1, borrow1, borrow2;
     
-    halfSubtractor u1(A, B, c, d);
-    halfSubtractor u2(c, Bin, diff, f);
-    assign Bout = f | d;
+    halfSubtractor hs1(
+        .op1(A),
+        .op2(B),
+        .diff(diff1),
+        .borrow(borrow1)
+    );
+    
+    halfSubtractor hs2(
+        .op1(diff1),
+        .op2(Bin),
+        .diff(diff),
+        .borrow(borrow2)
+    );
+    
+    assign Bout = borrow1 | borrow2;
+
 endmodule
 \end{lstlisting}
 
-\section{Testing Strategy}
-The testbench implements a comprehensive testing approach by:
-\begin{itemize}
-    \item Testing all possible input combinations (8 test cases)
-    \item Using appropriate time delays between test cases
-    \item Generating waveform output for verification
-\end{itemize}
+\newpage
 
-\subsection{Test Cases}
-The following test cases were implemented:
+\subsection*{fullSubtractor\_tb.v}
+\begin{lstlisting}[language=Verilog]
+`timescale 1ns/1ns
+`include "halfSubtractor.v"
+`include "fullSubtractor.v"
+
+module fullSubtractor_tb;
+    reg A, B, Bin;
+    wire diff, Bout;
+    
+    fullSubtractor uut(
+        .A(A),
+        .B(B),
+        .Bin(Bin),
+        .diff(diff),
+        .Bout(Bout)
+    );
+    
+    initial begin
+        $dumpfile("fullSubtractor_tb.vcd");
+        $dumpvars(0, fullSubtractor_tb);
+        
+        // Test all input combinations
+        A = 0; B = 0; Bin = 0; #20;
+        A = 0; B = 0; Bin = 1; #20;
+        A = 0; B = 1; Bin = 0; #20;
+        A = 0; B = 1; Bin = 1; #20;
+        A = 1; B = 0; Bin = 0; #20;
+        A = 1; B = 0; Bin = 1; #20;
+        A = 1; B = 1; Bin = 0; #20;
+        A = 1; B = 1; Bin = 1; #20;
+        
+        $display("Test Complete!");
+        $finish;
+    end
+    
+    initial begin
+        $monitor("Time=%0d A=%b B=%b Bin=%b diff=%b Bout=%b",
+                 $time, A, B, Bin, diff, Bout);
+    end
+endmodule
+\end{lstlisting}
+
+\section*{Truth Table and Results}
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c||c|c|}
 \hline
 A & B & Bin & diff & Bout \\
 \hline
@@ -115,10 +165,6 @@ A & B & Bin & diff & Bout \\
 \end{tabular}
 \end{center}
 
-\section{Results and Analysis}
-[This section will be completed after running the simulation and analyzing the results]
-
-\section{Conclusion}
-[This section will summarize the lab findings and learning outcomes]
+[Simulation results and waveform analysis will be added after running the testbench]
 
 \end{document} 
