@@ -1,0 +1,210 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx} % For including images
+\usepackage{listings} % For including code
+\usepackage{hyperref} % For clickable links (if needed)
+\usepackage{geometry}
+\usepackage{xcolor} % For colored syntax highlighting
+\geometry{left=1in, right=1in, top=1in, bottom=1in}
+
+\lstset{
+    frame=single, % Adds a box around the code
+    numbers=left, % Adds line numbers
+    numberstyle=\tiny, % Styles the line numbers
+    basicstyle=\ttfamily\small, % Sets the font
+    keywordstyle=\color{blue}, % Colors keywords
+    commentstyle=\color{cyan}, % Colors comments
+    stringstyle=\color{red}, % Colors strings
+    breaklines=true, % Enables line breaking
+    backgroundcolor=\color{gray!10} % Light gray background
+}
+
+\title{Lab Report\\ CSE4010 Computer Architecture}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent \textbf{Name:} \underline{Zachary A. Hampton\hspace{5cm}} \hfill \textbf{Score:} \underline{\hspace{2cm}/10} \\\\
+\textbf{Student ID:} \underline{008339494\hspace{6cm}} \hfill \textbf{Due:} \underline{02-09-2025} \\\\
+\textbf{Lab:} \underline{Lab 1 - Introduction to Verilog\hspace{9cm}}
+
+\section*{Report}
+\begin{itemize}
+    \item What is Verilog and what is it used for?
+        \begin{itemize}
+            \item Verilog is an IEEE-standardized Hardware Description Language (HDL) used for designing and modeling digital electronic systems, particularly in FPGA and ASIC development.
+        \end{itemize}
+    \item What is a module and a testbench?
+    \begin{itemize}
+            \item A module is the fundamental building block in Verilog; it defines a circuit's behavior, encapsulating functionality with specified inputs, outputs, internal logic, and potentially other modules.
+            \item A testbench is a Verilog module used for simulation, providing stimulus to a design under test (DUT) and verifying its behavior before actual hardware implementation.
+        \end{itemize}
+    \item A brief but comprehensive description of what you’ve done and what you learned.
+    \begin{itemize}
+            \item For Part A, I set up the `wireTest` module and its corresponding testbench using the provided sample code. I then compiled and executed the simulation, generating a `.vcd` waveform file for analysis. Using GTKWave, I loaded the `.vcd` file and enabled the necessary variables to visualize their respective waveforms. For Part B, I wrote a similar module with an additional input and slightly different logic operations, resulting in a more complex waveform output.
+        \end{itemize}
+\end{itemize}
+
+\section*{Source Code for Part A}
+\subsection*{wireTest.v}
+\begin{lstlisting}[language=Verilog, caption=wireTest.v]
+module wireTest (A,B,C);
+
+    input A;
+    output B;
+    output C;
+
+    assign B = A;
+    assign C = !A;
+
+endmodule
+\end{lstlisting}
+
+\subsection*{wireTest\_tb.v}
+\begin{lstlisting}[language=Verilog, caption=wireTest_tb.v]
+`timescale 1ns / 1ns
+`include "wireTest.v"
+
+module wireTest_tb;
+
+reg A;
+wire B;
+wire C;
+
+wireTest uut (A, B, C);
+
+initial begin
+
+   $dumpfile("wireTest_tb.vcd");
+   $dumpvars(0, wireTest_tb);
+
+   A = 0;
+   #20
+
+   A = 1;
+   #20
+
+   A = 0;
+   #20
+
+   A = 1;
+   #20
+
+   $display("Wire test complete!");
+
+end
+
+endmodule
+\end{lstlisting}
+
+\section*{Source Code for Part B}
+\subsection*{wireTest2.v}
+\begin{lstlisting}[language=Verilog, caption=wireTest2.v]
+/*
+Instructions from Dr. Ahmed:
+Accepts two inputs W and X
+Gives two outputs Y and Z
+Set Y equal to the negation of X
+Set Z equal to the negation of Y
+*/
+
+// Define the wireTest2 module
+module wireTest2 (W,X,Y,Z);
+
+    // Declare the inputs and outputs
+    input W;
+    input X;
+    output Y;
+    output Z;
+
+    // Assign Y to the negation of X
+    assign Y = !X;
+    // Assign Z to the negation of Y
+    assign Z = !Y;
+
+// End the wireTest2 module
+endmodule
+\end{lstlisting}
+
+\subsection*{wireTest2\_tb.v}
+\begin{lstlisting}[language=Verilog, caption=wireTest2_tb.v]
+/*
+Instructions from Dr. Ahmed:
+This file is used to test the wireTest2 module.
+The testbench will set W and X to 0 and 1 in various combinations
+and check that Y and Z are set correctly.
+The testbench will output "Wire test complete!" when the test is done.
+*/
+
+// Include the wireTest2 module and timescale of 1ns
+`timescale 1ns / 1ns
+`include "wireTest2.v"
+
+// Define the wireTest2_tb module
+module wireTest2_tb;
+
+// Declare the inputs and outputs
+reg W;
+reg X;
+wire Y;
+wire Z;
+
+// Instantiate the wireTest2 module
+wireTest2 uut (W, X, Y, Z);
+
+// Define the initial block
+initial begin
+
+    // Dump the waveforms to wireTest2_tb.vcd
+    $dumpfile("wireTest2_tb.vcd");
+    $dumpvars(0, wireTest2_tb);
+
+    // Set W and X to 0
+    W = 0;
+    X = 0;
+    #20
+
+    // Set W to 1
+    W = 1;
+    #20
+
+    // Set X to 1
+    X = 1;
+    #20
+
+    // Set W to 0
+    W = 0;
+    #20
+
+    // Set X to 0
+    X = 0;
+    #20
+
+    // Print "Wire test complete!" to the console
+    $display("Wire test complete!");
+
+// End the initial block
+end
+
+// End the wireTest2_tb module
+endmodule
+\end{lstlisting}
+
+\newpage
+
+\section*{Screenshots for Parts A and B}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lab_1a_screenshot.png} % Replace with actual filename
+    \caption{Screenshot for Part A}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lab_1b_screenshot.png} % Replace with actual filename
+    \caption{Screenshot for Part B}
+\end{figure}
+
+\end{document}
